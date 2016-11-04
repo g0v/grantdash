@@ -11,7 +11,7 @@ var template = require("./templates/home.hbs")
   , Dashboards = require("../../models/Dashboards")
   , Projects = require("../../models/Projects")
   , Users = require("../../models/Users")
-  , Collections = require("../../models/Collections")
+  // , Collections = require("../../models/Collections")
   , Team = require("../../models/Team");
 
 module.exports = Backbone.Marionette.LayoutView.extend({
@@ -26,7 +26,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     "dashboards": "#dashboards",
     "projects": "#projects",
     "users": "#users",
-    "collections": "#collections",
+    // "collections": "#collections",
 
     "stats": ".stats-ctn",
     // "team": ".team-ctn",
@@ -42,7 +42,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     "dashboards": "#dashboards",
     "projects": "#projects",
     "users": "#users",
-    "collections": "#collections",
+    // "collections": "#collections",
 
     "tabs": ".nav-tabs.landing",
     "mobileMenu": ".mobile-menu",
@@ -62,7 +62,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     projects: null,
     dashboards: null,
     users: null,
-    collections: null
+    // collections: null
   },
 
   //--------------------------------------
@@ -104,7 +104,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
       case "dashboards": return new Dashboards();
       case "projects": return new Projects();
       case "users": return new Users();
-      case "collections": return new Collections();
+      // case "collections": return new Collections();
     }
   },
 
