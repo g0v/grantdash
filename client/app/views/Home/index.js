@@ -62,7 +62,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     projects: null,
     dashboards: null,
     users: null,
-    // collections: null
+    collections: null
   },
 
   //--------------------------------------
@@ -104,7 +104,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
       case "dashboards": return new Dashboards();
       case "projects": return new Projects();
       case "users": return new Users();
-      // case "collections": return new Collections();
+      case "collections": return new Collections();
     }
   },
 
