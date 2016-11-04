@@ -12,7 +12,8 @@ module.exports = {
 
 /* home.hbs */
 
-  "Dashboards": "Tableros",
+  // "Dashboards": "Tableros",
+  "Themes": "Themes",
   "create now": "crear ahora",
   "ERROR":"ERROR",
   "OGP Toolbox": "OGP Toolbox",
