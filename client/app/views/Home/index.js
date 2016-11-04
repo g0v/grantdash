@@ -11,7 +11,7 @@ var template = require("./templates/home.hbs")
   , Dashboards = require("../../models/Dashboards")
   , Projects = require("../../models/Projects")
   , Users = require("../../models/Users")
-  // , Collections = require("../../models/Collections")
+  , Collections = require("../../models/Collections")
   , Team = require("../../models/Team");
 
 module.exports = Backbone.Marionette.LayoutView.extend({
