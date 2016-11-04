@@ -15,7 +15,7 @@ module.exports = {
   "Dashboards": "Tableros",
   "create now": "crear ahora",
   "ERROR":"ERROR",
-  "Ideas for a": "Ideas para una",
+  "OGP Toolbox": "OGP Toolbox",
   "hackathon":"hackatón",
   "Collections":"Colecciones",
   "Projects":"Proyectos",
