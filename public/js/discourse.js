@@ -1,4 +1,4 @@
-var discourseUrl = window.hackdash && window.hackdash.discourseUrl);
+var discourseUrl = window.hackdash && window.hackdash.discourseUrl;
 if (discourseUrl) {
   DiscourseEmbed = {
     discourseEmbedUrl: window.location.href,
