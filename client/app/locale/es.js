@@ -163,6 +163,7 @@ module.exports = {
 "leaving...":"abandondando...",
 "joining...":"uniéndose...",
 "unfollowing...":"dejando de seguir...",
+"Followers":"Followers",
 "following...":"siguiendo...",
 "Share this Project":"Comparte este proyecto",
 "Managed by":"Administrado por",

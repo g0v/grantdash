@@ -163,6 +163,7 @@ module.exports = {
 "leaving...":"leaving...",
 "joining...":"joining...",
 "unfollowing...":"unfollowing...",
+"Followers":"Followers",
 "following...":"following...",
 "Share this Project":"Share this Project",
 "Managed by":"Managed by",
