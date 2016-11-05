@@ -1,13 +1,7 @@
-
-var scripts = document.getElementsByTagName( 'script' );
-var thisScriptTag = scripts[ scripts.length - 1 ];
-
-var discourseUrl = thisScriptTag.getAttribute('discourseUrl') ;
-discourseUrl = (window.hackdash && window.hackdash.discourseUrl) || discourseUrl;
-
+var discourseUrl = window.hackdash && window.hackdash.discourseUrl);
 if (discourseUrl) {
   DiscourseEmbed = {
-    discourseEmbedUrl = window.location.href,
+    discourseEmbedUrl: window.location.href,
     discourseUrl: discourseUrl
   };
   // The only way to re-execute Discourse embedding script seems to be to re-insert it.
