@@ -7114,7 +7114,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
       people = getPeople(this.model.get('admins').toJSON());
 
       var covers = this.model.get('covers');
-      picture = url + ((covers && covers.length && covers[0]) || '/images/logohack.png');
+      picture = url + ((covers && covers.length && covers[0]) || '/images/logohack.gif');
 
       url += '/d/' + domain;
     }
@@ -7123,7 +7123,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
       people = getPeople(this.model.get('contributors'));
 
       var cover = this.model.get('cover');
-      picture = url + (cover || '/images/logohack.png');
+      picture = url + (cover || '/images/logohack.gif');
 
       url += '/p/' + this.model.get('_id');
     }
