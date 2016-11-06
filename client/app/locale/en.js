@@ -13,7 +13,7 @@ module.exports = {
 /* home.hbs */
 
   // "Dashboards": "Dashboards",
-  "Themes": "Themes",
+  "Dashboards": "Themes",
   "create now": "create now",
   "ERROR":"ERROR",
   "OGP Toolbox": "OGP Toolbox",
@@ -29,7 +29,7 @@ module.exports = {
 
 /* counts.hbs */
 
-"dashboards":"dashboards",
+"dashboards":"themes",
 "projects":"projects",
 "registered users":"registered users",
 "collections":"collections",
@@ -65,22 +65,22 @@ module.exports = {
 
 /* addAdmin.hbs */
 
-"Warning! you will NOT":"Warning! you will NOT be able to delete this dashboard if you add an admin!",
+"Warning! you will NOT":"Warning! you will NOT be able to delete this theme if you add an admin!",
 "type name or username":"type name or username",
 "cancel":"cancel",
 
 /* index.hbs */
 
-"Open dashboard website":"Open dashboard website",
+"Open dashboard website":"Open theme website",
 "Share this Dashboard":"Share this Dashboard",
 "Create Project":"Create Project",
 
 /* share.hbs */
 
-"embed this dashboard":"embed this dashboard",
+"embed this dashboard":"embed this theme",
 "Slider":"Slider",
 "ANY STATUS":"ANY STATUS",
-"Add this dashboard to your website by coping this code below":"Add this dashboard to your website by coping this code below",
+"Add this dashboard to your website by coping this code below":"Add this theme to your website by coping this code below",
 "By Name":"By Name",
 "By Date":"By Date",
 "Showcase":"Showcase",
@@ -253,7 +253,7 @@ module.exports = {
 "Only Dashboards without Projects can be removed.":"Only Dashboards without Projects can be removed.",
 "This action will remove Dashboard ":"This action will remove Dashboard ",
 ". Are you sure?":". Are you sure?",
-"cannot_remove_dashboard": "Cannot Remove {1} dashboard",
+"cannot_remove_dashboard": "Cannot Remove {1} theme",
 
 /* Projects directory */
 /* Edit.js */
