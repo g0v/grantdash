@@ -50,9 +50,9 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   },
 
   events: {
-    "keyup @ui.domain": "validateDomain",
-    "click @ui.domain": "checkLogin",
-    "click @ui.create": "createDashboard",
+    // "keyup @ui.domain": "validateDomain",
+    // "click @ui.domain": "checkLogin",
+    // "click @ui.create": "createDashboard",
     "click .up-button": "goTop",
     "click @ui.mobileMenu": "toggleMobileMenu",
     "click .continue": "clickContiune"
