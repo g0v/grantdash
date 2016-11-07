@@ -23,7 +23,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   template: template,
 
   regions:{
-    "dashboards": "#dashboards",
+    // "dashboards": "#dashboards",
     "projects": "#projects",
     "users": "#users",
     // "collections": "#collections",
@@ -39,7 +39,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     "create": "#create-dashboard",
     "errorHolder": "#new-dashboard-error",
 
-    "dashboards": "#dashboards",
+    // "dashboards": "#dashboards",
     "projects": "#projects",
     "users": "#users",
     // "collections": "#collections",
@@ -70,7 +70,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   //--------------------------------------
 
   initialize: function(options){
-    this.section = (options && options.section) || "dashboards";
+    this.section = (options && options.section) || "projects";
 
     this.hdTeam = new Team();
     this.hdTeam.fetch();
