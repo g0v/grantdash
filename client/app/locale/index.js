@@ -1,7 +1,8 @@
 /*eslint no-console:0*/
 var locales = {
   en: require('./en'),
-  es: require('./es')
+  es: require('./es'),
+  'zh-TW': require('./zh-TW')
 };
 
 var current = locales.en;
