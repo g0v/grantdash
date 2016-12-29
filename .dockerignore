@@ -1,0 +1,4 @@
+node_modules
+docker-compose.yml
+config/config.json
+keys.json
