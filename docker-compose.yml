@@ -1,0 +1,12 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:3.0
+  app:
+    build: .
+    image: grantdash
+    volumes:
+      - ./config/config.json:/usr/src/app/config/config.json
+      - ./keys.json:/usr/src/app/keys.json
+    ports:
+      - 3000:3000
