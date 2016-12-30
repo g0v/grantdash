@@ -121,11 +121,11 @@ module.exports = {
 
 "Edit Your Profile":"編輯個人資料",
 "all fields required":"所有欄位皆必填",
-"email only visible for logged in users":"登入的使用者可以查到您的 Email ",
+"email only visible for logged in users":"只有登入的使用者可以看到您的 Email ",
 "about_you":"關於自己",
 "saving...":"儲存中...",
 "Save profile":"儲存個人資料",
-"Profile saved, going back to business ...":"資人資料已儲存，繼續 ...",
+"Profile saved, going back to business ...":"個人資料已儲存，繼續 ...",
 
 /* listItem.hbs */
 
@@ -133,7 +133,7 @@ module.exports = {
 
 /* profile.hbs */
 
-"Contributions":"貢獻者",
+"Contributions":"貢獻",
 "following":"正在追蹤",
 
 /* Project directory */
@@ -152,7 +152,7 @@ module.exports = {
 "Import Project":"匯入專案",
 "GitHub":"GitHub",
 "LOADING":"LOADING",
-"import":"import",
+"import":"輸入",
 "Tags":"標籤（逗號分隔）",
 "Project URL Demo":"專案展示網址",
 "Save":"儲存",
@@ -162,9 +162,9 @@ module.exports = {
 
 "leaving...":"leaving...",
 "joining...":"joining...",
-"unfollowing...":"unfollowing...",
+"unfollowing...":"取消追蹤...",
 "Followers":"關注中",
-"following...":"following...",
+"following...":"正在追蹤",
 "Share this Project":"分享這個專案",
 "Proposed by":"提案人",
 "Contributors":"貢獻者",
@@ -173,7 +173,7 @@ module.exports = {
 
 /* share.hbs */
 
-"embed this project":"embed 這個專案",
+"embed this project":"內嵌這個專案",
 "Add this project to your website by coping this code below":"複製下列程式碼貼到你的網站",
 
 /* templates directory */
@@ -197,7 +197,7 @@ module.exports = {
 
 /* List.js */
 
-" has been added to ":" has been added to ",
+" has been added to ":"已被加入到",
 " has been removed from ":" has been removed from ",
 
 /* Dashboard directory */
