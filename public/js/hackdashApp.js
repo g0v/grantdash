@@ -1339,11 +1339,11 @@ module.exports = {
 
 /* search.hbs */
 
-"Inform Progress to community.":"Inform Progress to community.",
-"Upload your project to the platform.":"Upload your project to the platform.",
-"find it":"find it",
-"Add Collaborators to your projects.":"Add Collaborators to your projects.",
-"Share your app to the world.":"Share your app to the world.",
+"Inform Progress to community.":"向設群發表進度",
+"Upload your project to the platform.":"上傳專案",
+"find it":"搜尋",
+"Add Collaborators to your projects.":"加入專案協作",
+"Share your app to the world.":"向世界發表",
 
 /* tabContent.hbs */
 
@@ -5011,11 +5011,8 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "<div class=\"brand\">\n    <h3> Powered by <a href=\"https://github.com/impronunciable/hackdash\">HackDash</a></h3>\n</div>\n<a class=\"up-button\">\n  <i class=\"fa fa-long-arrow-up\"></i>\n  <span>"
-    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "up", {"name":"__","hash":{},"data":data})))
-    + "</span>\n</a>\n";
-},"useData":true});
+  return "<div id=\"footer\"><br/>\n  <div class=\"text-center\"><img src=\"/images/static/g0v-invert.png\"/></div>\n  <div class=\"text-center\"><a href=\"http://github.com/g0v/\" target=\"_blank\" class=\"label label-primary\"><span>Source</span></a><span> </span><a href=\"http://hack.g0v.tw\" target=\"_blank\" class=\"label label-primary\"><span>Jothon</span></a><span> </span><a href=\"http://g0v.tw\" target=\"_blank\" class=\"label label-primary\"><span class=\"g0v\">g0v</span></a><span> </span><a href=\"http://hack.g0v.tw/transaction\" target=\"_blank\" class=\"label label-primary\">本計畫收支細項 </a><span> </span><a href=\"https://github.com/impronunciable/hackdash\" target=\"_blank\" class=\"label label-primary\">Powered By Hackdash </a></div>\n</div>\n\n";
+  },"useData":true});
 
 },{"hbsfy/runtime":100}],62:[function(require,module,exports){
 // hbsfy compiled Handlebars template
@@ -5032,15 +5029,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Projects", {"name":"__","hash":{},"data":data})))
     + "</a>\n        </li>\n        <li id=\"user\" class=\"user\">\n          <a href=\"#users\" role=\"tab\" data-toggle=\"tab\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "People", {"name":"__","hash":{},"data":data})))
-    + "</a>\n        </li>\n\n      </ul>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"tab-content\">\n  <!--\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"dashboards\"></div>\n  -->\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"projects\"></div>\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"users\"></div>\n  <!--\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"collections\"></div>\n  -->\n</div>\n\n<div class=\"col-md-12 stats-ctn\"></div>\n\n<!--\n<h3 class=\"team-tab visible-xs\">"
-    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "team", {"name":"__","hash":{},"data":data})))
-    + "</h3>\n<div class=\"col-md-12 team-ctn\"></div>\n\n<div class=\"team-partners hidden-xs\">\n  <div class=\"col-sm-5 col-sm-offset-1 col-md-3 col-md-offset-3 col-lg-2 col-lg-offset-4 partners-tab\">\n    <h3>"
-    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "partners", {"name":"__","hash":{},"data":data})))
-    + "</h3>\n  </div>\n  <div class=\"col-sm-5 col-md-3 col-lg-2 team-tab\">\n    <h3>"
-    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "team", {"name":"__","hash":{},"data":data})))
-    + "</h3>\n  </div>\n</div>\n\n<h3 class=\"partners-tab visible-xs\">"
-    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "partners", {"name":"__","hash":{},"data":data})))
-    + "</h3>\n<div class=\"col-md-12 partners-ctn\"></div>\n-->\n\n<div class=\"col-md-12 about-ctn\">\n  An <a href=\"https://ogpsummit.org/\">Open Governement Partnership Summit</a> event\n</div>\n\n<div class=\"col-md-12 footer-ctn\"></div>\n";
+    + "</a>\n        </li>\n\n      </ul>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"tab-content\">\n  <!--\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"dashboards\"></div>\n  -->\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"projects\"></div>\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"users\"></div>\n  <!--\n  <div role=\"tabpanel\" class=\"tab-pane\" id=\"collections\"></div>\n  -->\n</div>\n\n<div class=\"col-md-12 stats-ctn\"></div>\n\n<div class=\"col-md-12 footer-ctn\"></div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":100}],63:[function(require,module,exports){

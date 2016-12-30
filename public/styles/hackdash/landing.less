@@ -162,12 +162,14 @@ html, body, #main, #main>div {
     font-family: @secondary-font;
     margin-left: 0.5%;
     margin-right: 0.5%;
+    border-radius: 10px 10px 0 0;
 
     a {
+      border-radius: 10px 10px 0 0;
       text-transform: uppercase;
       font-size: @fsize-25;
       color: @color-white;
-      min-height: 60px;
+      min-height: 40px;
       min-width: 180px;
       text-align: center;
 
@@ -305,6 +307,11 @@ html, body, #main, #main>div {
       font-size: @fsize-32;
       border-radius: 50%;
       padding: 7px 7px;
+      width: 56px;
+      height: 56px;
+      line-height: 58px;
+      text-align: center;
+      padding: 0;
 
       &.fa-tasks {
         background-color: @color-project;
@@ -320,14 +327,14 @@ html, body, #main, #main>div {
 
       &.fa-share-alt {
         background-color: @color-action;
-        padding: 7px 9px;
       }
 
     }
 
     .media-body {
       color: @color-white;
-      font-size: @fsize-12;
+      font-size: @fsize-17;
+      line-height: 56px;
       vertical-align: middle;
     }
   }

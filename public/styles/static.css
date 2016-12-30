@@ -146,17 +146,7 @@ b {
 #team .media-body p {
   font-size: 0.9em;
 }
-#footer {
-  width: 100%;
-  height: 120px;
-  background: #001c2f;
-}
-#footer .label.label-primary {
-  font-family: consolas, Source Code Pro;
-  font-weight: 100;
-  padding-top: 5px;
-  background: #203c4f;
-}
+
 .carousel-indicators li {
   border-color: #999;
 }
