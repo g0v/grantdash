@@ -66,7 +66,7 @@ module.exports = {
 /* addAdmin.hbs */
 
 "Warning! you will NOT":"Warning! you will NOT be able to delete this theme if you add an admin!",
-"type name or username":"type name or username",
+"type name or username":"輸入使用者名稱",
 "cancel":"取消",
 
 /* index.hbs */
@@ -98,7 +98,7 @@ module.exports = {
 
 /* footer.hbs */
 
-"Export .CSV File":"Export .CSV File",
+"Export .CSV File":"輸出 .CSV File",
 "Open":"Open",
 "Close":"Close",
 "Dashboard Status":"Dashboard Status",
@@ -121,7 +121,7 @@ module.exports = {
 
 "Edit Your Profile":"編輯個人資料",
 "all fields required":"所有欄位皆必填",
-"email only visible for logged in users":"email only visible for logged in users",
+"email only visible for logged in users":"登入的使用者可以查到您的 Email ",
 "about_you":"關於自己",
 "saving...":"儲存中...",
 "Save profile":"儲存個人資料",
@@ -173,8 +173,8 @@ module.exports = {
 
 /* share.hbs */
 
-"embed this project":"embed this project",
-"Add this project to your website by coping this code below":"Add this project to your website by coping this code below",
+"embed this project":"embed 這個專案",
+"Add this project to your website by coping this code below":"複製下列程式碼貼到你的網站",
 
 
 /* templates directory */
