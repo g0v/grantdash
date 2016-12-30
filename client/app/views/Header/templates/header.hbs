@@ -7,6 +7,18 @@
       </a>
     </div>
     <div class="collapse navbar-collapse">
+      <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile">
+        {{#isLoggedIn}}
+        <div class="pull-right col-xs-3 col-md-3">
+          <a class="btn-profile">
+            {{getMyProfileImageHex}}
+          </a>
+          <a class="logout" href="/logout" data-bypass>{{__ "Log out"}}</a>
+        </div>
+        {{else}}
+        <a class="login">{{__ "Log in"}}</a>
+        {{/isLoggedIn}}
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a data-scroll="data-scroll" data-bypass href="/about">關於 Grant</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about#schedule">活動辦法</a></li>
