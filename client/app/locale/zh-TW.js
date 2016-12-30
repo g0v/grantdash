@@ -166,7 +166,7 @@ module.exports = {
 "Followers":"關注中",
 "following...":"following...",
 "Share this Project":"分享這個專案",
-"Managed by":"提案人",
+"Proposed by":"提案人",
 "Contributors":"貢獻者",
 "Edit":"編輯",
 
