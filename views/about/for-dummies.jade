@@ -1,0 +1,39 @@
+#fordummies.section
+  .slideshow
+    #dummy-carousel.carousel.slide(data-ride='carousel')
+      // Indicators
+      ol.carousel-indicators
+        li.active(data-target='#dummy-carousel', data-slide-to='0')
+        li(data-target='#dummy-carousel', data-slide-to='1')
+        li(data-target='#dummy-carousel', data-slide-to='2')
+        li(data-target='#dummy-carousel', data-slide-to='3')
+        li(data-target='#dummy-carousel', data-slide-to='4')
+        li(data-target='#dummy-carousel', data-slide-to='5')
+        li(data-target='#dummy-carousel', data-slide-to='6')
+        li(data-target='#dummy-carousel', data-slide-to='7')
+        li(data-target='#dummy-carousel', data-slide-to='8')
+        li(data-target='#dummy-carousel', data-slide-to='9')
+        li(data-target='#dummy-carousel', data-slide-to='10')
+        li(data-target='#dummy-carousel', data-slide-to='11')
+        li(data-target='#dummy-carousel', data-slide-to='12')
+      // Wrapper for slides
+      .carousel-inner(role='listbox')
+        .item.active
+          img(src='/images/static/intro-slides/slide01.jpg')
+          .carousel-caption
+        each i in ['02','03','04','05','06','07','08','09','10','11','12']
+          .item
+            img(src='/images/static/intro-slides/slide' + i + '.jpg')
+            .carousel-caption
+      // Controls
+      a.left.carousel-control(href='#dummy-carousel', role='button', data-slide='prev')
+        span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+        span.sr-only Previous
+      a.right.carousel-control(href='#dummy-carousel', role='button', data-slide='next')
+        span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+        span.sr-only Next
+  .text-center
+    a.btn.btn-danger.btn-lg(href="https://docs.google.com/document/d/1gqeMRi4xurYrp9FsjTMqk1niJYqPVJ2SzekFD4G-yvw/edit?usp=sharing", target="_blank") #[i.fa.fa-arrow-down]活動細節下載
+
+script(type="text/javascript").
+  $('.carousel').carousel({interval: 2000});

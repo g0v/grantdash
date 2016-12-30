@@ -1,0 +1,32 @@
+extends layout
+block content
+
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href="#")
+          img(src="/images/static/brand.png")
+          sup(style="color:#ff9")
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li: a(data-scroll,href="#about") 關於 #[span.g0v] Grant
+          li: a(data-scroll,href="#schedule") 活動辦法
+          li: a(data-scroll,href="#faq") 常見問題
+          li: a(data-scroll,href="#team") 執行團隊
+          li: a(data-scroll,href="#partners") 合作夥伴
+
+  
+  include about/landing.jade
+  include about/about.jade
+  .sep.block.section
+    h1.text-center 主題方向
+  include about/topics.jade
+  include about/schedule.jade
+  include about/for-dummies.jade
+  include about/faq.jade
+  include about/team.jade
+  include about/partners.jade
+  include about/footer.jade
+
+  script(type="text/javascript",src="index.js")
+  include about/ga.jade

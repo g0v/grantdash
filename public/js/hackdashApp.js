@@ -3668,15 +3668,13 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Close", {"name":"__","hash":{},"data":data})));
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "\n<a class=\"brand ";
+  var stack1, buffer = "\n<h3 style=\"margin-right:15px;float:right\">powered by hackdash.org</h3>\n<a class=\"brand ";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.isDashboard : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "\">\n  <div class=\"logo\"></div>\n  <h3>hackdash.org</h3>\n</a>\n\n";
+  buffer += "\">\n  <img src=\"/images/static/brand.png\" style=\"padding:13px\"/>\n</a>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.isDashboard : depth0), {"name":"if","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n<a class=\"up-button\">\n  <i class=\"fa fa-long-arrow-up\"></i>\n  <span>"
-    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "up", {"name":"__","hash":{},"data":data})))
-    + "</span>\n</a>\n";
+  return buffer + "\n";
 },"useData":true});
 
 },{"hbsfy/runtime":100}],45:[function(require,module,exports){
@@ -5053,13 +5051,13 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Upload your project to the platform.", {"name":"__","hash":{},"data":data})))
     + "\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"col-xs-12 col-sm-6 col-md-4\">\n    <div class=\"input-group\">\n      <input id=\"search\" type=\"text\" class=\"form-control\" placeholder='"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "enter keywords", {"name":"__","hash":{},"data":data})))
-    + "'>\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-primary\" type=\"button\">"
+    + "'>\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-danger\" type=\"button\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "find it", {"name":"__","hash":{},"data":data})))
     + "</button>\n      </span>\n    </div>\n  </div>\n\n  <div class=\"hidden-xs col-sm-3 col-md-4\">\n\n    <div class=\"col-sm-12 col-md-6\">\n\n      <div class=\"media\">\n        <div class=\"media-left\">\n          <i class=\"fa fa-user-plus\"></i>\n        </div>\n        <div class=\"media-body\">\n          "
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Add Collaborators to your projects.", {"name":"__","hash":{},"data":data})))
     + "\n        </div>\n      </div>\n\n    </div>\n    <div class=\"col-sm-12 col-md-6\">\n\n      <div class=\"media\">\n        <div class=\"media-left\">\n          <i class=\"fa fa-share-alt\"></i>\n        </div>\n        <div class=\"media-body\">\n          "
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Share your app to the world.", {"name":"__","hash":{},"data":data})))
-    + "\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n\n</div>";
+    + "\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":100}],65:[function(require,module,exports){
