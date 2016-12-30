@@ -24,6 +24,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   },
 
   events: {
+    "keyup @ui.description": "validateDescription",
     "click #ghImportBtn": "showGhImport",
     "click #searchGh": "searchRepo",
 
@@ -79,6 +80,16 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
   //+ EVENT HANDLERS
   //--------------------------------------
+  validateDescription: function(){
+    var description = this.ui.description.val();
+    this.cleanErrors();
+
+    if(/haz foo/.test(description)) {
+      this.cleanErrors();
+    } else {
+      this.showError({responseText: JSON.stringify({error: "description_invalid"})});
+    }
+  },
 
   showGhImport: function(e){
     $(".gh-import", this.$el).removeClass('hide');
@@ -156,7 +167,8 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
   errors: {
     "title_required": __("Title is required"),
-    "description_required": __("Description is required")
+    "description_required": __("Description is required"),
+    "description_invalid": __("Description is invalid")
   },
 
   showError: function(err){
