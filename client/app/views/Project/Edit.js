@@ -176,6 +176,12 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
     this.cleanErrors();
 
+    var err = markdownValidator(this.ui.description.val());
+    if (err) {
+      this.showMarkdownError(err);
+      return;
+    }
+
     $("#save", this.$el).button('loading');
 
     this.model
