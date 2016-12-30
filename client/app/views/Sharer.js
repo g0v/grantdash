@@ -119,7 +119,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
       url += '/p/' + this.model.get('_id');
     }
 
-    hashtags += ['hackdash', domain].join(',');
+    hashtags += ['g0v', 'civictech', domain].join(',');
     text += this.shareText[this.type] + (title || domain) + ' via ' + people;
 
     link += this.enc(url) + '&' + this.enc(hashtags) + '&' + this.enc(text);
@@ -170,7 +170,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
 
     var textShort = __('Hacking at') + ' ' + (title || domain);
     text += textShort + ' via ' + people;
-    text += ' ' + ['#hackdash', domain].join(' #');
+    text += ' ' + ['#g0v', 'civictech', domain].join(' #');
 
     window.FB.ui({
       method: 'feed',
@@ -204,7 +204,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
 
     var textShort = __('Hacking at') + ' ' + (title || domain);
     stitle += textShort;
-    text += textShort + ' - HackDash';
+    text += textShort;
 
     link += this.enc(url) + '&' + this.enc(stitle) + '&' + this.enc(text) + source;
     window.open(link,'LinkedIn','height=350,width=520');
