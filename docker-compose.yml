@@ -6,6 +6,7 @@ services:
     build: .
     image: grantdash
     volumes:
+      - ./public/uploads:/usr/src/app/public/uploads
       - ./config/config.json:/usr/src/app/config/config.json
       - ./keys.json:/usr/src/app/keys.json
     ports:
