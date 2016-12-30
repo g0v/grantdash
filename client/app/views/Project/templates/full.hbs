@@ -38,16 +38,16 @@
 
           <div class="contributor">
             {{#if contributing}}
-            <a data-loading-text="{{__ "leaving..."}}" class="btn btn-default leave">{{__ "Leave"}}</a>
+            <a data-loading-text="{{__ "leaving..."}}" class="btn btn-blue leave">{{__ "Leave"}}</a>
             {{else}}
-            <a data-loading-text="{{__ "joining..."}}" class="btn btn-default join">{{__ "Join"}}</a>
+            <a data-loading-text="{{__ "joining..."}}" class="btn btn-blue join">{{__ "Join"}}</a>
             {{/if}}
           </div>
           <div class="follower">
             {{#if following}}
-            <a data-loading-text="{{__ "unfollowing..."}}" class="btn btn-default unfollow">{{__ "Unfollow"}}</a>
+            <a data-loading-text="{{__ "unfollowing..."}}" class="btn btn-blue unfollow">{{__ "Unfollow"}}</a>
             {{else}}
-            <a data-loading-text="{{__ "following..."}}" class="btn btn-default follow">{{__ "Follow"}}</a>
+            <a data-loading-text="{{__ "following..."}}" class="btn btn-blue follow">{{__ "Follow"}}</a>
             {{/if}}
           </div>
 
@@ -55,8 +55,8 @@
 
       {{else}}
 
-        <a class="btn btn-default login">{{__ "Follow"}}</a>
-        <a class="btn btn-default login">{{__ "Join"}}</a>
+        <a class="btn btn-blue login">{{__ "Follow"}}</a>
+        <a class="btn btn-blue login">{{__ "Join"}}</a>
 
       {{/isLoggedIn}}
 
@@ -120,7 +120,7 @@
 
     {{#if link}}
     <div class="pull-right">
-      <a href="{{link}}" target="__blank" class="btn btn-default">{{__ "demo"}}</a>
+      <a href="{{link}}" target="__blank" class="btn btn-red">{{__ "demo"}}</a>
     </div>
     {{/if}}
 
@@ -141,16 +141,16 @@
 
         <div class="pull-left contributor">
           {{#if contributing}}
-          <a data-loading-text="{{__ "leaving..."}}" class="btn btn-default leave">{{__ "Leave"}}</a>
+          <a data-loading-text="{{__ "leaving..."}}" class="btn btn-blue leave">{{__ "Leave"}}</a>
           {{else}}
-          <a data-loading-text="{{__ "joining..."}}" class="btn btn-default join">{{__ "Join"}}</a>
+          <a data-loading-text="{{__ "joining..."}}" class="btn btn-blue join">{{__ "Join"}}</a>
           {{/if}}
         </div>
         <div class="pull-left follower">
           {{#if following}}
-          <a data-loading-text="{{__ "unfollowing..."}}" class="btn btn-default unfollow">{{__ "Unfollow"}}</a>
+          <a data-loading-text="{{__ "unfollowing..."}}" class="btn btn-blue unfollow">{{__ "Unfollow"}}</a>
           {{else}}
-          <a data-loading-text="{{__ "following..."}}" class="btn btn-default follow">{{__ "Follow"}}</a>
+          <a data-loading-text="{{__ "following..."}}" class="btn btn-blue follow">{{__ "Follow"}}</a>
           {{/if}}
         </div>
 
@@ -160,8 +160,8 @@
     {{else}}
 
       <div class="pull-left bottom-buttons">
-        <a class="btn btn-default login follower">{{__ "Follow"}}</a>
-        <a class="btn btn-default login contributor">{{__ "Join"}}</a>
+        <a class="btn btn-blue login follower">{{__ "Follow"}}</a>
+        <a class="btn btn-blue login contributor">{{__ "Join"}}</a>
       </div>
 
     {{/isLoggedIn}}
