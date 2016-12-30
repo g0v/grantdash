@@ -102,7 +102,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
 
   onShow: function(){
-    if (!this.ui.description.val().length) {
+    if (!this.ui.description.val().length && this.model.get('domain') !== 'news') {
       this.ui.description.val( '# ' + headings.join("\n\n# ") );
     }
     this.initSelect2();
@@ -117,6 +117,10 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //+ EVENT HANDLERS
   //--------------------------------------
   validateDescription: function(){
+    if (this.model.get('domain') === 'news') {
+      return;
+    }
+
     var description = this.ui.description.val();
     this.cleanErrors();
 
@@ -175,11 +179,12 @@ module.exports = Backbone.Marionette.ItemView.extend({
     };
 
     this.cleanErrors();
-
-    var err = markdownValidator(this.ui.description.val());
-    if (err) {
-      this.showMarkdownError(err);
-      return;
+    if (this.model.get('domain') !== 'news') {
+      var err = markdownValidator(this.ui.description.val());
+      if (err) {
+        this.showMarkdownError(err);
+        return;
+      }
     }
 
     $("#save", this.$el).button('loading');
