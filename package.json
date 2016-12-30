@@ -21,6 +21,7 @@
     "jade": "1.1.5",
     "less-middleware": "1.0.4",
     "markdown": "0.4.0",
+    "markdown-to-ast": "^3.4.0",
     "method-override": "2.3.3",
     "moment": "1.7.2",
     "mongodb": "^2.2.10",

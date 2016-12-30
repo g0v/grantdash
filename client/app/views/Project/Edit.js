@@ -4,6 +4,56 @@
  */
 
 var template = require('./templates/edit.hbs');
+var headings = ["§ 請以 80 ~ 120 字簡短地說明這個專案",
+ "§ 你過去參與過什麼開源開發計畫（open source project）？",
+ "§ 這個計畫要解決什麼問題？",
+ "§ 你為什麼要做這個計劃 （ 個人動機 ）？",
+ "§ 你預計用什麼方式解決此問題？",
+ "§ 這個計畫的目標對象是誰？",
+ "§ 這個計畫預計跟什麼團體合作？",
+ "§ 過去有作過相關主題的計畫嗎？",
+ "§ 預計六個月內將花多少小時作這件事？",
+ "§ 請自行定義計畫的工作里程碑與最後的驗收標準 （若沒有達成這些標準的話，我們會不給你錢喔！)",
+ "§ 未來可能進一步的發展？",
+ "§ 本計畫目前是否已有、或正在申請其他的資金來源？若有，請說明申請本獎助的內容與原計畫的差異。",
+ "§ 若有專案介紹的投影片，請提供：",
+];
+
+function markdownValidator(text) {
+  var parse = require("markdown-to-ast").parse;
+  var expected_headings = headings.slice(0);
+
+  var AST = parse(text);
+  var current_heading;
+  var has_content = {};
+  for (var i in AST.children) { if (true) {
+    var node = AST.children[i];
+    if (node.type === "Header" && node.depth === 1) {
+      if (node.children[0].raw === expected_headings[0]) {
+        current_heading = expected_headings[0];
+        has_content[current_heading] = false;
+        expected_headings.shift();
+      }
+    }
+    else {
+      if (current_heading) {
+        has_content[current_heading] = true;
+      }
+    }
+  } }
+
+  for (var j in headings) { if (true) {
+    var heading = headings[j];
+    if (has_content[heading] !== undefined) {
+      if (!has_content[heading]) {
+        return heading + ' is empty';
+      }
+    }
+    else {
+      return heading + ' is missing';
+    }
+  } }
+}
 
 module.exports = Backbone.Marionette.ItemView.extend({
 
@@ -24,6 +74,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   },
 
   events: {
+    "keyup @ui.description": "validateDescription",
     "click #ghImportBtn": "showGhImport",
     "click #searchGh": "searchRepo",
 
@@ -52,21 +103,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
   onShow: function(){
     if (!this.ui.description.val().length) {
-      this.ui.description.val(
-        "# § 請以 80 ~ 120 字簡短地說明這個專案" + "\n\n" +
-        "# § 你過去參與過什麼開源開發計畫（open source project）？" + "\n\n" +
-        "# § 這個計畫要解決什麼問題？" + "\n\n" +
-        "# § 你為什麼要做這個計劃 （ 個人動機 ）？" + "\n\n" +
-        "# § 你預計用什麼方式解決此問題？" + "\n\n" +
-        "# § 這個計畫的目標對象是誰？" + "\n\n" +
-        "# § 這個計畫預計跟什麼團體合作？" + "\n\n" +
-        "# § 過去有作過相關主題的計畫嗎？" + "\n\n" +
-        "# § 預計六個月內將花多少小時作這件事？" + "\n\n" +
-        "# § 請自行定義計畫的工作里程碑與最後的驗收標準 （若沒有達成這些標準的話，我們會不給你錢喔！)" + "\n\n" +
-        "# § 未來可能進一步的發展？" + "\n\n" +
-        "# § 本計畫目前是否已有、或正在申請其他的資金來源？若有，請說明申請本獎助的內容與原計畫的差異。" + "\n\n" +
-        "# § 若有專案介紹的投影片，請提供：" + "\n\n"
-      );
+      this.ui.description.val( '# ' + headings.join("\n\n# ") );
     }
     this.initSelect2();
     this.initImageDrop();
@@ -79,6 +116,17 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
   //+ EVENT HANDLERS
   //--------------------------------------
+  validateDescription: function(){
+    var description = this.ui.description.val();
+    this.cleanErrors();
+
+    var err = markdownValidator(description);
+    if (err) {
+      this.showMarkdownError(err);
+    } else {
+      this.cleanErrors();
+    }
+  },
 
   showGhImport: function(e){
     $(".gh-import", this.$el).removeClass('hide');
@@ -156,7 +204,8 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
   errors: {
     "title_required": __("Title is required"),
-    "description_required": __("Description is required")
+    "description_required": __("Description is required"),
+    "description_invalid": __("Description is invalid")
   },
 
   showError: function(err){
@@ -172,6 +221,14 @@ module.exports = Backbone.Marionette.ItemView.extend({
     var ctrl = error.split("_")[0];
     this.ui[ctrl].parents('.control-group').addClass('error');
     this.ui[ctrl].after('<span class="help-inline">' + this.errors[error] + '</span>');
+  },
+
+  showMarkdownError: function(error){
+    $("#save", this.$el).button('reset');
+
+    var ctrl = 'description';
+    this.ui[ctrl].parents('.control-group').addClass('error');
+    this.ui[ctrl].after('<span class="help-inline">' + error + '</span>');
   },
 
   cleanErrors: function(){
