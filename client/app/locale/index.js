@@ -12,6 +12,8 @@ module.exports = {
 
   setLocale: function(lan) {
     //console.log(`i18n: setting Language [${lan}]`);
+    // XXX force zh-TW for now
+    lan = 'zh-TW';
     if (!locales.hasOwnProperty(lan)){
 
       if (lan.indexOf('-') > -1 || lan.indexOf('_') > -1){
