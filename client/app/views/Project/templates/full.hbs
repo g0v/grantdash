@@ -74,7 +74,7 @@
           </a>
         </div>
 
-        <div class="clearfix">
+        <div class="clearfix contributor">
           <h5>{{__ "Contributors"}} [{{contributors.length}}]</h5>
           {{#each contributors}}
           <a class="pull-left" href="/users/{{_id}}">
@@ -83,7 +83,7 @@
           {{/each}}
         </div>
 
-        <div class="clearfix">
+        <div class="clearfix follower">
           <h5>{{__ "Followers"}} [{{followers.length}}]</h5>
           {{#each followers}}
           <a class="pull-left" href="/users/{{_id}}">
@@ -160,8 +160,8 @@
     {{else}}
 
       <div class="pull-left bottom-buttons">
-        <a class="btn btn-default login">{{__ "Follow"}}</a>
-        <a class="btn btn-default login">{{__ "Join"}}</a>
+        <a class="btn btn-default login follower">{{__ "Follow"}}</a>
+        <a class="btn btn-default login contributor">{{__ "Join"}}</a>
       </div>
 
     {{/isLoggedIn}}
