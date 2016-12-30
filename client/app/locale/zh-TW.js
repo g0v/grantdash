@@ -41,7 +41,7 @@ module.exports = {
 
 /* search.hbs */
 
-"Inform Progress to community.":"向設群發表進度",
+"Inform Progress to community.":"向社群發表進度",
 "Upload your project to the platform.":"上傳專案",
 "find it":"搜尋",
 "Add Collaborators to your projects.":"加入專案協作",
@@ -176,7 +176,6 @@ module.exports = {
 "embed this project":"embed 這個專案",
 "Add this project to your website by coping this code below":"複製下列程式碼貼到你的網站",
 
-
 /* templates directory */
 
 "Access with":"Access with",
@@ -236,8 +235,8 @@ module.exports = {
 /* Home directory */
 /* index.js */
 
-"5 to 10 chars, no spaces or special":"5 to 10 chars, no spaces or special",
-"Sorry, that one is in use. Try another one.":"Sorry, that one is in use. Try another one.",
+"5 to 10 chars, no spaces or special":"5 到 10 個字元，不能有空格或特殊字元",
+"Sorry, that one is in use. Try another one.":"抱歉，此帳號已被使用，再試別的。",
 
 /* Profile directory */
 /* CardEdit.js */
@@ -258,15 +257,15 @@ module.exports = {
 /* Projects directory */
 /* Edit.js */
 
-"Title is required":"Title is required",
-"Description is required":"Description is required",
-"Drop Image Here":"Drop Image Here",
-"File is too big, 500 Kb is the max":"File is too big, 500 Kb is the max",
-"Only jpg, png and gif are allowed":"Only jpg, png and gif are allowed",
+"Title is required":"請輸入標題",
+"Description is required":"請輸入敘述",
+"Drop Image Here":"拖曳上傳圖像",
+"File is too big, 500 Kb is the max":"檔案太大，檔案大小上限為 500 KB",
+"Only jpg, png and gif are allowed":"只接受 jpg, png 和 gif 檔",
 
 /* Full.js */
 
-"This project is going to be deleted. Are you sure?":"This project is going to be deleted. Are you sure?",
+"This project is going to be deleted. Are you sure?":"你即將刪除此專案，你確定要刪除嗎？",
 
 /* Share.js */
 
