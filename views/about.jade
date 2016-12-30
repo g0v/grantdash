@@ -1,21 +1,8 @@
 extends layout
+block styles
+  link(rel="stylesheet",type="text/css",href="/styles/static.css")
 block content
-
-  nav.navbar.navbar-default.navbar-fixed-top
-    .container-fluid
-      .navbar-header
-        a.navbar-brand(href="#")
-          img(src="/images/static/brand.png")
-          sup(style="color:#ff9")
-      .collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right
-          li: a(data-scroll,href="#about") 關於 #[span.g0v] Grant
-          li: a(data-scroll,href="#schedule") 活動辦法
-          li: a(data-scroll,href="#faq") 常見問題
-          li: a(data-scroll,href="#team") 執行團隊
-          li: a(data-scroll,href="#partners") 合作夥伴
-
-  
+  include about/nav.jade
   include about/landing.jade
   include about/about.jade
   .sep.block.section
@@ -27,6 +14,26 @@ block content
   include about/team.jade
   include about/partners.jade
   include about/footer.jade
-
-  script(type="text/javascript",src="index.js")
   include about/ga.jade
+block scripts
+  script.
+    $( document ).ready(function() {
+      smoothScroll.init();
+      $('.carousel').carousel({interval: 2000});
+      $.ajax({
+        url: 'http://ttcat.net/udnrss/',
+        dataType: 'json',
+        jsonpCallback: 'MyJSONPCallback', // specify the callback name if you're hardcoding it
+        success: function(data){
+          // we make a successful JSONP call!
+          $.each(data, function(i, item) {
+            var x = 'food' + (i + 1);
+            $('.'+x).attr('href', item.link);
+            $('.'+ x + ' > .img').css('background-image', 'url(\'' + item.img + '\')');
+            $('.'+ x + ' > .desc').html(item.title);
+            $('.'+ x).attr('href', item.link);
+          })
+        }
+      });
+    });
+  script(type="text/javascript",src="//cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.2.0/js/smooth-scroll.js")

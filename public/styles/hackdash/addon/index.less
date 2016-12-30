@@ -1,0 +1,120 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  font-size: 18px;
+  font-family: roboto, "Noto Sans TC";
+}
+h1, h2, h3, h4, h5, h6, p, li, a {
+  font-family: roboto, "Noto Sans TC";
+}
+
+h3.title {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 4px solid #e95513;
+  margin-bottom: 26px;
+  font-size: 1.5em;
+}
+
+.g0v {
+  display: inline;
+  font-family: consolas, Source Code Pro;
+}
+.g0vtw {
+  display: inline-block;
+  font-family: consolas, Source Code Pro;
+}
+.g0vtw:after {
+  content: "g0v.tw";
+  display: inline;
+}
+
+.media {
+  display: flex;
+  margin-bottom: 40px;
+}
+.media-object {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.red {
+  color: #c42026;
+}
+b {
+  color: #c42026;
+}
+.grayed {
+  color: #999;
+}
+
+.gallery .thumbnail {
+  width: 100%;
+  height: 160px;
+}
+.gallery .desc {
+  color: #999;
+  font-size: 0.8em;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 80%;
+  display: none;
+  opacity: 0;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  font-weight: 100;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px rgba(0,0,0,0.6);
+}
+.gallery .img {
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.gallery .thumbnail:hover .desc {
+  display: block;
+  -ms-animation: fadein 0.3s 1 linear forwards;
+  -moz-animation: fadein 0.3s 1 linear forwards;
+  -webkit-animation: fadein 0.3s 1 linear forwards;
+  -o-animation: fadein 0.3s 1 linear forwards;
+  animation: fadein 0.3s 1 linear forwards;
+}
+.gallery .thumbnail:hover .img {
+  -ms-animation: fadeout 0.3s 1 linear forwards;
+  -moz-animation: fadeout 0.3s 1 linear forwards;
+  -webkit-animation: fadeout 0.3s 1 linear forwards;
+  -o-animation: fadeout 0.3s 1 linear forwards;
+  animation: fadeout 0.3s 1 linear forwards;
+}
+.sep.block {
+  background: #f7b52c;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  z-index: 999;
+  box-shadow: none;
+}
+a.anchor {
+  top: -40px;
+  visibility: hidden;
+  position: relative;
+}
+.carousel-indicators li {
+  border-color: #999;
+}
+
+@import 'animation';
+@import 'navbar';
+@import 'button';

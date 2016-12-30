@@ -28,7 +28,8 @@ html
     link(href="https://fonts.googleapis.com/css?family=Roboto",rel="stylesheet")
 
     link(rel='stylesheet', href='/styles/vendor.css?v=' + version)
-    link(rel="stylesheet", href="/styles/addon.css")
+    link(rel="stylesheet",type="text/css",href="/styles/addon.css?v=" + version)
+    link(rel="stylesheet",type="text/css",href="/styles/static.css?v=" + version)
 
     block styles
 
@@ -46,10 +47,11 @@ html
         #modals-container.modal-content
 
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+    script(src="/js/vendor.js?v=" + version)
+
     script.
       window.jQuery || document.write('<script src="/js/libs/jquery-1.11.2.min.js">\x3C/script>');
 
-    script(src="/js/vendor.js?v=" + version)
 
     script(src="https://platform.twitter.com/widgets.js")
 
@@ -60,7 +62,7 @@ html
         discourseUrl: "!{discourseUrl}",
         disqus_shortname: "!{disqus_shortname}",
         statuses: "!{statuses}",
-        providers: !{JSON.stringify(providers)},
+        providers: !{JSON.stringify(providers) || "''"},
         fbAppId: "!{fbAppId}"
       };
 
