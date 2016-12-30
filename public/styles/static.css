@@ -1,0 +1,238 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  font-size: 18px;
+  font-family: roboto, "Noto Sans TC";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+  font-family: roboto, "Noto Sans TC";
+}
+nav.navbar.navbar-default {
+  border-bottom: 0;
+  background: #ff4d00;
+}
+nav.navbar.navbar-default li a {
+  color: #fff;
+}
+nav.navbar.navbar-default .container-fluid {
+  max-width: 1280px;
+  margin: auto;
+}
+nav.navbar.navbar-default .navbar-brand {
+  padding: 11px;
+}
+nav.navbar.navbar-default .navbar-brand img {
+  height: 26px;
+}
+.red {
+  color: #c42026;
+}
+b {
+  color: #c42026;
+}
+.grayed {
+  color: #999;
+}
+
+#about {
+  border-radius: 15px 15px 0 0;
+  margin-top: 0;
+}
+@media (max-width: 640px) {
+  #about {
+    border-radius: 0;
+    border-top: 4px solid #ccc;
+  }
+}
+#schedule {
+  background: #001c2f;
+  color: #fff;
+}
+#schedule h2 {
+  display: block;
+  border-bottom: 0;
+  font-weight: 300;
+}
+#schedule h2 .date {
+  display: inline-block;
+  margin-left: 30px;
+  font-size: 0.9em;
+}
+#schedule h4 {
+  font-weight: 400;
+  margin: 20px 0;
+}
+#fordummies {
+  background: #f7b52c;
+}
+#fordummies .slideshow {
+  width: 74%;
+  height: 432px;
+  margin: 50px 13%;
+  background: #fff;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 41.7%;
+}
+#fordummies .carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 640px) {
+  #fordummies {
+    padding: 0 0 30px;
+  }
+  #fordummies .slideshow {
+    width: 100%;
+    margin: 0 0 30px;
+    padding-bottom: 56%;
+  }
+}
+#faq .inner {
+  max-width: 1280px;
+}
+#faq h2 {
+  margin: 0;
+  border-right: 4px solid #999;
+  padding-right: 20px;
+  height: 200px;
+  text-align: right;
+}
+@media (max-width: 768px) {
+  #faq h2 {
+    height: auto;
+    margin-bottom: 30px;
+    border-right: 0;
+    text-align: left;
+  }
+}
+#faq h3 {
+  margin-top: 5px;
+}
+#faq p,
+#faq li {
+  color: #555;
+  font-weight: 200;
+}
+#team {
+  color: #fff;
+  background: #15a9a4;
+  font-weight: 100;
+  font-size: 0.9em;
+}
+#team h4 {
+  margin-bottom: 10px;
+}
+#team > .inner {
+  width: 90%;
+  max-width: 90%;
+}
+#team .media-body p {
+  font-size: 0.9em;
+}
+#footer {
+  width: 100%;
+  height: 120px;
+  background: #001c2f;
+}
+#footer .label.label-primary {
+  font-family: consolas, Source Code Pro;
+  font-weight: 100;
+  padding-top: 5px;
+  background: #203c4f;
+}
+.carousel-indicators li {
+  border-color: #999;
+}
+#topics .topic-list img {
+  width: 200px;
+  display: inline-block;
+  margin: auto;
+}
+#topics .topic-list .title {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+@media (max-width: 640px) {
+  #topics .topic-list img {
+    width: 100px;
+  }
+  #topics .topic-list .title {
+    font-size: 1.2em;
+  }
+}
+.gallery .thumbnail {
+  width: 100%;
+  height: 160px;
+}
+.gallery .desc {
+  color: #999;
+  font-size: 0.8em;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 80%;
+  display: none;
+  opacity: 0;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  font-weight: 100;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px rgba(0,0,0,0.6);
+}
+.gallery .img {
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.gallery .thumbnail:hover .desc {
+  display: block;
+  -ms-animation: fadein 0.3s 1 linear forwards;
+  -moz-animation: fadein 0.3s 1 linear forwards;
+  -webkit-animation: fadein 0.3s 1 linear forwards;
+  -o-animation: fadein 0.3s 1 linear forwards;
+  animation: fadein 0.3s 1 linear forwards;
+}
+.gallery .thumbnail:hover .img {
+  -ms-animation: fadeout 0.3s 1 linear forwards;
+  -moz-animation: fadeout 0.3s 1 linear forwards;
+  -webkit-animation: fadeout 0.3s 1 linear forwards;
+  -o-animation: fadeout 0.3s 1 linear forwards;
+  animation: fadeout 0.3s 1 linear forwards;
+}
+.sep.block {
+  background: #f7b52c;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  z-index: 999;
+  box-shadow: none;
+}
+a.anchor {
+  top: -40px;
+  visibility: hidden;
+  position: relative;
+}

@@ -30,12 +30,13 @@ footer, #main:after {
 }
 
 .main-header {
-  background-color: @color-blackB;
+  background-color: @color-blue;
 
   .logo {
     width: 100px;
-    height: 115px;
+    height: 40px;
     display: block;
+    background-size: contain;
   }
 }
 
@@ -65,8 +66,13 @@ footer, #main:after {
     .btn {
       font-size: @fsize-17;
       height: 40px;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 8px 12px;
+      border-radius: 2px;
     }
-
+    .btn.active {
+      box-shadow: none;
+    }
   }
 }
 
@@ -77,7 +83,7 @@ footer, #main:after {
     z-index: 999;
     top: 0;
     width: 100%;
-    height: 50px;
+    height: 60px;
 
     .logo {
       margin:0;
@@ -94,14 +100,15 @@ footer, #main:after {
       .search {
 
         input {
-          height: 35px;
+          height: 40px;
+          border-radius: 2px;
         }
 
         .input-group-btn {
 
           button {
-            height: 35px;
-            padding-top: 0;
+            height: 40px;
+            line-height: 30px;
           }
 
         }
@@ -110,9 +117,11 @@ footer, #main:after {
           font-size: @fsize-22;
           color: @color-white;
           background-color: @color-action;
-          height: 35px;
+          height: 40px;
+          line-height: 30px;
           font-size: 20px;
           padding: 6px 10px;
+          border-radius: 2px;
           max-width: 180px;
           float: right;
           margin: 0;
@@ -135,13 +144,15 @@ footer, #main:after {
     font-size: @fsize-22;
     color: @color-white;
     background-color: @color-action;
-    height: 35px;
+    height: 40px;
+    line-height: 30px;
     font-size: 20px;
     padding: 6px 10px;
     margin: 0;
     text-align: center;
     display: block;
     margin-top: 10px;
+    border-radius: 2px;
 
     a {
       color: @color-white;
@@ -293,7 +304,6 @@ footer {
   .header {
 
     .container {
-      text-align: center;
       color: @color-white;
       position: relative;
 
@@ -326,7 +336,7 @@ footer {
       }
 
       a {
-        color: @color-white;
+        color: @color-dark;
       }
 
     }
@@ -596,7 +606,6 @@ footer {
       .container {
         color: @color-white;
         max-width: 900px;
-        text-align: center;
 
         .page-link-left,
         .page-link-right {
@@ -624,6 +633,7 @@ footer {
         min-height: 300px;
         margin: -200px auto 0 auto;
         background-color: @color-white;
+        border-radius: 20px;
 
         padding-top: 40px;
         padding-bottom: 60px;
@@ -916,7 +926,8 @@ footer {
   &.collection {
 
     .header {
-      background-color: @color-dashboard;
+      background: url(../images/landing.png) center center no-repeat;
+      background-size: cover;
       padding: 20px 0;
 
       h1 {
@@ -927,7 +938,6 @@ footer {
       .container {
         color: @color-white;
         max-width: inherit;
-        text-align: center;
         margin-bottom: 200px;
 
         .page-link-right {
@@ -964,7 +974,6 @@ footer {
         a.editable-click,
         a.editable-click:hover {
           border: none;
-          background: darken(@color-dashboard, 4%);
           padding: 5px 10px;
           cursor: pointer;
         }
@@ -1072,9 +1081,10 @@ footer {
         min-height: 300px;
         margin: -200px auto 0 auto;
         background-color: @color-white;
+        border-radius: 20px;
 
         margin-bottom: 30px;
-        padding: 0 10px 10px 0;
+        padding: 0 0 10px 0;
       }
     }
   }
@@ -1570,4 +1580,11 @@ footer {
     }
   }
 
+}
+#main .page-ctn.dashboard .header {
+  border-bottom: 10px solid @color-orange;
+}
+
+#dashboard-projects {
+  border-radius: 10px;
 }

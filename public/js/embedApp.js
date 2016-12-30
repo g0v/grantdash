@@ -112,7 +112,7 @@ module.exports = Backbone.Marionette.AppRouter.extend({
 
 });
 
-},{"./models/Dashboard":12,"./models/Project":13,"./models/Projects":14,"./views/Dashboard/Embed":18,"./views/Project/Embed":26}],3:[function(require,module,exports){
+},{"./models/Dashboard":13,"./models/Project":14,"./models/Projects":15,"./views/Dashboard/Embed":19,"./views/Project/Embed":27}],3:[function(require,module,exports){
 
 module.exports = function(){
 
@@ -210,10 +210,6 @@ Handlebars.registerHelper('embedCode', function() {
   });
 });
 
-Handlebars.registerHelper('firstUpper', function(text) {
-  return text.charAt(0).toUpperCase() + text.slice(1);
-});
-
 Handlebars.registerHelper('firstLetter', function(text) {
   if (text){
     return text.charAt(0);
@@ -226,6 +222,10 @@ Handlebars.registerHelper('markdown', function(md) {
     return markdown.toHTML(md);
   }
   return "";
+});
+
+Handlebars.registerHelper('discourseUrl', function() {
+  return window.hackdash.discourseUrl;
 });
 
 Handlebars.registerHelper('disqus_shortname', function() {
@@ -426,7 +426,7 @@ Handlebars.registerHelper('each_upto_rnd', function(ary, max, options) {
     return result.join('');
 });
 
-},{"hbsfy/runtime":36}],6:[function(require,module,exports){
+},{"hbsfy/runtime":37}],6:[function(require,module,exports){
 jQuery(function() {
   require('./Initializer')();
   window.hackdash.startApp = require('./EmbedApp');
@@ -446,10 +446,11 @@ module.exports = {
 
 /* home.hbs */
 
-  "Dashboards": "Dashboards",
+  // "Dashboards": "Dashboards",
+  "Dashboards": "Themes",
   "create now": "create now",
   "ERROR":"ERROR",
-  "Ideas for a": "Ideas for a",
+  "OGP Toolbox": "OGP Toolbox",
   "hackathon":"hackathon",
   "Collections":"Collections",
   "Projects":"Projects",
@@ -462,7 +463,7 @@ module.exports = {
 
 /* counts.hbs */
 
-"dashboards":"dashboards",
+"dashboards":"themes",
 "projects":"projects",
 "registered users":"registered users",
 "collections":"collections",
@@ -498,22 +499,22 @@ module.exports = {
 
 /* addAdmin.hbs */
 
-"Warning! you will NOT":"Warning! you will NOT be able to delete this dashboard if you add an admin!",
+"Warning! you will NOT":"Warning! you will NOT be able to delete this theme if you add an admin!",
 "type name or username":"type name or username",
 "cancel":"cancel",
 
 /* index.hbs */
 
-"Open dashboard website":"Open dashboard website",
+"Open dashboard website":"Open theme website",
 "Share this Dashboard":"Share this Dashboard",
 "Create Project":"Create Project",
 
 /* share.hbs */
 
-"embed this dashboard":"embed this dashboard",
+"embed this dashboard":"embed this theme",
 "Slider":"Slider",
 "ANY STATUS":"ANY STATUS",
-"Add this dashboard to your website by coping this code below":"Add this dashboard to your website by coping this code below",
+"Add this dashboard to your website by coping this code below":"Add this theme to your website by coping this code below",
 "By Name":"By Name",
 "By Date":"By Date",
 "Showcase":"Showcase",
@@ -596,6 +597,7 @@ module.exports = {
 "leaving...":"leaving...",
 "joining...":"joining...",
 "unfollowing...":"unfollowing...",
+"Followers":"Followers",
 "following...":"following...",
 "Share this Project":"Share this Project",
 "Managed by":"Managed by",
@@ -685,7 +687,7 @@ module.exports = {
 "Only Dashboards without Projects can be removed.":"Only Dashboards without Projects can be removed.",
 "This action will remove Dashboard ":"This action will remove Dashboard ",
 ". Are you sure?":". Are you sure?",
-"cannot_remove_dashboard": "Cannot Remove {1} dashboard",
+"cannot_remove_dashboard": "Cannot Remove {1} theme",
 
 /* Projects directory */
 /* Edit.js */
@@ -722,10 +724,12 @@ module.exports = {
 
 /* home.hbs */
 
+ 
+  "dashboard name (5-10 chars)":"nombre del tablero (corto)",
   "Dashboards": "Tableros",
   "create now": "crear ahora",
   "ERROR":"ERROR",
-  "Ideas for a": "Ideas para una",
+  "OGP Toolbox": "OGP Toolbox",
   "hackathon":"hackatón",
   "Collections":"Colecciones",
   "Projects":"Proyectos",
@@ -750,6 +754,7 @@ module.exports = {
 
 /* search.hbs */
 
+"enter keywords": "Palabras clave",
 "Inform Progress to community.":"Informa el progreso a la comunidad.",
 "Upload your project to the platform.":"Sube tu proyecto a la plataforma.",
 "find it":"encuéntralo",
@@ -872,6 +877,7 @@ module.exports = {
 "leaving...":"abandondando...",
 "joining...":"uniéndose...",
 "unfollowing...":"dejando de seguir...",
+"Followers":"Followers",
 "following...":"siguiendo...",
 "Share this Project":"Comparte este proyecto",
 "Managed by":"Administrado por",
@@ -988,11 +994,12 @@ module.exports = {
 /*eslint no-console:0*/
 var locales = {
   en: require('./en'),
-  es: require('./es')
+  es: require('./es'),
+  'zh-TW': require('./zh-TW')
 };
 
-var current = locales.es;
-var _lan = 'es';
+var current = locales.en;
+var _lan = 'en';
 
 module.exports = {
 
@@ -1052,7 +1059,285 @@ module.exports = {
 
 };
 
-},{"./en":7,"./es":8}],10:[function(require,module,exports){
+},{"./en":7,"./es":8,"./zh-TW":10}],10:[function(require,module,exports){
+/*eslint-disable */
+module.exports = {
+  "code": "zh-TW",
+  "time_format": "HH:mm",
+  "date_locale": "en",
+  "date_format": "YYYY\/MM\/DD",
+  "datetime_format": "YYYY\/MM\/DD HH:mm",
+  "colloquial_date_format": "ddd Do MMMM YYYY",
+
+
+/* Home Directory */
+
+/* home.hbs */
+
+  // "Dashboards": "Dashboards",
+  "Dashboards": "Themes",
+  "create now": "立刻提案",
+  "ERROR":"錯誤",
+  "OGP Toolbox": "OGP Toolbox",
+  "hackathon":"hackathon",
+  "Collections":"Collections",
+  "Projects":"提案",
+  "People":"參與者",
+  "team":"團隊",
+  "partners":"夥伴",
+  "The HackDash was born":"The HackDash was born by accident and by a need. We were looking for a platform to track ideas through hackathons in the line to the <a href=\"http://mediaparty.info/\" data-bypass=\"true\" target=\"__blank\">Hacks/Hackers Media Party</a> organized by <a href=\"https://twitter.com/HacksHackersBA\" data-bypass=\"true\" target=\"__blank\">@HacksHackersBA</a> where hackers and journalists share ideas. We spread the need through Twitter and that was the context of the HackDash born. <a href=\"https://twitter.com/blejman\" data-bypass=\"true\" target=\"__blank\">@blejman</a> had an idea and <a href=\"https://twitter.com/dzajdband\" data-bypass=\"true\" target=\"__blank\">@dzajdband</a> was interested in implement that idea. So we started building the app hoping we can get to the Buenos Aires Media Party with something that doesn't suck. The Media Party Hackathon day came followed by a grateful surprise. Not only the people liked the HackDash implementation but a couple of coders added the improvement of the HackDash as a Hackaton project. After the Media Party we realized that this small app was filling a real need. Three years later, the dashboard is becoming an standard to track innovative ideas around the world.<p><a class=\"up-button\">Create your own dashboard</a>, be part of a global community.</p>",
+
+/* collection.hbs */
+
+/* counts.hbs */
+
+"dashboards":"themes",
+"projects":"所有提案",
+"registered users":"registered users",
+"collections":"collections",
+"released projects":"released projects",
+
+/* footer.hbs */
+
+"up":"up",
+
+/* search.hbs */
+
+"Inform Progress to community.":"Inform Progress to community.",
+"Upload your project to the platform.":"Upload your project to the platform.",
+"find it":"find it",
+"Add Collaborators to your projects.":"Add Collaborators to your projects.",
+"Share your app to the world.":"Share your app to the world.",
+
+/* tabContent.hbs */
+
+"HEAD":"HEAD",
+
+/* Collections directory */
+
+/* list.hbs */
+
+"My Collections: adding":"My Collections: adding",
+
+/* listItem.hbs */
+
+"View":"View",
+
+/* Dashboard directory */
+
+/* addAdmin.hbs */
+
+"Warning! you will NOT":"Warning! you will NOT be able to delete this theme if you add an admin!",
+"type name or username":"type name or username",
+"cancel":"取消",
+
+/* index.hbs */
+
+"Open dashboard website":"Open theme website",
+"Share this Dashboard":"分享",
+"Create Project":"立刻提案",
+
+/* share.hbs */
+
+"embed this dashboard":"embed this theme",
+"Slider":"Slider",
+"ANY STATUS":"ANY STATUS",
+"Add this dashboard to your website by coping this code below":"Add this theme to your website by coping this code below",
+"By Name":"依名稱",
+"By Date":"依日期",
+"Showcase":"入選專案",
+"Share Link":"分享連結",
+"Preview":"預覽",
+"embedded_code":"The embedded code will show exactly what's below",
+
+
+/* users.hbs */
+
+"Add admins":"Add admins",
+
+
+/* Footer directory */
+
+/* footer.hbs */
+
+"Export .CSV File":"Export .CSV File",
+"Open":"Open",
+"Close":"Close",
+"Dashboard Status":"Dashboard Status",
+"off":"off",
+
+/* Header directory */
+
+/* header.hbs */
+
+"Log out":"登出",
+"Log in":"登入",
+
+/* Profile directory */
+
+/* card.hbs */
+
+"[ Log in to reveal e-mail ]":"[登入以顯示 e-mail]",
+
+/* cardEdit.hbs */
+
+"Edit Your Profile":"編輯個人資料",
+"all fields required":"所有欄位皆必填",
+"email only visible for logged in users":"email only visible for logged in users",
+"about_you":"關於自己",
+"saving...":"儲存中...",
+"Save profile":"儲存個人資料",
+"Profile saved, going back to business ...":"資人資料已儲存，繼續 ...",
+
+/* listItem.hbs */
+
+"Remove":"移除",
+
+/* profile.hbs */
+
+"Contributions":"貢獻者",
+"following":"正在追蹤",
+
+/* Project directory */
+
+/* card.hbs */
+
+"Join":"加入",
+"Follow":"追蹤",
+"Leave":"離開",
+"Unfollow":"停止追蹤",
+"Demo":"展示",
+
+/* edit.hbs */
+
+"Project Title":"專案名稱",
+"Import Project":"匯入專案",
+"GitHub":"GitHub",
+"LOADING":"LOADING",
+"import":"import",
+"Tags":"標籤（逗號分隔）",
+"Project URL Demo":"專案展示網址",
+"Save":"儲存",
+"Cancel":"取消",
+
+/* full.hbs */
+
+"leaving...":"leaving...",
+"joining...":"joining...",
+"unfollowing...":"unfollowing...",
+"Followers":"關注中",
+"following...":"following...",
+"Share this Project":"分享這個專案",
+"Proposed by":"提案人",
+"Contributors":"貢獻者",
+"Edit":"編輯",
+
+
+/* share.hbs */
+
+"embed this project":"embed this project",
+"Add this project to your website by coping this code below":"Add this project to your website by coping this code below",
+
+
+/* templates directory */
+
+"Access with":"Access with",
+"embed/insert":"內嵌/插入",
+
+
+/* ----------------------- js files ------------------------ */
+
+/* Sharer.js */
+
+"Hacking at":"Hacking at",
+
+/* Collection directory */
+
+/* Collection.js */
+
+"Collection of Hackathons Title":"Collection of Hackathons Title",
+"brief description of this collection of hackathons":"brief description of this collection of hackathons",
+
+/* List.js */
+
+" has been added to ":" has been added to ",
+" has been removed from ":" has been removed from ",
+
+/* Dashboard directory */
+
+/* Dashboard.js */
+
+"Hackathon Title":"Hackathon Title",
+"brief description of this hackathon":"brief description of this hackathon",
+"url to hackathon site":"url to hackathon site",
+
+/* Share.js */
+
+"Description":"Description",
+"Hackdash Logo":"Hackdash Logo",
+"Progress":"Progress",
+"Action Bar":"Action Bar",
+
+/* Footer directory */
+
+/* index.js */
+
+"This Dashboard is open: click to close":"This Dashboard is open: click to close",
+"This Dashboard is closed: click to reopen":"This Dashboard is closed: click to reopen",
+"turned_off":"apagado",
+"Edit Showcase":"Edit Showcase",
+"Save Showcase":"Save Showcase",
+
+/* Header directory */
+
+/* index.js */
+
+
+"Enter your keywords":"輸入關鍵字",
+
+/* Home directory */
+/* index.js */
+
+"5 to 10 chars, no spaces or special":"5 to 10 chars, no spaces or special",
+"Sorry, that one is in use. Try another one.":"Sorry, that one is in use. Try another one.",
+
+/* Profile directory */
+/* CardEdit.js */
+
+"Name is required":"名字為必填",
+"Email is required":"Email 為必填",
+"Invalid Email":"無效的 Email",
+
+/* ListItem.js */
+
+"Only the Owner can remove this Dashboard.":"Only the Owner can remove this Dashboard.",
+"Only Dashboards with ONE admin can be removed.":"Only Dashboards with ONE admin can be removed.",
+"Only Dashboards without Projects can be removed.":"Only Dashboards without Projects can be removed.",
+"This action will remove Dashboard ":"This action will remove Dashboard ",
+". Are you sure?":". Are you sure?",
+"cannot_remove_dashboard": "Cannot Remove {1} theme",
+
+/* Projects directory */
+/* Edit.js */
+
+"Title is required":"Title is required",
+"Description is required":"Description is required",
+"Drop Image Here":"Drop Image Here",
+"File is too big, 500 Kb is the max":"File is too big, 500 Kb is the max",
+"Only jpg, png and gif are allowed":"Only jpg, png and gif are allowed",
+
+/* Full.js */
+
+"This project is going to be deleted. Are you sure?":"This project is going to be deleted. Are you sure?",
+
+/* Share.js */
+
+"Picture":"Picture",
+"Title":"Title",
+
+};
+
+},{}],11:[function(require,module,exports){
 /**
  * Collection: Administrators of a Dashboard
  *
@@ -1084,7 +1369,7 @@ module.exports = Users.extend({
 });
 
 
-},{"./User":15,"./Users":16}],11:[function(require,module,exports){
+},{"./User":16,"./Users":17}],12:[function(require,module,exports){
 
 module.exports = Backbone.Collection.extend({
 
@@ -1097,7 +1382,7 @@ module.exports = Backbone.Collection.extend({
   }
 
 });
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /**
  * MODEL: Project
  *
@@ -1165,7 +1450,7 @@ module.exports = Backbone.Model.extend({
 });
 
 
-},{"./Admins":10}],13:[function(require,module,exports){
+},{"./Admins":11}],14:[function(require,module,exports){
 /**
  * MODEL: Project
  *
@@ -1290,7 +1575,7 @@ module.exports = Backbone.Model.extend({
 });
 
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * Collection: Projectss
  *
@@ -1423,7 +1708,7 @@ var Projects = module.exports = BaseCollection.extend({
 
 });
 
-},{"./BaseCollection":11,"./Project":13}],15:[function(require,module,exports){
+},{"./BaseCollection":12,"./Project":14}],16:[function(require,module,exports){
 /**
  * MODEL: User
  *
@@ -1435,7 +1720,7 @@ module.exports = Backbone.Model.extend({
 
 });
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * Collection: Users
  *
@@ -1458,7 +1743,7 @@ module.exports = BaseCollection.extend({
 });
 
 
-},{"./BaseCollection":11,"./User":15}],17:[function(require,module,exports){
+},{"./BaseCollection":12,"./User":16}],18:[function(require,module,exports){
 /**
  * VIEW: DashboardHeader Layout
  *
@@ -1566,7 +1851,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   },
 
 });
-},{"./templates/dashboard.hbs":19}],18:[function(require,module,exports){
+},{"./templates/dashboard.hbs":20}],19:[function(require,module,exports){
 /**
  * VIEW: Dashboard Projects Layout
  *
@@ -1743,7 +2028,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
 
 });
-},{"../Home/EntityList":21,"../Project/Card":24,"../Project/Collection":25,"./Dashboard":17,"./templates/index.hbs":20}],19:[function(require,module,exports){
+},{"../Home/EntityList":22,"../Project/Card":25,"../Project/Collection":26,"./Dashboard":18,"./templates/index.hbs":21}],20:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -1788,7 +2073,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   else { return ''; }
   },"useData":true});
 
-},{"hbsfy/runtime":36}],20:[function(require,module,exports){
+},{"hbsfy/runtime":37}],21:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -1837,10 +2122,10 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   stack1 = ((helper = (helper = helpers.isDashOpen || (depth0 != null ? depth0.isDashOpen : depth0)) != null ? helper : helperMissing),(options={"name":"isDashOpen","hash":{},"fn":this.program(7, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isDashOpen) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n  </div>\n</div>\n\n<div class=\"body\">\n\n  <div class=\"container\">\n\n    <div id=\"dashboard-projects\"></div>\n    <div id=\"inactive-projects\" class=\"hide inactive-ctn\"></div>\n\n  </div>\n\n</div>\n";
+  return buffer + "\n  </div>\n</div>\n\n<div class=\"body\">\n\n  <div class=\"container\">\n\n    <div id=\"dashboard-projects\" class=\"section\"></div>\n    <div id=\"inactive-projects\" class=\"hide inactive-ctn\"></div>\n\n  </div>\n\n</div>\n";
 },"useData":true});
 
-},{"hbsfy/runtime":36}],21:[function(require,module,exports){
+},{"hbsfy/runtime":37}],22:[function(require,module,exports){
 /**
  * VIEW: A collection of Items for a Home Search
  *
@@ -1972,7 +2257,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   }
 
 });
-},{"./Item":22}],22:[function(require,module,exports){
+},{"./Item":23}],23:[function(require,module,exports){
 /**
  * VIEW: An Item of HOME Search
  *
@@ -2030,7 +2315,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
 
 });
-},{"./templates/item.hbs":23}],23:[function(require,module,exports){
+},{"./templates/item.hbs":24}],24:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -2040,7 +2325,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
     + "</div>";
 },"useData":true});
 
-},{"hbsfy/runtime":36}],24:[function(require,module,exports){
+},{"hbsfy/runtime":37}],25:[function(require,module,exports){
 /**
  * VIEW: An Project of HOME Search
  *
@@ -2206,7 +2491,7 @@ module.exports = ItemView.extend({
 
 });
 
-},{"../Home/Item.js":22,"./templates/card.hbs":27}],25:[function(require,module,exports){
+},{"../Home/Item.js":23,"./templates/card.hbs":28}],26:[function(require,module,exports){
 /**
  * VIEW: Projects of an Instance
  *
@@ -2341,7 +2626,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
       keepOrder: false,
       selector: '.entity',
       cellW: 200,
-      cellH: 200,
+      cellH: 300,
       gutterY: this.gutter,
       gutterX: this.gutter,
       onResize: this.refresh.bind(this),
@@ -2381,7 +2666,8 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   },
 
 });
-},{"./Card":24}],26:[function(require,module,exports){
+
+},{"./Card":25}],27:[function(require,module,exports){
 /**
  * VIEW: An Embed Project
  *
@@ -2448,7 +2734,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   }
 
 });
-},{"./templates/embed.hbs":28}],27:[function(require,module,exports){
+},{"./templates/embed.hbs":29}],28:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -2623,7 +2909,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   return buffer;
 },"useData":true,"useDepths":true});
 
-},{"hbsfy/runtime":36}],28:[function(require,module,exports){
+},{"hbsfy/runtime":37}],29:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
@@ -2727,7 +3013,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   return buffer;
 },"useData":true});
 
-},{"hbsfy/runtime":36}],29:[function(require,module,exports){
+},{"hbsfy/runtime":37}],30:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var base = require("./handlebars/base");
@@ -2763,7 +3049,7 @@ Handlebars.create = create;
 Handlebars['default'] = Handlebars;
 
 exports["default"] = Handlebars;
-},{"./handlebars/base":30,"./handlebars/exception":31,"./handlebars/runtime":32,"./handlebars/safe-string":33,"./handlebars/utils":34}],30:[function(require,module,exports){
+},{"./handlebars/base":31,"./handlebars/exception":32,"./handlebars/runtime":33,"./handlebars/safe-string":34,"./handlebars/utils":35}],31:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -2995,7 +3281,7 @@ var createFrame = function(object) {
   return frame;
 };
 exports.createFrame = createFrame;
-},{"./exception":31,"./utils":34}],31:[function(require,module,exports){
+},{"./exception":32,"./utils":35}],32:[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -3024,7 +3310,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -3218,7 +3504,7 @@ exports.noop = noop;function initData(context, data) {
   }
   return data;
 }
-},{"./base":30,"./exception":31,"./utils":34}],33:[function(require,module,exports){
+},{"./base":31,"./exception":32,"./utils":35}],34:[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -3230,7 +3516,7 @@ SafeString.prototype.toString = function() {
 };
 
 exports["default"] = SafeString;
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var SafeString = require("./safe-string")["default"];
@@ -3319,12 +3605,12 @@ exports.isEmpty = isEmpty;function appendContextPath(contextPath, id) {
 }
 
 exports.appendContextPath = appendContextPath;
-},{"./safe-string":33}],35:[function(require,module,exports){
+},{"./safe-string":34}],36:[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime');
 
-},{"./dist/cjs/handlebars.runtime":29}],36:[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":30}],37:[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":35}]},{},[6]);
+},{"handlebars/runtime":36}]},{},[6]);

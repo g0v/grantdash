@@ -132,7 +132,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
       keepOrder: false,
       selector: '.entity',
       cellW: 200,
-      cellH: 200,
+      cellH: 300,
       gutterY: this.gutter,
       gutterX: this.gutter,
       onResize: this.refresh.bind(this),

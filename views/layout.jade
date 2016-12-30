@@ -20,12 +20,15 @@ html
     meta(property='twitter:description', content= meta.description)
     meta(property='twitter:image:src', content= meta.image)
 
-    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-    link(rel="icon", href="/favicon.ico", type="image/x-icon")
+    link(rel="shortcut icon", href="/favicon.png", type="image/x-icon")
+    link(rel="icon", href="/favicon.png", type="image/x-icon")
 
-    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Oswald:400,700,300|Montserrat:400,700')
+    //-link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Oswald:400,700,300|Montserrat:400,700')
+    link(href="https://fonts.googleapis.com/earlyaccess/notosanstc.css",rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Roboto",rel="stylesheet")
 
     link(rel='stylesheet', href='/styles/vendor.css?v=' + version)
+    link(rel="stylesheet", href="/styles/addon.css")
 
     block styles
 
