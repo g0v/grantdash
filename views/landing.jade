@@ -13,4 +13,7 @@ block scripts
   script.
     $(function(){
       window.hackdash.startApp();
+      if (!window.hackdash.user && document.location.pathname === '/login') {
+        hackdash.app.showLogin();
+      }
     });
