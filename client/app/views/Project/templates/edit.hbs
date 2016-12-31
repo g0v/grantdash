@@ -76,22 +76,20 @@
       <div class="link">
         <input id="link" type="text" name="link" placeholder='{{__ "Project URL Demo"}}' class="form-control" value="{{link}}"/>
       </div>
-    </div>
 
-    <div class="col-md-8 buttons-panel">
-
-      <div class="pull-right save">
-        <a id="save" class="btn btn-success">{{__ "Save"}}</a>
-      </div>
-
-      <div class="pull-right cancel">
-        <a id="cancel" class="btn btn-danger"
-          {{#if _id}}
-          href="/projects/{{_id}}"
-          {{else}}
-          href="/dashboards/{{domain}}"
-          {{/if}}
-        >{{__ "Cancel"}}</a>
+      <div class="pull-right buttons-panel">
+        <div class="pull-right save">
+          <a id="save" class="btn btn-success">{{__ "Save"}}</a>
+        </div>
+        <div class="pull-right cancel">
+          <a id="cancel" class="btn btn-danger"
+            {{#if _id}}
+            href="/projects/{{_id}}"
+            {{else}}
+            href="/dashboards/{{domain}}"
+            {{/if}}
+          >{{__ "Cancel"}}</a>
+        </div>
       </div>
 
     </div>
