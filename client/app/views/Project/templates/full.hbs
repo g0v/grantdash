@@ -1,6 +1,7 @@
 
 <div class="header">
   <div class="container">
+    <label>提案</habel>
     <h1>{{title}}</h1>
     <h3 class="page-link-left">
       <a href="/dashboards/{{domain}}">{{domain}}</a>
@@ -84,7 +85,7 @@
         </div>
 
         <div class="clearfix follower">
-          <h5>{{__ "Followers"}} [{{followers.length}}]</h5>
+          <h5>{{__ "Followers"}} <span class="badge">{{followers.length}}</span></h5>
           {{#each followers}}
           <a class="pull-left" href="/users/{{_id}}">
             {{getProfileImageHex .}}
@@ -97,6 +98,7 @@
     </div>
 
     <div class="col-md-8">
+      <hr class="visible-xs visible-sm visible-md">
       <div class="description">
         {{{markdown description}}}
       </div>

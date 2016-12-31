@@ -604,7 +604,7 @@ footer {
   &.project {
 
     .header {
-      background-color: @color-project;
+      background: none;
       padding: 50px 0 20px;
 
       h1 {
@@ -617,7 +617,14 @@ footer {
       .container {
         color: @color-black;
         max-width: 900px;
-
+        padding-top: 30px;
+        & > label {
+          font-weight: 300;
+        }
+        h1 {
+          margin: 0;
+          padding: 0;
+        }
         .page-link-left,
         .page-link-right {
           background-color: @color-project;
@@ -634,7 +641,7 @@ footer {
       background-color: transparent;
 
       .bg-body-entity{
-        background-color: @color-project;
+        background: none;
         height: 200px;
       }
 
@@ -644,6 +651,10 @@ footer {
         margin: -200px auto 0 auto;
         background-color: @color-white;
         border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        @media (max-width: 768px) {
+          border-radius: 0;
+        }
 
         padding-top: 40px;
         padding-bottom: 60px;
@@ -755,7 +766,6 @@ footer {
         }
 
         .people {
-          margin: 20px 0;
 
           .hexagon {
             .getHexagon(40px);
@@ -812,7 +822,7 @@ footer {
           display: inline-block;
           margin-top: 20px;
           position: absolute;
-          bottom: 0;
+          bottom: 20px;
           right: 0;
 
           .btn {
@@ -1506,6 +1516,14 @@ footer {
             display: none;
           }
 
+          @media (max-width: 991px) {
+            .top-buttons {
+              display: inline-block;
+              float: right;
+              width: 100px;
+            }
+          }
+
           .top-buttons {
             display: inline-block;
 
@@ -1647,4 +1665,8 @@ footer {
       width: 95%;
     }
   }
+}
+
+.brainstorming {
+  background: url(../images/landing.png) top center no-repeat;
 }
