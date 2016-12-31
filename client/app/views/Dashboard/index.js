@@ -7,7 +7,8 @@ var template = require('./templates/index.hbs')
   , UsersView = require('./Users')
   , DashboardView = require('./Dashboard')
   , ProjectsView = require('../Project/Collection')
-  , Sharer = require("../Sharer");
+  , Sharer = require("../Sharer")
+  , Search = require('./Search');
 
 module.exports = Backbone.Marionette.LayoutView.extend({
 
@@ -32,7 +33,8 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     "dashboard": ".dash-details",
     "admins": ".dash-admins",
     "projects": "#dashboard-projects",
-    "inactives": "#inactive-projects"
+    "inactives": "#inactive-projects",
+    "search": ".dash-search"
   },
 
   modelEvents:{
@@ -60,6 +62,13 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   onRender: function(){
     var self = this;
+
+    this.search.show(new Search({
+      showSort: true,
+      placeholder: __("Enter your keywords"),
+      model: this.model,
+      collection: this.collection
+    }));
 
     this.dashboard.show(new DashboardView({
       model: this.model

@@ -12,15 +12,32 @@
 
     <div class="dash-buttons">
       {{#if link}}
-        <a class="link tooltips" href="{{link}}" target="_blank"
+        <a class="link tooltips btn btn-primary" href="{{link}}" target="_blank"
         data-bypass data-original-title='{{__ "Open dashboard website"}}'>
           <i class="fa fa-link"></i>
         </a>
       {{/if}}
-      <a class="share tooltips" data-original-title='{{__ "Share this Dashboard"}}'>
+      <a class="share tooltips btn btn-primary" data-original-title='{{__ "Share this Dashboard"}}'>
         <i class="fa fa-share-alt"></i>
       </a>
+
+      {{#if open}}
+        {{#isLoggedIn}}
+        <a class="btn btn-primary" href="/dashboards/{{domain}}/create">
+          <i class="fa fa-plus"></i>
+          {{__ "Create Project"}}
+        </a>
+        {{else}}
+        <a class="login" class="btn btn-primary">
+          <i class="fa fa-plus"></i>
+          {{__ "Create Project"}}
+        </a>
+        {{endif}}
+        {{/isLoggedIn}}
+      {{/if}}
+
     </div>
+    <div class="pull-right dash-search"></div>
 
     {{#isDashOpen}}
     <div class="dash-create">

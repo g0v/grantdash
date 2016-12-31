@@ -1,6 +1,6 @@
 var
-    template = require('./templates/header.hbs')
-  , Search = require('./Search');
+    template = require('./templates/header.hbs');
+//  , Search = require('./Search');
 
 module.exports = Backbone.Marionette.LayoutView.extend({
 
@@ -17,7 +17,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   },
 
   regions: {
-    "search": ".search-ctn"
+    //"search": ".search-ctn"
   },
 
   events: {
@@ -51,12 +51,14 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     switch(hackdash.app.type){
 
       case "dashboard":
+        /*
         this.search.show(new Search({
           showSort: true,
           placeholder: __("Enter your keywords"),
           model: this.model,
           collection: this.collection
         }));
+        */
         break;
     }
 

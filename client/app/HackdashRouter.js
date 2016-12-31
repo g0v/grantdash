@@ -123,7 +123,8 @@ module.exports = Backbone.Marionette.AppRouter.extend({
           }));
 
           app.main.show(new DashboardView({
-            model: app.dashboard
+            model: app.dashboard,
+            collection: app.projects
           }));
 
           app.footer.show(new Footer({
