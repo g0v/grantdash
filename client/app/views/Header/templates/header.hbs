@@ -30,6 +30,8 @@
             <li><a href="/logout">{{__ "Log out"}}</a></li>
           </ul>
         </li>
+        {{else}}
+        <li><a class="login">{{__ "Log in"}}</a></li>
         {{/isLoggedIn}}
       </ul>
       <form class="navbar-form navbar-right">
