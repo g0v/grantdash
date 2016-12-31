@@ -1,8 +1,12 @@
 
-<p style="margin:23px 15px 0 0;float:right">powered by hackdash.org</p>
+<p class="visible-md">powered by hackdash.org</p>
+<p class="hidden-md">powered by <br>hackdash.org</p>
+<!-- we dont need another logo if navtop is fixed
 <a class="brand {{#if isDashboard}}{{#if isAdmin}}dashboard-footer{{/if}}{{/if}}">
-  <img src="/images/static/brand.png" style="padding:13px"/>
+  <img class="hidden-lg" src="/images/static/logo-white.png" style="padding:13px;height:52px"/>
+  <img class="visible-lg" src="/images/static/brand.png" style="padding:13px;height:52px"/>
 </a>
+-->
 
 {{#if isDashboard}}
   {{#if isAdmin}}

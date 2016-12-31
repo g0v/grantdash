@@ -181,7 +181,6 @@ footer, #main:after {
 }
 
 footer {
-
   .footer {
     background-color: @color-blackB;
 
@@ -192,6 +191,15 @@ footer {
 
     position: fixed;
 
+    p {
+      margin: 23px 15px 0 0;
+      float: right;
+      color: #fff;
+    }
+    p.hidden-md {
+      margin-top: 15px;
+      font-size: 0.8em
+    }
     &.unlocked {
       position: relative;
     }
@@ -1045,7 +1053,19 @@ footer {
           float: right;
           max-width: 400px;
           width: 100%;
+          margin-top: -32px;
+          label {
+            font-weight: 300;
+            font-size: 0.9em;
+          }
         }
+        @media (max-width: 768px) {
+          .dash-search {
+            float: none!important;
+            margin-top: 20px;
+          }
+        }
+        
         .dash-buttons {
           display: inline-block;
 

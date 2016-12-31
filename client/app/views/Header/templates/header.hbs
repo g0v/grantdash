@@ -2,28 +2,12 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button class="navbar-toggle collaped" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"><i class="fa fa-bars"/></button>
       <a href="/" data-bypass class="navbar-brand">
         <img src="/images/static/brand.png"/><sup style="color:#ff9"></sup>
       </a>
     </div>
-    <a class="btn btn-default mobile-menu visible-xs">
-      <i class="fa fa-align-justify"></i>
-    </a>
-    <div class="collapse navbar-collapse">
-      <!--
-      <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile">
-        {{#isLoggedIn}}
-        <div class="pull-right col-xs-3 col-md-3">
-          <a class="btn-profile">
-            {{getMyProfileImageHex}}
-          </a>
-          <a class="logout" href="/logout" data-bypass>{{__ "Log out"}}</a>
-        </div>
-        {{else}}
-        <a class="login">{{__ "Log in"}}</a>
-        {{/isLoggedIn}}
-      </div>
-      -->
+    <div id="navbar-collapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/dashboards/2017spring">提案列表</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about">關於 Grant</a></li>
@@ -32,7 +16,11 @@
         <li><a data-scroll="data-scroll" data-bypass href="/about#team">執行團隊</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about#partners">合作夥伴</a></li>
         {{#isLoggedIn}}
-        <li class="dropdown my-profile">
+        <li class="visible-md visible-sm visible-xs my-profile"><a class="btn-profile">
+          {{getMyProfileImageHex}}
+        </a></li>
+        <li class="visible-md visible-sm visible-xs"><a href="/logout">{{__ "Log out"}}</a></li>
+        <li class="dropdown my-profile hidden-md hidden-sm hidden-xs">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button">
             {{getMyProfileImageHex}}
           </a>
@@ -50,27 +38,3 @@
     </div>
   </div>
 </nav>
-<div class="hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn"></div>
-
-<!--
-<div class="row main-header">
-
-  <div class="hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn"></div>
-
-  <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile">
-    {{#isLoggedIn}}
-    <div class="pull-right col-xs-3 col-md-3">
-      <a class="btn-profile">
-        {{getMyProfileImageHex}}
-      </a>
-      <a class="logout" href="/logout" data-bypass>{{__ "Log out"}}</a>
-    </div>
-    {{else}}
-    <a class="login">{{__ "Log in"}}</a>
-    {{/isLoggedIn}}
-  </div>
-
-  <a class="logo" href="{{hackdashURL}}" data-bypass></a>
-
-</div>
--->
