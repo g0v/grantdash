@@ -12,8 +12,11 @@
   height: 100%;
 }
 
-.entity {
+a.entity:hover, a.entity:focus {
+  text-decoration: none;
+}
 
+.entity {
   font-family: @primary-font;
   background-color: @color-white;
 
@@ -29,8 +32,6 @@
   transition: all 0.1s ease-in-out;
 
   &:hover {
-    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
-    top:-2px;
   }
 
   .progress {
@@ -58,8 +59,9 @@
 
   .cover {
     width: 100%;
-    height: 70%;
+    height: 180px;
     background-color: @color-project;
+    border-bottom: 8px solid @color-orange;
 
     .item-letter {
       color: @color-white;
@@ -76,7 +78,6 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: auto;
       height: 100%;
     }
   }
@@ -111,10 +112,10 @@
     }
 
     .description {
-      font-size: @fsize-12;
+      font-size: @fsize-15;
       color: @color-black;
       overflow: hidden;
-      max-height: 100px;
+      max-height: @fsize-15 * 5.5;
       padding: 0 5px;
     }
   }
@@ -122,12 +123,11 @@
   &.project,
   &.dashboard,
   &.collection {
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 3px 1px 0 rgba(0,0,0,0.3);
     border-radius: 5px;
     overflow: hidden;
-    border: 1px solid #444;
 
     .cover {
 
@@ -138,7 +138,8 @@
       .item-cover,
       .item-letter {
         background-size: cover;
-        background-position: 0 0;
+        background-position: center center;
+        background-repeat: none;
         width: 100%;
 
         height:auto;
@@ -223,6 +224,7 @@
           img {
             width: 30px;
             height: 30px;
+            border: 1px solid #444;
             border-radius: 50%;
           }
 
@@ -267,7 +269,6 @@
         h2 {
           overflow: hidden;
           font-size: @fsize-17;
-          height: 125px;
           line-height: 1.25em;
         }
 
@@ -282,7 +283,6 @@
             color: @color-dark;
 
             &:hover {
-              text-decoration: underline;
             }
           }
         }
@@ -304,7 +304,8 @@
       }
 
       .fa {
-        padding-top: 0px;
+        padding-top: 1px;
+        font-size: 22px;
       }
 
     }
@@ -318,14 +319,6 @@
         clear: both;
         display: inline-block;
       }
-    }
-
-    .details {
-
-      .description {
-        display:none;
-      }
-
     }
 
   }
@@ -468,8 +461,12 @@
         >div {
 
           h2 {
-            height: 57px;
-            font-size: @fsize-14;
+            height: 36px;
+            font-size: @fsize-17;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: @color-black;
           }
 
           h3 {
@@ -477,16 +474,14 @@
           }
 
           .description {
-            display: none;
             font-size: @fsize-12;
-            color: @color-white;
           }
         }
 
       }
 
       .contributors {
-        bottom: 28px;
+        bottom: 36px;
       }
 
       .action-bar {
@@ -537,7 +532,6 @@
             .description {
               display: none;
               font-size: @fsize-12;
-              color: @color-white;
             }
           }
 

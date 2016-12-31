@@ -1005,6 +1005,8 @@ module.exports = {
 
   setLocale: function(lan) {
     //console.log(`i18n: setting Language [${lan}]`);
+    // XXX force zh-TW for now
+    lan = 'zh-TW';
     if (!locales.hasOwnProperty(lan)){
 
       if (lan.indexOf('-') > -1 || lan.indexOf('_') > -1){
@@ -2110,7 +2112,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helper = (helper = helpers.endif || (depth0 != null ? depth0.endif : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"endif","hash":{},"data":data}) : helper)))
     + "\n";
 },"12":function(depth0,helpers,partials,data) {
-  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "    <div class=\"dash-create visible-xs\">\n      <h3 class=\"create-project\">\n        <i class=\"fa fa-plus\"></i>\n";
+  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "    <div class=\"dash-create\">\n      <h3 class=\"create-project\">\n        <i class=\"fa fa-plus\"></i>\n";
   stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(13, data),"inverse":this.program(15, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
@@ -2128,7 +2130,9 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Create Project", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, escapeExpression=this.escapeExpression, buffer = "\n<div class=\"header\">\n  <div class=\"container\">\n\n";
+  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing, buffer = "\n<div class=\"header dashboard-"
+    + escapeExpression(((helper = (helper = helpers.domain || (depth0 != null ? depth0.domain : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"domain","hash":{},"data":data}) : helper)))
+    + "\">\n  <div class=\"container\">\n\n";
   stack1 = ((helper = (helper = helpers.isEmbed || (depth0 != null ? depth0.isEmbed : depth0)) != null ? helper : helperMissing),(options={"name":"isEmbed","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isEmbed) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
@@ -2140,11 +2144,13 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "'>\n        <i class=\"fa fa-share-alt\"></i>\n      </a>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(7, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "\n    </div>\n    <div class=\"pull-right dash-search\"></div>\n\n";
+  buffer += "\n    </div>\n    <div class=\"pull-right dash-search\"></div>\n    <!--\n";
   stack1 = ((helper = (helper = helpers.isDashOpen || (depth0 != null ? depth0.isDashOpen : depth0)) != null ? helper : helperMissing),(options={"name":"isDashOpen","hash":{},"fn":this.program(12, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isDashOpen) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n  </div>\n</div>\n\n<div class=\"body\">\n\n  <div class=\"container\">\n\n    <div id=\"dashboard-projects\" class=\"section\"></div>\n    <div id=\"inactive-projects\" class=\"hide inactive-ctn\"></div>\n\n  </div>\n\n</div>\n";
+  return buffer + "    -->\n  </div>\n</div>\n\n<div class=\"body dashboard-"
+    + escapeExpression(((helper = (helper = helpers.domain || (depth0 != null ? depth0.domain : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"domain","hash":{},"data":data}) : helper)))
+    + "\">\n\n  <div class=\"container\">\n\n    <div id=\"dashboard-projects\" class=\"section\"></div>\n    <div id=\"inactive-projects\" class=\"hide inactive-ctn\"></div>\n\n  </div>\n\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":37}],22:[function(require,module,exports){
@@ -2636,12 +2642,12 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   //--------------------------------------
 
   updateGrid: function(){
-    var self = this;
+    //var self = this;
 
-    if (!this.wall){
-      this.wall = new window.freewall(this.$el);
-    }
-
+    //if (!this.wall){
+    //-  this.wall = new window.freewall(this.$el);
+    //}
+    /*
     this.wall.reset({
       draggable: this.showcaseMode,
       animate: true,
@@ -2666,7 +2672,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
         self.model.isDirty = true;
       }
     });
-
+    */
     if (this.showcaseMode){
       this.$el.addClass("showcase");
       this.sortByShowcase();
@@ -2678,8 +2684,8 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   },
 
   refresh: function(){
-    this.wall.fitWidth();
-    this.wall.refresh();
+    //this.wall.fitWidth();
+    //this.wall.refresh();
     this.fixSize();
   },
 

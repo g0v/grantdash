@@ -120,12 +120,12 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   //--------------------------------------
 
   updateGrid: function(){
-    var self = this;
+    //var self = this;
 
-    if (!this.wall){
-      this.wall = new window.freewall(this.$el);
-    }
-
+    //if (!this.wall){
+    //-  this.wall = new window.freewall(this.$el);
+    //}
+    /*
     this.wall.reset({
       draggable: this.showcaseMode,
       animate: true,
@@ -150,7 +150,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
         self.model.isDirty = true;
       }
     });
-
+    */
     if (this.showcaseMode){
       this.$el.addClass("showcase");
       this.sortByShowcase();
@@ -162,8 +162,8 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   },
 
   refresh: function(){
-    this.wall.fitWidth();
-    this.wall.refresh();
+    //this.wall.fitWidth();
+    //this.wall.refresh();
     this.fixSize();
   },
 

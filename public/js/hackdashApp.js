@@ -1242,6 +1242,8 @@ module.exports = {
 
   setLocale: function(lan) {
     //console.log(`i18n: setting Language [${lan}]`);
+    // XXX force zh-TW for now
+    lan = 'zh-TW';
     if (!locales.hasOwnProperty(lan)){
 
       if (lan.indexOf('-') > -1 || lan.indexOf('_') > -1){
@@ -2815,9 +2817,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
         self.lastSearch = keyword;
 
         self.updateURL();
-        console.log("ok[");
         self.collection.search(keyword);
-        console.log("]ok");
 
         var top = $('#dashboard-projects').offset().top;
         var offset = self.$el.parent().height();
@@ -3506,7 +3506,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helper = (helper = helpers.endif || (depth0 != null ? depth0.endif : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"endif","hash":{},"data":data}) : helper)))
     + "\n";
 },"12":function(depth0,helpers,partials,data) {
-  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "    <div class=\"dash-create visible-xs\">\n      <h3 class=\"create-project\">\n        <i class=\"fa fa-plus\"></i>\n";
+  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "    <div class=\"dash-create\">\n      <h3 class=\"create-project\">\n        <i class=\"fa fa-plus\"></i>\n";
   stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(13, data),"inverse":this.program(15, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
@@ -3524,7 +3524,9 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Create Project", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, escapeExpression=this.escapeExpression, buffer = "\n<div class=\"header\">\n  <div class=\"container\">\n\n";
+  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing, buffer = "\n<div class=\"header dashboard-"
+    + escapeExpression(((helper = (helper = helpers.domain || (depth0 != null ? depth0.domain : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"domain","hash":{},"data":data}) : helper)))
+    + "\">\n  <div class=\"container\">\n\n";
   stack1 = ((helper = (helper = helpers.isEmbed || (depth0 != null ? depth0.isEmbed : depth0)) != null ? helper : helperMissing),(options={"name":"isEmbed","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isEmbed) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
@@ -3536,11 +3538,13 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "'>\n        <i class=\"fa fa-share-alt\"></i>\n      </a>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(7, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "\n    </div>\n    <div class=\"pull-right dash-search\"></div>\n\n";
+  buffer += "\n    </div>\n    <div class=\"pull-right dash-search\"></div>\n    <!--\n";
   stack1 = ((helper = (helper = helpers.isDashOpen || (depth0 != null ? depth0.isDashOpen : depth0)) != null ? helper : helperMissing),(options={"name":"isDashOpen","hash":{},"fn":this.program(12, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isDashOpen) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n  </div>\n</div>\n\n<div class=\"body\">\n\n  <div class=\"container\">\n\n    <div id=\"dashboard-projects\" class=\"section\"></div>\n    <div id=\"inactive-projects\" class=\"hide inactive-ctn\"></div>\n\n  </div>\n\n</div>\n";
+  return buffer + "    -->\n  </div>\n</div>\n\n<div class=\"body dashboard-"
+    + escapeExpression(((helper = (helper = helpers.domain || (depth0 != null ? depth0.domain : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"domain","hash":{},"data":data}) : helper)))
+    + "\">\n\n  <div class=\"container\">\n\n    <div id=\"dashboard-projects\" class=\"section\"></div>\n    <div id=\"inactive-projects\" class=\"hide inactive-ctn\"></div>\n\n  </div>\n\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":101}],41:[function(require,module,exports){
@@ -3880,11 +3884,17 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   className: "container-fluid",
   template: template,
 
+  ui: {
+    mobileMenu: ".mobile-menu",
+    tabs: ".nav-tabs"
+  },
+
   regions: {
     //"search": ".search-ctn"
   },
 
   events: {
+    "click @ui.mobileMenu": "toggleMobileMenu",
     "click .login": "showLogin",
     "click .btn-profile": "openProfile"
   },
@@ -3943,6 +3953,17 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   //+ EVENT HANDLERS
   //--------------------------------------
 
+  toggleMobileMenu: function(){
+    if (this.ui.mobileMenu.is(':visible')){
+      if (this.ui.tabs.hasClass('hidden')){
+        this.ui.tabs.removeClass('hidden');
+      }
+      else {
+        this.ui.tabs.addClass('hidden');
+      }
+    }
+  },
+
   openProfile: function(e){
     e.preventDefault();
 
@@ -3973,19 +3994,35 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "        <div class=\"pull-right col-xs-3 col-md-3\">\n          <a class=\"btn-profile\">\n            "
+    + escapeExpression(((helper = (helper = helpers.getMyProfileImageHex || (depth0 != null ? depth0.getMyProfileImageHex : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"getMyProfileImageHex","hash":{},"data":data}) : helper)))
+    + "\n          </a>\n          <a class=\"logout\" href=\"/logout\" data-bypass>"
+    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log out", {"name":"__","hash":{},"data":data})))
+    + "</a>\n        </div>\n";
+},"3":function(depth0,helpers,partials,data) {
+  var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "        <a class=\"login\">"
+    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log in", {"name":"__","hash":{},"data":data})))
+    + "</a>\n";
+},"5":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "    <div class=\"pull-right col-xs-3 col-md-3\">\n      <a class=\"btn-profile\">\n        "
     + escapeExpression(((helper = (helper = helpers.getMyProfileImageHex || (depth0 != null ? depth0.getMyProfileImageHex : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"getMyProfileImageHex","hash":{},"data":data}) : helper)))
     + "\n      </a>\n      <a class=\"logout\" href=\"/logout\" data-bypass>"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log out", {"name":"__","hash":{},"data":data})))
     + "</a>\n    </div>\n";
-},"3":function(depth0,helpers,partials,data) {
+},"7":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "    <a class=\"login\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log in", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, escapeExpression=this.escapeExpression, buffer = "\n<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a href=\"#\" class=\"navbar-brand\">\n        <img src=\"/images/static/brand.png\"/><sup style=\"color:#ff9\"></sup>\n      </a>\n    </div>\n    <div class=\"collapse navbar-collapse\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a data-scroll=\"data-scroll\" href=\"/#about\">關於 Grant</a></li>\n        <li><a data-scroll=\"data-scroll\" href=\"/#schedule\">活動辦法</a></li>\n        <li><a data-scroll=\"data-scroll\" href=\"/#faq\">常見問題</a></li>\n        <li><a data-scroll=\"data-scroll\" href=\"/#team\">執行團隊</a></li>\n        <li><a data-scroll=\"data-scroll\" href=\"/#partners\">合作夥伴</a></li>\n      </ul>\n      <form class=\"navbar-form navbar-right\">\n        <a href=\"/dashboards/2017spring\" class=\"btn btn-warning\"><i class=\"fa fa-plus\"></i> 我要提案</a>\n      </form>\n    </div>\n  </div>\n</nav>\n<div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n<!--\n<div class=\"row main-header\">\n\n  <div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n  <div class=\"col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile\">\n";
+  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, escapeExpression=this.escapeExpression, buffer = "\n<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a href=\"/\" data-bypass class=\"navbar-brand\">\n        <img src=\"/images/static/brand.png\"/><sup style=\"color:#ff9\"></sup>\n      </a>\n    </div>\n    <a class=\"btn btn-default mobile-menu visible-xs\">\n      <i class=\"fa fa-align-justify\"></i>\n    </a>\n    <div class=\"collapse navbar-collapse\">\n      <div class=\"col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile\">\n";
   stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "      </div>\n      <ul class=\"nav navbar-nav navbar-right nav-tabs\" role=\"tablist\">\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about\">關於 Grant</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#schedule\">活動辦法</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#faq\">常見問題</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#team\">執行團隊</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#partners\">合作夥伴</a></li>\n      </ul>\n      <form class=\"navbar-form navbar-right\">\n        <a href=\"/dashboards/2017spring\" class=\"btn btn-warning\"><i class=\"fa fa-plus\"></i> 我要提案</a>\n      </form>\n    </div>\n  </div>\n</nav>\n<div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n<!--\n<div class=\"row main-header\">\n\n  <div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n  <div class=\"col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile\">\n";
+  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(5, data),"inverse":this.program(7, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
   return buffer + "  </div>\n\n  <a class=\"logo\" href=\""
@@ -6091,12 +6128,12 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   //--------------------------------------
 
   updateGrid: function(){
-    var self = this;
+    //var self = this;
 
-    if (!this.wall){
-      this.wall = new window.freewall(this.$el);
-    }
-
+    //if (!this.wall){
+    //-  this.wall = new window.freewall(this.$el);
+    //}
+    /*
     this.wall.reset({
       draggable: this.showcaseMode,
       animate: true,
@@ -6121,7 +6158,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
         self.model.isDirty = true;
       }
     });
-
+    */
     if (this.showcaseMode){
       this.$el.addClass("showcase");
       this.sortByShowcase();
@@ -6133,8 +6170,8 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   },
 
   refresh: function(){
-    this.wall.fitWidth();
-    this.wall.refresh();
+    //this.wall.fitWidth();
+    //this.wall.refresh();
     this.fixSize();
   },
 
@@ -6249,7 +6286,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
 
   onShow: function(){
-    if (!this.ui.description.val().length) {
+    if (!this.ui.description.val().length && this.model.get('domain') !== 'news') {
       this.ui.description.val( '# ' + headings.join("\n\n# ") );
     }
     this.initSelect2();
@@ -6264,6 +6301,10 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //+ EVENT HANDLERS
   //--------------------------------------
   validateDescription: function(){
+    if (this.model.get('domain') === 'news') {
+      return;
+    }
+
     var description = this.ui.description.val();
     this.cleanErrors();
 
@@ -6322,6 +6363,13 @@ module.exports = Backbone.Marionette.ItemView.extend({
     };
 
     this.cleanErrors();
+    if (this.model.get('domain') !== 'news') {
+      var err = markdownValidator(this.ui.description.val());
+      if (err) {
+        this.showMarkdownError(err);
+        return;
+      }
+    }
 
     $("#save", this.$el).button('loading');
 
@@ -6942,7 +6990,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   buffer += "            </select>\n          </div>\n        </div>\n\n        <div id=\"dragdrop\" class=\"dropzone item-cover\"\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.cover : depth0), {"name":"if","hash":{},"fn":this.program(5, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += ">\n        </div>\n        <p class=\"error-cover bg-danger text-danger hidden\"></p>\n\n      </div>\n\n    </div>\n\n    <div class=\"col-md-8\">\n      <label class=\"description\">\n        <h3>請用下方範本說明專案，不要修改井字號開頭的標頭</h3>\n        <textarea id=\"description\" name=\"description\" placeholder=\"Description\">"
+  buffer += ">\n        </div>\n        <p class=\"error-cover bg-danger text-danger hidden\"></p>\n\n      </div>\n\n    </div>\n\n    <div class=\"col-md-8\">\n      <div class=\"description\">\n        <label for=\"description\"><h3>請用下方範本說明專案，不要修改井字號開頭的標頭</h3></label>\n        <textarea id=\"description\" name=\"description\" placeholder=\"Description\">"
     + escapeExpression(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"description","hash":{},"data":data}) : helper)))
     + "</textarea>\n      </div>\n      <div class=\"tags\">\n        <input id=\"tags\" type=\"text\" name=\"tags\" placeholder='"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Tags", {"name":"__","hash":{},"data":data})))
@@ -6994,35 +7042,35 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "            <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "leaving...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default leave\">"
+    + "\" class=\"btn btn-blue leave\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Leave", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"11":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "            <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "joining...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default join\">"
+    + "\" class=\"btn btn-blue join\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Join", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"13":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "            <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "unfollowing...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default unfollow\">"
+    + "\" class=\"btn btn-blue unfollow\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Unfollow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"15":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "            <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "following...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default follow\">"
+    + "\" class=\"btn btn-blue follow\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"17":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "\n        <a class=\"btn btn-default login\">"
+  return "\n        <a class=\"btn btn-blue login\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
-    + "</a>\n        <a class=\"btn btn-default login\">"
+    + "</a>\n        <a class=\"btn btn-blue login\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Join", {"name":"__","hash":{},"data":data})))
     + "</a>\n\n";
 },"19":function(depth0,helpers,partials,data) {
@@ -7048,7 +7096,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "    <div class=\"pull-right\">\n      <a href=\""
     + escapeExpression(((helper = (helper = helpers.link || (depth0 != null ? depth0.link : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"link","hash":{},"data":data}) : helper)))
-    + "\" target=\"__blank\" class=\"btn btn-default\">"
+    + "\" target=\"__blank\" class=\"btn btn-red\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "demo", {"name":"__","hash":{},"data":data})))
     + "</a>\n    </div>\n";
 },"26":function(depth0,helpers,partials,data) {
@@ -7080,35 +7128,35 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "leaving...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default leave\">"
+    + "\" class=\"btn btn-blue leave\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Leave", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"32":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "joining...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default join\">"
+    + "\" class=\"btn btn-blue join\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Join", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"34":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "unfollowing...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default unfollow\">"
+    + "\" class=\"btn btn-blue unfollow\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Unfollow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"36":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "following...", {"name":"__","hash":{},"data":data})))
-    + "\" class=\"btn btn-default follow\">"
+    + "\" class=\"btn btn-blue follow\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"38":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "\n      <div class=\"pull-left bottom-buttons\">\n        <a class=\"btn btn-default login follower\">"
+  return "\n      <div class=\"pull-left bottom-buttons\">\n        <a class=\"btn btn-blue login follower\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
-    + "</a>\n        <a class=\"btn btn-default login contributor\">"
+    + "</a>\n        <a class=\"btn btn-blue login contributor\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Join", {"name":"__","hash":{},"data":data})))
     + "</a>\n      </div>\n\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -7317,7 +7365,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
       url += '/p/' + this.model.get('_id');
     }
 
-    hashtags += ['hackdash', domain].join(',');
+    hashtags += ['g0v', 'civictech', domain].join(',');
     text += this.shareText[this.type] + (title || domain) + ' via ' + people;
 
     link += this.enc(url) + '&' + this.enc(hashtags) + '&' + this.enc(text);
@@ -7368,7 +7416,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
 
     var textShort = __('Hacking at') + ' ' + (title || domain);
     text += textShort + ' via ' + people;
-    text += ' ' + ['#hackdash', domain].join(' #');
+    text += ' ' + ['#g0v', 'civictech', domain].join(' #');
 
     window.FB.ui({
       method: 'feed',
@@ -7402,7 +7450,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
 
     var textShort = __('Hacking at') + ' ' + (title || domain);
     stitle += textShort;
-    text += textShort + ' - HackDash';
+    text += textShort;
 
     link += this.enc(url) + '&' + this.enc(stitle) + '&' + this.enc(text) + source;
     window.open(link,'LinkedIn','height=350,width=520');
@@ -7481,6 +7529,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
   }
 
 });
+
 },{"./Dashboard/Share":33,"./Project/Share":84,"./templates/sharer.hbs":92}],90:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
