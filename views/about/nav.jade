@@ -1,10 +1,12 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     .navbar-header
+      button.navbar-toggle.collaped(type="button",data-toggle="collapse",
+      data-target="#navbar-collapse",aria-expanded="false") #[i.fa.fa-bars]
       a.navbar-brand(href="/")
         img(src="/images/static/brand.png")
         sup(style="color:#ff9")
-    .collapse.navbar-collapse
+    #navbar-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li: a(href="/dashboards/2017spring") 提案列表
         li: a(data-scroll,href="/about") 關於 Grant

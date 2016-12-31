@@ -309,7 +309,7 @@ footer {
 
       h1 {
         font-family: @primary-font;
-        font-size: @fsize-32;
+        font-size: @fsize-25;
         text-transform: none;
         letter-spacing: -@fsize-12/17;
       }
@@ -994,7 +994,7 @@ footer {
         a.editable-click,
         a.editable-click:hover {
           border: none;
-          padding: 5px 10px;
+          padding: 5px 10px 0 0;
           cursor: pointer;
         }
 
@@ -1603,8 +1603,21 @@ footer {
   border-bottom: 10px solid @color-orange;
 }
 
-#dashboard-projects {
-  border-radius: 10px;
+@media (min-width: 768px) {
+  #dashboard-projects {
+    border-radius: 20px;
+  }
+}
+@media (max-width: 1280px) {
+  #dashboard-projects {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 415px) {
+  #dashboard-projects {
+    border-radius: 0;
+  }
 }
 
 .dashboard {
