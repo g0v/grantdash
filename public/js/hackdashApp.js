@@ -3554,7 +3554,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "<div class=\"input-group\">\n  <input id=\"search\" type=\"text\" class=\"form-control\" placeholder=\""
     + escapeExpression(((helper = (helper = helpers.placeholder || (depth0 != null ? depth0.placeholder : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"placeholder","hash":{},"data":data}) : helper)))
-    + "\">\n  <span class=\"input-group-btn\">\n    <button class=\"btn btn-primary\" type=\"button\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </span>\n</div>\n\n";
+    + "\">\n  <span class=\"input-group-btn\">\n    <button class=\"btn btn-primary\" type=\"button\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </span>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":101}],42:[function(require,module,exports){
@@ -3861,7 +3861,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Close", {"name":"__","hash":{},"data":data})));
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "\n<h3 style=\"margin-right:15px;float:right\">powered by hackdash.org</h3>\n<a class=\"brand ";
+  var stack1, buffer = "\n<p style=\"margin:23px 15px 0 0;float:right\">powered by hackdash.org</p>\n<a class=\"brand ";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.isDashboard : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">\n  <img src=\"/images/static/brand.png\" style=\"padding:13px\"/>\n</a>\n\n";
@@ -4028,11 +4028,11 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
-  buffer += "      </div>\n      -->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about\">關於 Grant</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#schedule\">活動辦法</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#faq\">常見問題</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#team\">執行團隊</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#partners\">合作夥伴</a></li>\n";
+  buffer += "      </div>\n      -->\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a href=\"/dashboards/2017spring\">提案列表</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about\">關於 Grant</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#schedule\">活動辦法</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#faq\">常見問題</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#team\">執行團隊</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/about#partners\">合作夥伴</a></li>\n";
   stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(5, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
-  buffer += "      </ul>\n      <form class=\"navbar-form navbar-right\">\n        <a href=\"/dashboards/2017spring\" class=\"btn btn-warning\"><i class=\"fa fa-plus\"></i> 我要提案</a>\n      </form>\n    </div>\n  </div>\n</nav>\n<div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n<!--\n<div class=\"row main-header\">\n\n  <div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n  <div class=\"col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile\">\n";
+  buffer += "      </ul>\n      <form class=\"navbar-form navbar-right\">\n        <a href=\"/dashboards/2017spring/create\" class=\"btn btn-warning\"><i class=\"fa fa-plus\"></i> 我要提案</a>\n      </form>\n    </div>\n  </div>\n</nav>\n<div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n<!--\n<div class=\"row main-header\">\n\n  <div class=\"hidden-xs col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 search-ctn\"></div>\n\n  <div class=\"col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile\">\n";
   stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(7, data),"inverse":this.program(9, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
