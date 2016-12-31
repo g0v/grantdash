@@ -11,11 +11,17 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   className: "container-fluid",
   template: template,
 
+  ui: {
+    mobileMenu: ".mobile-menu",
+    tabs: ".nav-tabs"
+  },
+
   regions: {
     "search": ".search-ctn"
   },
 
   events: {
+    "click @ui.mobileMenu": "toggleMobileMenu",
     "click .login": "showLogin",
     "click .btn-profile": "openProfile"
   },
@@ -71,6 +77,17 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   //--------------------------------------
   //+ EVENT HANDLERS
   //--------------------------------------
+
+  toggleMobileMenu: function(){
+    if (this.ui.mobileMenu.is(':visible')){
+      if (this.ui.tabs.hasClass('hidden')){
+        this.ui.tabs.removeClass('hidden');
+      }
+      else {
+        this.ui.tabs.addClass('hidden');
+      }
+    }
+  },
 
   openProfile: function(e){
     e.preventDefault();
