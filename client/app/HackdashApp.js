@@ -35,7 +35,7 @@ module.exports = function(){
     };
 
     app.setTitle = function(title){
-      window.document.title = title + " - Hackdash";
+      window.document.title = title + " - g0v Civic Tech Grant";
     };
   }
 
