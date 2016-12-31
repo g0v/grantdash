@@ -115,6 +115,13 @@ h6 { font-size: @fsize-12; }
   text-transform: uppercase;
 }
 
+.navbar-nav > li.my-profile.dropdown {
+  margin: 5px 0 0;
+  & > a {
+    padding: 0;
+  }
+}
+
 .my-profile {
   margin: 10px 0;
   float: right;
@@ -151,13 +158,8 @@ h6 { font-size: @fsize-12; }
     right: 20px;
   }
 
-  .btn-profile {
-    position: absolute;
-    right: 20px;
-
-    .hexagon {
-      .getHexagon(35px, 2px, @color-white);
-    }
+  .hexagon {
+    .getHexagon(35px, 2px, @color-white);
   }
 }
 

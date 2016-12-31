@@ -10,6 +10,7 @@
       <i class="fa fa-align-justify"></i>
     </a>
     <div class="collapse navbar-collapse">
+      <!--
       <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 my-profile">
         {{#isLoggedIn}}
         <div class="pull-right col-xs-3 col-md-3">
@@ -22,12 +23,25 @@
         <a class="login">{{__ "Log in"}}</a>
         {{/isLoggedIn}}
       </div>
-      <ul class="nav navbar-nav navbar-right nav-tabs" role="tablist">
+      -->
+      <ul class="nav navbar-nav navbar-right">
         <li><a data-scroll="data-scroll" data-bypass href="/about">關於 Grant</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about#schedule">活動辦法</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about#faq">常見問題</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about#team">執行團隊</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/about#partners">合作夥伴</a></li>
+        {{#isLoggedIn}}
+        <li class="dropdown my-profile">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+            {{getMyProfileImageHex}}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="btn-profile">個人檔案</a></li>
+            <li class="divider"></li>
+            <li><a href="/logout">{{__ "Log out"}}</a></li>
+          </ul>
+        </li>
+        {{/isLoggedIn}}
       </ul>
       <form class="navbar-form navbar-right">
         <a href="/dashboards/2017spring" class="btn btn-warning"><i class="fa fa-plus"></i> 我要提案</a>

@@ -62,7 +62,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
         break;
     }
 
-    $('.tooltips', this.$el).tooltip({});
+    $('.tooltips', this.$el).tooltip({placement: "bottom"});
     this.$el.addClass(hackdash.app.type);
   },
 
