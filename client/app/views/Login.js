@@ -25,7 +25,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   templateHelpers: {
     redirectURL: function(){
       var url = hackdash.app.previousURL || '';
-      return (url.length ? '?redirect=' + url : url);
+      return (url.length ? '?redirect=' + encodeURIComponent(url) : url);
     }
   }
 
