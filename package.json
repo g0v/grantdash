@@ -37,7 +37,7 @@
     "passport-http": "^0.3.0",
     "passport-meetup": "0.1.2",
     "passport-twitter": "1.0.3",
-    "prerender-node": "1.1.1",
+    "prerender-node": "^2.6.0",
     "serve-favicon": "2.2.1",
     "socket.io": "0.9.14",
     "sso-discourse": "^1.0.0",
