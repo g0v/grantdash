@@ -1,0 +1,14 @@
+version: '2'
+services:
+  mongodb:
+    network_mode: "bridge"
+  app:
+    network_mode: "bridge"
+    restart: always
+    links:
+      - mongodb:mongodb
+    environment:
+      NODE_ENV: production
+      LETSENCRYPT_HOST: grants.g0v.tw
+      LETSENCRYPT_EMAIL: jothon-organizers@g0v.tw
+      VIRTUAL_HOST: grants.g0v.tw
