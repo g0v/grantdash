@@ -5,10 +5,26 @@ Grants Submission Dashboard based on [HackDash](http://hackdash.org)
 
 ## Quick Start
 
+### Development
+
 ```
 docker-compose build
-docker-compose run -p 3000:3000 app
+docker-compose run --rm -p 3000:3000 app
 ```
+
+You might want to import the stub data to get started:
+
+```
+docker-compose run --rm mongodb mongoimport --host mongodb --db hackdash --collection dashboards --file /dev/stdin < ./data/dashboards.json
+```
+
+### Produection
+
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
+```
+
+For setting up SSL, consider using [Docker letsencrypt nginx proxy companion]](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion).
 
 ## Config
 
