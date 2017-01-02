@@ -1,6 +1,6 @@
 /*! 
 * Hackdash - v0.10.1
-* Copyright (c) 2016 Hackdash 
+* Copyright (c) 2017 Hackdash 
 *  
 */ 
 
@@ -43,7 +43,7 @@ module.exports = function(){
     };
 
     app.setTitle = function(title){
-      window.document.title = title + " - Hackdash";
+      window.document.title = title + " - g0v Civic Tech Grant";
     };
   }
 
@@ -74,6 +74,7 @@ module.exports = function(){
   });
 
 };
+
 },{"./HackdashRouter":2,"./views/Login":68,"./views/MessageBox":69,"./views/ModalRegion":70}],2:[function(require,module,exports){
 /*
  * Hackdash Router
@@ -3996,11 +3997,11 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "        <li class=\"visible-md visible-sm visible-xs my-profile\"><a class=\"btn-profile\">\n          "
     + escapeExpression(((helper = (helper = helpers.getMyProfileImageHex || (depth0 != null ? depth0.getMyProfileImageHex : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"getMyProfileImageHex","hash":{},"data":data}) : helper)))
-    + "\n        </a></li>\n        <li class=\"visible-md visible-sm visible-xs\"><a href=\"/logout\">"
+    + "\n        </a></li>\n        <li class=\"visible-md visible-sm visible-xs\"><a data-bypass href=\"/logout\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log out", {"name":"__","hash":{},"data":data})))
     + "</a></li>\n        <li class=\"dropdown my-profile hidden-md hidden-sm hidden-xs\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\">\n            "
     + escapeExpression(((helper = (helper = helpers.getMyProfileImageHex || (depth0 != null ? depth0.getMyProfileImageHex : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"getMyProfileImageHex","hash":{},"data":data}) : helper)))
-    + "\n          </a>\n          <ul class=\"dropdown-menu\">\n            <li><a class=\"btn-profile\">個人檔案</a></li>\n            <li class=\"divider\"></li>\n            <li><a href=\"/logout\">"
+    + "\n          </a>\n          <ul class=\"dropdown-menu\">\n            <li><a class=\"btn-profile\">個人檔案</a></li>\n            <li class=\"divider\"></li>\n            <li><a data-bypass href=\"/logout\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log out", {"name":"__","hash":{},"data":data})))
     + "</a></li>\n          </ul>\n        </li>\n";
 },"3":function(depth0,helpers,partials,data) {
@@ -5149,7 +5150,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   templateHelpers: {
     redirectURL: function(){
       var url = hackdash.app.previousURL || '';
-      return (url.length ? '?redirect=' + url : url);
+      return (url.length ? '?redirect=' + encodeURIComponent(url) : url);
     }
   }
 
@@ -5166,6 +5167,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
 
 });
+
 },{"./templates/login.hbs":90}],69:[function(require,module,exports){
 /**
  * VIEW: Login Modal
