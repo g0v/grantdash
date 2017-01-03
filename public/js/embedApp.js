@@ -1,6 +1,6 @@
 /*! 
 * Hackdash - v0.10.1
-* Copyright (c) 2016 Hackdash 
+* Copyright (c) 2017 Hackdash 
 *  
 */ 
 
@@ -2106,7 +2106,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "\n        </a>\n";
 },"10":function(depth0,helpers,partials,data) {
   var helper, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, functionType="function";
-  return "        <a class=\"login\" class=\"btn btn-primary\">\n          <i class=\"fa fa-plus\"></i>\n          "
+  return "        <a class=\"login btn btn-primary\">\n          <i class=\"fa fa-plus\"></i>\n          "
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Create Project", {"name":"__","hash":{},"data":data})))
     + "\n        </a>\n        "
     + escapeExpression(((helper = (helper = helpers.endif || (depth0 != null ? depth0.endif : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"endif","hash":{},"data":data}) : helper)))
