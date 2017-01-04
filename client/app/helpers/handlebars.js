@@ -84,7 +84,7 @@ Handlebars.registerHelper('timeAgo', function(date) {
 
 Handlebars.registerHelper('formatDate', function(date) {
   if (date && moment(date).isValid()) {
-    return moment(date).format("DD/MM/YYYY HH:mm");
+    return moment(date).format("YYYY/MM/DD/MM HH:mm");
   }
 
   return "-";
