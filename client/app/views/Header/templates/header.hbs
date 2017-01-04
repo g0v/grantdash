@@ -9,7 +9,10 @@
     </div>
     <div id="navbar-collapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
+        {{#isDashboardView}}
+        {{else}}
         <li><a href="/dashboards/2017spring">提案列表</a></li>
+        {{/isDashboardView}}
         <li><a data-scroll="data-scroll" data-bypass href="/">關於 Grant</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/#schedule">活動辦法</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/#faq">常見問題</a></li>
@@ -34,9 +37,11 @@
         <li><a class="login">{{__ "Log in"}}</a></li>
         {{/isLoggedIn}}
       </ul>
+      {{#isDashboardView}}
       <form class="navbar-form navbar-right">
-        <a href="/dashboards/2017spring/create" class="btn btn-warning"><i class="fa fa-plus"></i> 我要提案</a>
+        <a href="/dashboards/2017spring/create" class="btn btn-warning"><i class="fa fa-plus"></i>我要提案</a>
       </form>
+      {{/isDashboardView}}
     </div>
   </div>
 </nav>
