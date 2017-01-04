@@ -30,7 +30,7 @@ Handlebars.registerHelper('markdown', function(md) {
 
 Handlebars.registerHelper('firstH1', function(md) {
   if (md) {
-    return $('h1:first', "<section>" + markdown.toHTML(md) + "</section>").siblings().text();
+    return $('h1:first', "<section>" + markdown.toHTML(md) + "</section>").siblings().first().text();
   }
   return "";
 });
