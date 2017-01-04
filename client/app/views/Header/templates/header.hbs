@@ -39,7 +39,11 @@
       </ul>
       {{#isDashboardView}}
       <form class="navbar-form navbar-right">
+        {{#isLoggedIn}}
         <a href="/dashboards/2017spring/create" class="btn btn-warning"><i class="fa fa-plus"></i>我要提案</a>
+        {{else}}
+        <a href="/dashboards/2017spring/create" class="btn btn-warning login"><i class="fa fa-plus"></i>我要提案</a>
+        {{/isLoggedIn}}
       </form>
       {{/isDashboardView}}
     </div>
