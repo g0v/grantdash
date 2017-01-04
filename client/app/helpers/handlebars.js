@@ -28,6 +28,13 @@ Handlebars.registerHelper('markdown', function(md) {
   return "";
 });
 
+Handlebars.registerHelper('firstH1', function(md) {
+  if (md) {
+    return $('h1:first', "<section>" + markdown.toHTML(md) + "</section>").siblings().text();
+  }
+  return "";
+});
+
 Handlebars.registerHelper('discourseUrl', function() {
   return window.hackdash.discourseUrl;
 });
