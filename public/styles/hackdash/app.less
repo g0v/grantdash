@@ -1699,3 +1699,29 @@ footer {
 .brainstorming {
   background: url(../images/landing.png) top center no-repeat;
 }
+
+.revisions {
+  a {
+    display: block;
+    font-size: 0.8em;
+  }
+}
+
+#projectRevisionDiff {
+  span {
+    color: #999;
+  }
+  .added {
+    background: #9fb;
+    color: #080;
+  }
+  .removed {
+    background: #fdb;
+    color: #f44;
+  }
+}
+@media (min-width: 991px) {
+  #projectRevisionDiff .modal-dialog {
+    width: 800px;
+  }
+}

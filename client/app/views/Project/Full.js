@@ -47,6 +47,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "click .remove a": "onRemove",
     "click .login": "showLogin",
     "click .share": "showShare",
+    "click .revisions a": "showRevision",
   },
 
   modelEvents: {
@@ -68,6 +69,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     }
 
     $('html, body').scrollTop(0);
+
   },
 
   serializeData: function(){
@@ -120,6 +122,25 @@ module.exports = Backbone.Marionette.ItemView.extend({
       model: this.model
     });
   },
+
+  showRevision: function(e){
+    var idx = +$(e.target).attr("data-idx");
+    var head = $("#projectRevisionDiff .modal-header h4");
+    var body = $("#projectRevisionDiff .modal-body")[0];
+    var desc = {
+      cur: this.model.attributes.revisions[idx].description,
+      old: this.model.attributes.revisions[idx ? idx - 1 : idx].description
+    };
+    head.text("版本 " + (idx + 1));
+    body.innerHTML = "";
+    JsDiff.diffChars(desc.old, desc.cur).map(function(part) {
+      var span = document.createElement("span");
+      span.className = (part.added ? "added" : (part.removed ? "removed" : ""));
+      span.innerText = part.value;
+      body.appendChild(span);
+    });
+    $("#projectRevisionDiff").modal("show");
+},
 
   //--------------------------------------
   //+ PRIVATE AND PROTECTED METHODS

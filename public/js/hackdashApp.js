@@ -1473,6 +1473,7 @@ module.exports = {
 "joining...":"joining...",
 "unfollowing...":"取消追蹤...",
 "Followers":"關注中",
+"Revisions":"修訂紀錄",
 "following...":"正在追蹤",
 "Share this Project":"分享這個專案",
 "Proposed by":"提案人",
@@ -6521,6 +6522,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "click .remove a": "onRemove",
     "click .login": "showLogin",
     "click .share": "showShare",
+    "click .revisions a": "showRevision",
   },
 
   modelEvents: {
@@ -6542,6 +6544,8 @@ module.exports = Backbone.Marionette.ItemView.extend({
     }
 
     $('html, body').scrollTop(0);
+
+    this.initRevisions();
   },
 
   serializeData: function(){
@@ -6595,11 +6599,48 @@ module.exports = Backbone.Marionette.ItemView.extend({
     });
   },
 
+  showRevision: function(e){
+    var idx = +$(e.target).attr("data-idx");
+    var head = $("#projectRevisionDiff .modal-header h4");
+    var body = $("#projectRevisionDiff .modal-body")[0];
+    console.log(idx);
+    var desc = {
+      cur: this.model.attributes.revisions[idx].description,
+      old: this.model.attributes.revisions[idx ? idx - 1 : idx].description
+    };
+    head.text("版本 " + (idx + 1));
+    body.innerHTML = "";
+    JsDiff.diffChars(desc.old, desc.cur).map(function(part) {
+      var span = document.createElement("span");
+      span.className = (part.added ? "added" : (part.removed ? "removed" : ""));
+      span.innerText = part.value;
+      body.appendChild(span);
+    });
+    $("#projectRevisionDiff").modal("show");
+},
+
   //--------------------------------------
   //+ PRIVATE AND PROTECTED METHODS
   //--------------------------------------
 
+  initRevisions: function() {
+    //var that = this;
+    /*
+    $.ajax({
+      url: "/api/v2/projects/" + this.id(),
+      method: "GET"
+    }).success(function(r) {
+      that.revisions = r.revisions;
+      that.revisions.revisions.map(function(d) {
+        d.date = moment(d.timestamp).format("YYYY/MM/DD hh:mm:ss");
+      });
+      console.log(r);
+    });
+    */
+  }
+
 });
+
 },{"../Sharer":89,"./templates/full.hbs":87}],84:[function(require,module,exports){
 /**
  * VIEW: Login Modal
@@ -7048,33 +7089,40 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helpers.getProfileImageHex || (depth0 && depth0.getProfileImageHex) || helperMissing).call(depth0, depth0, {"name":"getProfileImageHex","hash":{},"data":data})))
     + "\n          </a>\n";
 },"21":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+  return "          <a data-idx=\""
+    + escapeExpression(lambda((data && data.index), depth0))
+    + "\">"
+    + escapeExpression(((helpers.timeAgo || (depth0 && depth0.timeAgo) || helperMissing).call(depth0, (depth0 != null ? depth0.timestamp : depth0), {"name":"timeAgo","hash":{},"data":data})))
+    + "</a>\n";
+},"23":function(depth0,helpers,partials,data) {
   var stack1, buffer = "";
-  stack1 = helpers['if'].call(depth0, depth0, {"name":"if","hash":{},"fn":this.program(22, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, depth0, {"name":"if","hash":{},"fn":this.program(24, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer;
-},"22":function(depth0,helpers,partials,data) {
+},"24":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "        <li>\n          <a href=\"/projects?q="
     + escapeExpression(lambda(depth0, depth0))
     + "\" data-bypass=\"true\">"
     + escapeExpression(lambda(depth0, depth0))
     + "</a>\n        </li>\n";
-},"24":function(depth0,helpers,partials,data) {
+},"26":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "    <div class=\"pull-right\">\n      <a href=\""
     + escapeExpression(((helper = (helper = helpers.link || (depth0 != null ? depth0.link : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"link","hash":{},"data":data}) : helper)))
     + "\" target=\"__blank\" class=\"btn btn-red\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "demo", {"name":"__","hash":{},"data":data})))
     + "</a>\n    </div>\n";
-},"26":function(depth0,helpers,partials,data) {
+},"28":function(depth0,helpers,partials,data) {
   var stack1, buffer = "\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.isAdminOrLeader : depth0), {"name":"if","hash":{},"fn":this.program(27, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.isAdminOrLeader : depth0), {"name":"if","hash":{},"fn":this.program(29, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.showActions : depth0), {"name":"if","hash":{},"fn":this.program(29, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.showActions : depth0), {"name":"if","hash":{},"fn":this.program(31, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";
-},"27":function(depth0,helpers,partials,data) {
+},"29":function(depth0,helpers,partials,data) {
   var helper, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, functionType="function";
   return "      <div class=\"pull-right remove\">\n        <a class=\"btn btn-danger\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Remove", {"name":"__","hash":{},"data":data})))
@@ -7083,43 +7131,43 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "/edit\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Edit", {"name":"__","hash":{},"data":data})))
     + "</a>\n      </div>\n";
-},"29":function(depth0,helpers,partials,data) {
+},"31":function(depth0,helpers,partials,data) {
   var stack1, buffer = "\n      <div class=\"pull-left bottom-buttons\">\n\n        <div class=\"pull-left contributor\">\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.contributing : depth0), {"name":"if","hash":{},"fn":this.program(30, data),"inverse":this.program(32, data),"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.contributing : depth0), {"name":"if","hash":{},"fn":this.program(32, data),"inverse":this.program(34, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "        </div>\n        <div class=\"pull-left follower\">\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.following : depth0), {"name":"if","hash":{},"fn":this.program(34, data),"inverse":this.program(36, data),"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.following : depth0), {"name":"if","hash":{},"fn":this.program(36, data),"inverse":this.program(38, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "        </div>\n\n      </div>\n";
-},"30":function(depth0,helpers,partials,data) {
+},"32":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "leaving...", {"name":"__","hash":{},"data":data})))
     + "\" class=\"btn btn-blue leave\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Leave", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
-},"32":function(depth0,helpers,partials,data) {
+},"34":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "joining...", {"name":"__","hash":{},"data":data})))
     + "\" class=\"btn btn-blue join\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Join", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
-},"34":function(depth0,helpers,partials,data) {
+},"36":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "unfollowing...", {"name":"__","hash":{},"data":data})))
     + "\" class=\"btn btn-blue unfollow\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Unfollow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
-},"36":function(depth0,helpers,partials,data) {
+},"38":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "          <a data-loading-text=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "following...", {"name":"__","hash":{},"data":data})))
     + "\" class=\"btn btn-blue follow\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
-},"38":function(depth0,helpers,partials,data) {
+},"40":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "\n      <div class=\"pull-left bottom-buttons\">\n        <a class=\"btn btn-blue login follower\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
@@ -7175,19 +7223,24 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "</span></h5>\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.followers : depth0), {"name":"each","hash":{},"fn":this.program(19, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "        </div>\n\n      </div>\n\n    </div>\n\n    <div class=\"col-md-8\">\n      <hr class=\"visible-xs visible-sm visible-md\">\n      <div class=\"description\">\n        ";
+  buffer += "        </div>\n        <div class=\"clearfix revisions\">\n          <h5> "
+    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Revisions", {"name":"__","hash":{},"data":data})))
+    + " </h5>\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.revisions : depth0), {"name":"each","hash":{},"fn":this.program(21, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "        </div>\n        <div id=\"projectRevisionDiff\" class=\"modal fade\">\n          <div class=\"modal-dialog\">\n            <div class=\"modal-content\">\n              <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n                <h4 class=\"modal-title\">Reivision Changes</h4>\n              </div>\n              <div class=\"modal-body\"></div>\n              <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Close</button>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"col-md-8\">\n      <hr class=\"visible-xs visible-sm visible-md\">\n      <div class=\"description\">\n        ";
   stack1 = ((helpers.markdown || (depth0 && depth0.markdown) || helperMissing).call(depth0, (depth0 != null ? depth0.description : depth0), {"name":"markdown","hash":{},"data":data}));
   if (stack1 != null) { buffer += stack1; }
   buffer += "\n      </div>\n      <ul class=\"tags clearfix col-md-10\">\n";
-  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.tags : depth0), {"name":"each","hash":{},"fn":this.program(21, data),"inverse":this.noop,"data":data});
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.tags : depth0), {"name":"each","hash":{},"fn":this.program(23, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "      </ul>\n      <div class=\"share-ctn clearfix col-md-2 share-inner\">\n        <a class=\"share tooltips\" data-original-title=\""
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Share this Project", {"name":"__","hash":{},"data":data})))
     + "\">\n          <i class=\"fa fa-share-alt\"></i>\n        </a>\n      </div>\n    </div>\n\n    <div class=\"col-md-12 buttons-panel\">\n\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.link : depth0), {"name":"if","hash":{},"fn":this.program(24, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.link : depth0), {"name":"if","hash":{},"fn":this.program(26, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\n";
-  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(26, data),"inverse":this.program(38, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(28, data),"inverse":this.program(40, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
   return buffer + "    </div>\n\n  </div>\n\n  <div class=\"container discourse-ctn\" style=\"margin-top: 0px\">\n  </div>\n\n  <div class=\"container disqus-ctn\">\n    <div id=\"disqus_thread\" class=\"col-md-12\"></div>\n  </div>\n\n</div>\n";

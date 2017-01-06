@@ -152,6 +152,8 @@ module.exports = function(grunt) {
             ,Dropzone: true
             ,hackdash: true
             ,__: true
+            ,JsDiff: true
+            ,document: true
           }
         }
       }

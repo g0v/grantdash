@@ -164,6 +164,7 @@ module.exports = {
 "joining...":"joining...",
 "unfollowing...":"取消追蹤...",
 "Followers":"關注中",
+"Revisions":"修訂紀錄",
 "following...":"正在追蹤",
 "Share this Project":"分享這個專案",
 "Proposed by":"提案人",
