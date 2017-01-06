@@ -3820,6 +3820,11 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
+  var stack1, buffer = "";
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.isAdmin : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
+},"2":function(depth0,helpers,partials,data) {
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "  <div class=\"footer-dash-ctn\">\n    <div class=\"footer-toggle-ctn\">\n\n      <a href=\"/api/v2/dashboards/"
     + escapeExpression(((helper = (helper = helpers.domain || (depth0 != null ? depth0.domain : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"domain","hash":{},"data":data}) : helper)))
     + "/csv\" target=\"_blank\" data-bypass>\n        <i class=\"fa fa-download\"></i>\n        <div>"
@@ -3827,13 +3832,13 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "</div>\n      </a>\n\n      <a data-placement=\"top\" data-original-title=\""
     + escapeExpression(((helper = (helper = helpers.switcherMsg || (depth0 != null ? depth0.switcherMsg : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"switcherMsg","hash":{},"data":data}) : helper)))
     + "\"\n        class=\"tooltips dashboard-btn ";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.program(4, data),"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(3, data),"inverse":this.program(5, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">\n        <i class=\"txt ";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(6, data),"inverse":this.program(8, data),"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(7, data),"inverse":this.program(9, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(10, data),"inverse":this.program(12, data),"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.open : depth0), {"name":"if","hash":{},"fn":this.program(11, data),"inverse":this.program(13, data),"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</i>\n        <div>"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Dashboard Status", {"name":"__","hash":{},"data":data})))
@@ -3842,18 +3847,18 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "</i><div>"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Edit Showcase", {"name":"__","hash":{},"data":data})))
     + "</div>\n    </a>\n\n  </div>\n";
-},"2":function(depth0,helpers,partials,data) {
+},"3":function(depth0,helpers,partials,data) {
   return "dash-open";
-  },"4":function(depth0,helpers,partials,data) {
+  },"5":function(depth0,helpers,partials,data) {
   return "dash-close";
-  },"6":function(depth0,helpers,partials,data) {
+  },"7":function(depth0,helpers,partials,data) {
   return "btn-success";
-  },"8":function(depth0,helpers,partials,data) {
+  },"9":function(depth0,helpers,partials,data) {
   return "btn-danger";
-  },"10":function(depth0,helpers,partials,data) {
+  },"11":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Open", {"name":"__","hash":{},"data":data})));
-  },"12":function(depth0,helpers,partials,data) {
+  },"13":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Close", {"name":"__","hash":{},"data":data})));
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -6129,56 +6134,15 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   //--------------------------------------
 
   updateGrid: function(){
-    var self = this;
-
-    if (!this.wall){
-      this.wall = new window.freewall(this.$el);
-    }
-    
-    this.wall.reset({
-      draggable: this.showcaseMode,
-      animate: true,
-      keepOrder: false,
-      selector: '.entity',
-      cellW: 200,
-      cellH: 300,
-      gutterY: this.gutter,
-      gutterX: this.gutter,
-      onResize: this.refresh.bind(this),
-      onComplete: function() { },
-      onBlockDrop: function() {
-
-        var cols = self.$el.attr('data-total-col');
-        var pos = $(this).attr('data-position');
-        var ps = pos.split('-');
-
-        var row = parseInt(ps[0],10);
-        var showcase = ((row*cols) + parseInt(ps[1],10));
-
-        $(this).attr('data-showcase', showcase+1);
-        self.model.isDirty = true;
-      }
-    });
-
     if (this.showcaseMode){
       this.$el.addClass("showcase");
       this.sortByShowcase();
       return;
     }
-
-    this.sortByDate();
-
   },
 
   refresh: function(){
-    this.wall.fitWidth();
-    this.wall.refresh();
-    this.fixSize();
-  },
-
-  fixSize: function(){
-    this.$el.height(this.$el.height() + this.gutter*4);
-  },
+  }
 
 });
 

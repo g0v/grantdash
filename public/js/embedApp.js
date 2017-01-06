@@ -2648,56 +2648,15 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   //--------------------------------------
 
   updateGrid: function(){
-    var self = this;
-
-    if (!this.wall){
-      this.wall = new window.freewall(this.$el);
-    }
-    
-    this.wall.reset({
-      draggable: this.showcaseMode,
-      animate: true,
-      keepOrder: false,
-      selector: '.entity',
-      cellW: 200,
-      cellH: 300,
-      gutterY: this.gutter,
-      gutterX: this.gutter,
-      onResize: this.refresh.bind(this),
-      onComplete: function() { },
-      onBlockDrop: function() {
-
-        var cols = self.$el.attr('data-total-col');
-        var pos = $(this).attr('data-position');
-        var ps = pos.split('-');
-
-        var row = parseInt(ps[0],10);
-        var showcase = ((row*cols) + parseInt(ps[1],10));
-
-        $(this).attr('data-showcase', showcase+1);
-        self.model.isDirty = true;
-      }
-    });
-
     if (this.showcaseMode){
       this.$el.addClass("showcase");
       this.sortByShowcase();
       return;
     }
-
-    this.sortByDate();
-
   },
 
   refresh: function(){
-    this.wall.fitWidth();
-    this.wall.refresh();
-    this.fixSize();
-  },
-
-  fixSize: function(){
-    this.$el.height(this.$el.height() + this.gutter*4);
-  },
+  }
 
 });
 
