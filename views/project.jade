@@ -1,0 +1,17 @@
+extends layout
+
+block styles
+
+  link(rel='stylesheet', href='/styles/app.css?v=' + version)
+
+block content
+  span(class="url",style="display: none")= proto + "://" + host + "/projects/" + projectId
+
+block scripts
+
+  script(src="/js/hackdashApp.js?v=" + version)
+
+  script.
+    $(function(){
+      window.hackdash.startApp();
+    });
