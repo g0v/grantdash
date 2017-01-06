@@ -145,6 +145,7 @@ module.exports = {
 "Leave":"離開",
 "Unfollow":"停止追蹤",
 "Demo":"展示",
+"Discuss":"討論",
 
 /* edit.hbs */
 

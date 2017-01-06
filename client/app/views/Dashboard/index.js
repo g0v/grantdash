@@ -120,6 +120,14 @@ module.exports = Backbone.Marionette.LayoutView.extend({
         if (!self.showcaseSort && sort){
           pView['sortBy' + sort.charAt(0).toUpperCase() + sort.slice(1)]();
         }
+        if (hackdash.discourseUrl) {
+          window.discourseUrl = hackdash.discourseUrl;
+          var d = document.createElement('script'),
+              srcUrl = hackdash.discourseUrl + "javascripts/count.js";
+
+          d.src = srcUrl;
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+        }
       });
 
       this.projects.show(pView);
