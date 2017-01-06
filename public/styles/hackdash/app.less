@@ -197,8 +197,9 @@ footer {
       color: #fff;
     }
     p.hidden-md {
-      margin-top: 15px;
+      margin: 10px;
       font-size: 0.8em
+
     }
     &.unlocked {
       position: relative;
@@ -240,7 +241,7 @@ footer {
       a {
         color: @color-white;
         float: right;
-        margin: 15px 5px;
+        margin: 7px 10px;
 
         &:hover {
           color: @color-white;
@@ -268,7 +269,7 @@ footer {
 
         div {
           font-size: @fsize-12;
-          padding: 12px;
+          padding: 0 5px;
           margin-left: -5px;
         }
 
@@ -1665,6 +1666,24 @@ footer {
 @media (max-width: 415px) {
   #dashboard-projects {
     border-radius: 0;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  footer {
+    height: auto;
+  }
+  footer .footer.static {
+    height: auto;
+  }
+  footer .footer .footer-dash-ctn {
+    float: none;
+    padding: 10px;
+    a {
+      float: none;
+      display: block;
+    }
   }
 }
 

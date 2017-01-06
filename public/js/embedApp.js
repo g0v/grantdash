@@ -224,6 +224,13 @@ Handlebars.registerHelper('markdown', function(md) {
   return "";
 });
 
+Handlebars.registerHelper('firstH1', function(md) {
+  if (md) {
+    return $('h1:first', "<section>" + markdown.toHTML(md) + "</section>").siblings().first().text();
+  }
+  return "";
+});
+
 Handlebars.registerHelper('discourseUrl', function() {
   return window.hackdash.discourseUrl;
 });
@@ -280,7 +287,7 @@ Handlebars.registerHelper('timeAgo', function(date) {
 
 Handlebars.registerHelper('formatDate', function(date) {
   if (date && moment(date).isValid()) {
-    return moment(date).format("DD/MM/YYYY HH:mm");
+    return moment(date).format("YYYY/MM/DD HH:mm");
   }
 
   return "-";
@@ -2592,7 +2599,6 @@ module.exports = Backbone.Marionette.CollectionView.extend({
     if (!this.wall){
       this.updateGrid();
     }
-
     this.wall.sortBy(function(a, b) {
       var at = $(a).attr('data-name').toLowerCase()
         , bt = $(b).attr('data-name').toLowerCase();
@@ -2642,12 +2648,12 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   //--------------------------------------
 
   updateGrid: function(){
-    //var self = this;
+    var self = this;
 
-    //if (!this.wall){
-    //-  this.wall = new window.freewall(this.$el);
-    //}
-    /*
+    if (!this.wall){
+      this.wall = new window.freewall(this.$el);
+    }
+    
     this.wall.reset({
       draggable: this.showcaseMode,
       animate: true,
@@ -2672,7 +2678,7 @@ module.exports = Backbone.Marionette.CollectionView.extend({
         self.model.isDirty = true;
       }
     });
-    */
+
     if (this.showcaseMode){
       this.$el.addClass("showcase");
       this.sortByShowcase();
@@ -2684,8 +2690,8 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   },
 
   refresh: function(){
-    //this.wall.fitWidth();
-    //this.wall.refresh();
+    this.wall.fitWidth();
+    this.wall.refresh();
     this.fixSize();
   },
 
@@ -2911,7 +2917,7 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   buffer += ">"
     + escapeExpression(((helper = (helper = helpers.domain || (depth0 != null ? depth0.domain : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"domain","hash":{},"data":data}) : helper)))
     + "</a></h3>\n    <p class=\"description\">"
-    + escapeExpression(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"description","hash":{},"data":data}) : helper)))
+    + escapeExpression(((helpers.firstH1 || (depth0 && depth0.firstH1) || helperMissing).call(depth0, (depth0 != null ? depth0.description : depth0), {"name":"firstH1","hash":{},"data":data})))
     + "</p>\n  </div>\n</div>\n\n<ul class=\"contributors ";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.noActions : depth0), {"name":"if","hash":{},"fn":this.program(9, data, depths),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
@@ -2923,7 +2929,9 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">\n\n  <i class=\"fa fa-clock-o timer tooltips\"\n    data-original-title=\""
     + escapeExpression(((helpers.timeAgo || (depth0 && depth0.timeAgo) || helperMissing).call(depth0, (depth0 != null ? depth0.created_at : depth0), {"name":"timeAgo","hash":{},"data":data})))
-    + "\"></i>\n\n  <div class=\"action-links\">\n\n";
+    + "\"><span>"
+    + escapeExpression(((helpers.formatDate || (depth0 && depth0.formatDate) || helperMissing).call(depth0, (depth0 != null ? depth0.created_at : depth0), {"name":"formatDate","hash":{},"data":data})))
+    + "</span></i>\n\n  <div class=\"action-links\">\n\n";
   stack1 = ((helper = (helper = helpers.isEmbed || (depth0 != null ? depth0.isEmbed : depth0)) != null ? helper : helperMissing),(options={"name":"isEmbed","hash":{},"fn":this.program(19, data, depths),"inverse":this.program(21, data, depths),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isEmbed) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
