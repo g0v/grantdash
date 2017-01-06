@@ -65,6 +65,14 @@ Handlebars.registerHelper('isDashboardView', function(options) {
   }
 });
 
+Handlebars.registerHelper('isProjectView', function(options) {
+  if (window.hackdash.app.type === "project"){
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('isLandingView', function(options) {
   if (window.hackdash.app.type === "landing"){
     return options.fn(this);

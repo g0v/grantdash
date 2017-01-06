@@ -11,7 +11,10 @@
       <ul class="nav navbar-nav navbar-right">
         {{#isDashboardView}}
         {{else}}
-        <li><a href="/dashboards/2017spring">提案列表</a></li>
+          {{#isProjectView}}
+          {{else}}
+          <li><a href="/dashboards/2017spring">提案列表</a></li>
+          {{/isProjectView}}
         {{/isDashboardView}}
         <li><a data-scroll="data-scroll" data-bypass href="/">關於 Grant</a></li>
         <li><a data-scroll="data-scroll" data-bypass href="/#schedule">活動辦法</a></li>
@@ -46,6 +49,11 @@
         {{/isLoggedIn}}
       </form>
       {{/isDashboardView}}
+      {{#isProjectView}}
+      <form class="navbar-form navbar-right">
+        <a href="/dashboards/2017spring" class="btn btn-warning">提案及評論公開徵求中</a>
+      </form>
+      {{/isProjectView}}
     </div>
   </div>
 </nav>
