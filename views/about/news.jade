@@ -1,0 +1,42 @@
+#a-news.section
+  a.anchor#news
+  .inner
+    h3 最新消息
+    #news-feed
+      #news-detail.modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-body
+            .modal-footer
+              button.btn.btn-default(type="button",data-dismiss="modal") 關閉
+    script.
+      $.ajax({
+        url: "https://raw.githubusercontent.com/g0v/grantdash/master/views/about/news/index.yaml",
+        method: "GET",
+      }).success(function(r) {
+        var newslist = jsyaml.load(r);
+        var converter = new showdown.Converter();
+        var container = document.getElementById("news-feed");
+        var listNode = document.createElement("ul");
+        container.appendChild(listNode);
+        newslist.map(function(entry,i) {
+          var li = entry.listEntry = document.createElement("li");
+          var a = document.createElement("a");
+          li.appendChild(a);
+          listNode.appendChild(li);
+          a.innerText = entry.title + " / " + entry.date;
+          a.addEventListener("click", function() {
+            $("#news-detail").modal("show");
+            $("#news-detail .modal-body").html(entry.detail);
+          });
+        });
+        function loadNews(entry) {
+          $.ajax({
+            url: "https://raw.githubusercontent.com/g0v/grantdash/master/views/about/news/" + entry.file,
+            method: "GET"
+          }).success(function(r) {
+            entry.detail = converter.makeHtml(r);
+          });
+        };
+        newslist.forEach(function(entry) { loadNews(entry); });
+      });

@@ -261,6 +261,14 @@ Handlebars.registerHelper('isDashboardView', function(options) {
   }
 });
 
+Handlebars.registerHelper('isProjectView', function(options) {
+  if (window.hackdash.app.type === "project"){
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('isLandingView', function(options) {
   if (window.hackdash.app.type === "landing"){
     return options.fn(this);
@@ -1216,6 +1224,7 @@ module.exports = {
 "Leave":"離開",
 "Unfollow":"停止追蹤",
 "Demo":"展示",
+"Discuss":"討論",
 
 /* edit.hbs */
 
@@ -2799,10 +2808,14 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"21":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "\n";
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "\n";
   stack1 = helpers.unless.call(depth0, (depth0 != null ? depth0.isOwner : depth0), {"name":"unless","hash":{},"fn":this.program(22, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n";
+  return buffer + "    <a href=\"/projects/"
+    + escapeExpression(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"_id","hash":{},"data":data}) : helper)))
+    + "#discourse-comments\">"
+    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Discuss", {"name":"__","hash":{},"data":data})))
+    + "</a>\n\n";
 },"22":function(depth0,helpers,partials,data) {
   var stack1, buffer = "";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.contributing : depth0), {"name":"if","hash":{},"fn":this.program(23, data),"inverse":this.program(25, data),"data":data});

@@ -1,3 +1,5 @@
+@import "../settings";
+
 html, body {
   width: 100%;
   height: 100%;
@@ -116,6 +118,27 @@ a.anchor {
 }
 .modal-dialog {
   z-index: 10000;
+}
+
+@media (min-width: 991px) {
+  #news-detail .modal-dialog {
+    width: 991px;
+  }
+}
+
+#a-news.section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 20px;
+  border: none;
+  border-top: 10px solid @color-orange;
+  border-bottom: 10px solid @color-orange;
+  box-shadow: none;
+  padding: 10px 10px 15px;
+}
+
+#news-feed a {
+  cursor: pointer;
 }
 
 @import 'animation';

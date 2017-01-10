@@ -499,6 +499,14 @@ Handlebars.registerHelper('isDashboardView', function(options) {
   }
 });
 
+Handlebars.registerHelper('isProjectView', function(options) {
+  if (window.hackdash.app.type === "project"){
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('isLandingView', function(options) {
   if (window.hackdash.app.type === "landing"){
     return options.fn(this);
@@ -1454,6 +1462,7 @@ module.exports = {
 "Leave":"離開",
 "Unfollow":"停止追蹤",
 "Demo":"展示",
+"Discuss":"討論",
 
 /* edit.hbs */
 
@@ -3315,6 +3324,14 @@ module.exports = Backbone.Marionette.LayoutView.extend({
         if (!self.showcaseSort && sort){
           pView['sortBy' + sort.charAt(0).toUpperCase() + sort.slice(1)]();
         }
+        if (hackdash.discourseUrl) {
+          window.discourseUrl = hackdash.discourseUrl;
+          var d = document.createElement('script'),
+              srcUrl = hackdash.discourseUrl + "javascripts/count.js";
+
+          d.src = srcUrl;
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+        }
       });
 
       this.projects.show(pView);
@@ -3994,8 +4011,14 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partials,data) {
   return "";
 },"3":function(depth0,helpers,partials,data) {
-  return "        <li><a href=\"/dashboards/2017spring\">提案列表</a></li>\n";
-  },"5":function(depth0,helpers,partials,data) {
+  var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "";
+  stack1 = ((helper = (helper = helpers.isProjectView || (depth0 != null ? depth0.isProjectView : depth0)) != null ? helper : helperMissing),(options={"name":"isProjectView","hash":{},"fn":this.program(1, data),"inverse":this.program(4, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  if (!helpers.isProjectView) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
+},"4":function(depth0,helpers,partials,data) {
+  return "          <li><a href=\"/dashboards/2017spring\">提案列表</a></li>\n";
+  },"6":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "        <li class=\"visible-md visible-sm visible-xs my-profile\"><a class=\"btn-profile\">\n          "
     + escapeExpression(((helper = (helper = helpers.getMyProfileImageHex || (depth0 != null ? depth0.getMyProfileImageHex : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"getMyProfileImageHex","hash":{},"data":data}) : helper)))
@@ -4006,33 +4029,38 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + "\n          </a>\n          <ul class=\"dropdown-menu\">\n            <li><a class=\"btn-profile\">個人檔案</a></li>\n            <li class=\"divider\"></li>\n            <li><a data-bypass href=\"/logout\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log out", {"name":"__","hash":{},"data":data})))
     + "</a></li>\n          </ul>\n        </li>\n";
-},"7":function(depth0,helpers,partials,data) {
+},"8":function(depth0,helpers,partials,data) {
   var helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "        <li><a class=\"login\">"
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Log in", {"name":"__","hash":{},"data":data})))
     + "</a></li>\n";
-},"9":function(depth0,helpers,partials,data) {
+},"10":function(depth0,helpers,partials,data) {
   var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "      <form class=\"navbar-form navbar-right\">\n";
-  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(10, data),"inverse":this.program(12, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(11, data),"inverse":this.program(13, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
   return buffer + "      </form>\n";
-},"10":function(depth0,helpers,partials,data) {
+},"11":function(depth0,helpers,partials,data) {
   return "        <a href=\"/dashboards/2017spring/create\" class=\"btn btn-warning\"><i class=\"fa fa-plus\"></i>我要提案</a>\n";
-  },"12":function(depth0,helpers,partials,data) {
+  },"13":function(depth0,helpers,partials,data) {
   return "        <a href=\"/dashboards/2017spring/create\" class=\"btn btn-warning login\"><i class=\"fa fa-plus\"></i>我要提案</a>\n";
+  },"15":function(depth0,helpers,partials,data) {
+  return "      <form class=\"navbar-form navbar-right\">\n        <a href=\"/dashboards/2017spring\" class=\"btn btn-warning\">提案及評論公開徵求中</a>\n      </form>\n";
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, helper, options, functionType="function", helperMissing=helpers.helperMissing, blockHelperMissing=helpers.blockHelperMissing, buffer = "\n<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <button class=\"navbar-toggle collaped\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\" aria-expanded=\"false\"><i class=\"fa fa-bars\"/></button>\n      <a href=\"/\" data-bypass class=\"navbar-brand\">\n        <img src=\"/images/static/brand.png\"/><sup style=\"color:#ff9\"></sup>\n      </a>\n    </div>\n    <div id=\"navbar-collapse\" class=\"collapse navbar-collapse\">\n      <ul class=\"nav navbar-nav navbar-right\">\n";
   stack1 = ((helper = (helper = helpers.isDashboardView || (depth0 != null ? depth0.isDashboardView : depth0)) != null ? helper : helperMissing),(options={"name":"isDashboardView","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isDashboardView) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
   buffer += "        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/\">關於 Grant</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/#schedule\">活動辦法</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/#faq\">常見問題</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/#team\">執行團隊</a></li>\n        <li><a data-scroll=\"data-scroll\" data-bypass href=\"/#partners\">合作夥伴</a></li>\n";
-  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(5, data),"inverse":this.program(7, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  stack1 = ((helper = (helper = helpers.isLoggedIn || (depth0 != null ? depth0.isLoggedIn : depth0)) != null ? helper : helperMissing),(options={"name":"isLoggedIn","hash":{},"fn":this.program(6, data),"inverse":this.program(8, data),"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isLoggedIn) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
   buffer += "      </ul>\n";
-  stack1 = ((helper = (helper = helpers.isDashboardView || (depth0 != null ? depth0.isDashboardView : depth0)) != null ? helper : helperMissing),(options={"name":"isDashboardView","hash":{},"fn":this.program(9, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  stack1 = ((helper = (helper = helpers.isDashboardView || (depth0 != null ? depth0.isDashboardView : depth0)) != null ? helper : helperMissing),(options={"name":"isDashboardView","hash":{},"fn":this.program(10, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
   if (!helpers.isDashboardView) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
+  if (stack1 != null) { buffer += stack1; }
+  stack1 = ((helper = (helper = helpers.isProjectView || (depth0 != null ? depth0.isProjectView : depth0)) != null ? helper : helperMissing),(options={"name":"isProjectView","hash":{},"fn":this.program(15, data),"inverse":this.noop,"data":data}),(typeof helper === functionType ? helper.call(depth0, options) : helper));
+  if (!helpers.isProjectView) { stack1 = blockHelperMissing.call(depth0, stack1, options); }
   if (stack1 != null) { buffer += stack1; }
   return buffer + "    </div>\n  </div>\n</nav>\n";
 },"useData":true});
@@ -6545,7 +6573,6 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
     $('html, body').scrollTop(0);
 
-    this.initRevisions();
   },
 
   serializeData: function(){
@@ -6603,7 +6630,6 @@ module.exports = Backbone.Marionette.ItemView.extend({
     var idx = +$(e.target).attr("data-idx");
     var head = $("#projectRevisionDiff .modal-header h4");
     var body = $("#projectRevisionDiff .modal-body")[0];
-    console.log(idx);
     var desc = {
       cur: this.model.attributes.revisions[idx].description,
       old: this.model.attributes.revisions[idx ? idx - 1 : idx].description
@@ -6622,22 +6648,6 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
   //+ PRIVATE AND PROTECTED METHODS
   //--------------------------------------
-
-  initRevisions: function() {
-    //var that = this;
-    /*
-    $.ajax({
-      url: "/api/v2/projects/" + this.id(),
-      method: "GET"
-    }).success(function(r) {
-      that.revisions = r.revisions;
-      that.revisions.revisions.map(function(d) {
-        d.date = moment(d.timestamp).format("YYYY/MM/DD hh:mm:ss");
-      });
-      console.log(r);
-    });
-    */
-  }
 
 });
 
@@ -6834,10 +6844,14 @@ module.exports = HandlebarsCompiler.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Follow", {"name":"__","hash":{},"data":data})))
     + "</a>\n";
 },"21":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "\n";
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "\n";
   stack1 = helpers.unless.call(depth0, (depth0 != null ? depth0.isOwner : depth0), {"name":"unless","hash":{},"fn":this.program(22, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n";
+  return buffer + "    <a href=\"/projects/"
+    + escapeExpression(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"_id","hash":{},"data":data}) : helper)))
+    + "#discourse-comments\">"
+    + escapeExpression(((helpers.__ || (depth0 && depth0.__) || helperMissing).call(depth0, "Discuss", {"name":"__","hash":{},"data":data})))
+    + "</a>\n\n";
 },"22":function(depth0,helpers,partials,data) {
   var stack1, buffer = "";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.contributing : depth0), {"name":"if","hash":{},"fn":this.program(23, data),"inverse":this.program(25, data),"data":data});
