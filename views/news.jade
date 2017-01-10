@@ -1,0 +1,22 @@
+extends layout
+block styles
+  link(rel="stylesheet",type="text/css",href="/styles/static.css")
+block content
+  include about/nav.jade
+  div(style="height:0px;overflow:hidden") &nbps;
+  #news-detail-page.section
+  include about/footer.jade
+  include about/ga.jade
+block scripts
+  script.
+    var container = document.getElementById("news-detail-page");
+    var converter = new showdown.Converter();
+    $.ajax({
+      url: (
+        "https://raw.githubusercontent.com/g0v/grantdash/master/views/about/news/"
+        + (window.location.search.replace(/\?/g, '')) + ".md"
+      ), method: "GET"
+    }).success(function(r) {
+      container.innerHTML = converter.makeHtml(r);
+    });
+

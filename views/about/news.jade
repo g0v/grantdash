@@ -27,7 +27,12 @@
           a.innerText = entry.title + " / " + entry.date;
           a.addEventListener("click", function() {
             $("#news-detail").modal("show");
-            $("#news-detail .modal-body").html(entry.detail);
+            link = [
+              '<hr><a href="/news/?',
+              entry.file.replace(/\.md$/, ''),
+              '" target="_blank"><i class="glyphicon glyphicon-link"/>連結到此頁</a>'
+            ].join("");
+            $("#news-detail .modal-body").html(entry.detail + link);
           });
         });
         function loadNews(entry) {
