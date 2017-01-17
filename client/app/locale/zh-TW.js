@@ -245,6 +245,7 @@ module.exports = {
 
 "Name is required":"名字為必填",
 "Email is required":"Email 為必填",
+"Unable to edit Email for account created from social networks":"無法修改源自外部帳號的 Email",
 "Invalid Email":"無效的 Email",
 
 /* ListItem.js */

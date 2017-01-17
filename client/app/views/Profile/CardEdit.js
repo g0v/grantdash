@@ -67,6 +67,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   errors: {
     "name_required": __("Name is required"),
     "email_required": __("Email is required"),
+    "email_locked": __("Unable to edit Email for account created from social networks"),
     "email_invalid": __("Invalid Email")
   },
 
