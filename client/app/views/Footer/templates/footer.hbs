@@ -1,30 +1,28 @@
+<div class="footer-dash-ctn">
+  <div class="footer-toggle-ctn">
+    <a href="https://hackdash.org"><div>powered by hackdash.org</div></a>
 
-<p class="visible-md">powered by hackdash.org</p>
-<p class="hidden-md">powered by <br>hackdash.org</p>
-
-{{#if isDashboard}}
-  {{#if isAdmin}}
-  <div class="footer-dash-ctn">
-    <div class="footer-toggle-ctn">
-
+    {{#if isDashboard}}
+      {{#if isAdmin}}
       <a href="/api/v2/dashboards/{{domain}}/csv" target="_blank" data-bypass>
         <i class="fa fa-download"></i>
         <div>{{__ "Export .CSV File"}}</div>
       </a>
-
       <a data-placement="top" data-original-title="{{switcherMsg}}"
         class="tooltips dashboard-btn {{#if open}}dash-open{{else}}dash-close{{/if}}">
         <i class="txt {{#if open}}btn-success{{else}}btn-danger{{/if}}">{{#if open}}{{__ "Open"}}{{else}}{{__ "Close"}}{{/if}}</i>
         <div>{{__ "Dashboard Status"}}</div>
       </a>
+      {{/if}}
+    {{/if}}
 
-    </div>
-
+  </div>
+  {{#if isDashboard}}
+    {{#if isAdmin}}
     <a class="btn-showcase-mode">
       <i class="btn-danger txt">{{__ "off"}}</i><div>{{__ "Edit Showcase"}}</div>
     </a>
-
-  </div>
+    {{/if}}
   {{/if}}
-{{/if}}
 
+</div>
