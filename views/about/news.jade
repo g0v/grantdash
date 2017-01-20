@@ -11,10 +11,10 @@
               button.btn.btn-default(type="button",data-dismiss="modal") 關閉
     script.
       $.ajax({
-        url: "https://raw.githubusercontent.com/g0v/grantdash/master/views/about/news/index.yaml",
+        url: "https://discuss.grants.g0v.tw/c/grants-general/news.json",
         method: "GET",
       }).success(function(r) {
-        var newslist = jsyaml.load(r);
+        var newslist = r.topic_list.topics;
         var converter = new showdown.Converter();
         var container = document.getElementById("news-feed");
         var listNode = document.createElement("ul");
@@ -24,23 +24,35 @@
           var a = document.createElement("a");
           li.appendChild(a);
           listNode.appendChild(li);
-          a.innerText = entry.title + " / " + entry.date;
+          var d = new Date(entry.created_at);
+          a.innerText = entry.title + " / " + d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
           a.addEventListener("click", function() {
             $("#news-detail").modal("show");
-            link = [
-              '<hr><a href="/news/?',
-              entry.file.replace(/\.md$/, ''),
-              '" target="_blank"><i class="glyphicon glyphicon-link"/>連結到此頁</a>'
-            ].join("");
-            $("#news-detail .modal-body").html(entry.detail + link);
+            var links = [];
+            links.push(
+              [
+                '<hr><a href="/news/?',
+                entry.id,
+                '" target="_blank"><i class="glyphicon glyphicon-link"/>連結到此頁</a>'
+              ].join("")
+            );
+
+            links.push(
+              [
+                '<a href="https://discuss.grants.g0v.tw/t/topic/',
+                entry.id,
+                '" target="_blank"><i class="glyphicon glyphicon-link"/>原文連結</a>'
+              ].join("")
+            );
+            $("#news-detail .modal-body").html(entry.detail + links.join(" | "));
           });
         });
         function loadNews(entry) {
           $.ajax({
-            url: "https://raw.githubusercontent.com/g0v/grantdash/master/views/about/news/" + entry.file,
-            method: "GET"
+            url: "https://discuss.grants.g0v.tw/t/topic/" + entry.id + ".json",
+            method: "GET",
           }).success(function(r) {
-            entry.detail = converter.makeHtml(r);
+            entry.detail = r.post_stream.posts[0].cooked;
           });
         };
         newslist.forEach(function(entry) { loadNews(entry); });
