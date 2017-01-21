@@ -12,11 +12,11 @@
   "disqus_shortname": null,
   "title": "hackdash",
   "live": true,
-  "//mailer": {
-    "smtp": "smtp connect string",
-    "mailgun": {"auth": {"api_key": "...", "domain": "..."}},
-    "from": "me@local.host"
-  }
+  "mailer": {
+    "//smtp": "smtp connect string",
+    "//mailgun": {"auth": {"api_key": "...", "domain": "..."}},
+    "//from": "me@local.host"
+  },
   "prerender": {
     "enabled": false,
     "db": "mongodb://localhost/prerender"
