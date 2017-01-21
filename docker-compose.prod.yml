@@ -1,9 +1,10 @@
 version: '2'
+networks:
+  default:
+    external:
+      name: nginx-proxy
 services:
-  mongodb:
-    network_mode: "bridge"
   app:
-    network_mode: "bridge"
     restart: always
     links:
       - mongodb:mongodb
