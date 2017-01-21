@@ -25,7 +25,7 @@
           li.appendChild(a);
           listNode.appendChild(li);
           var d = new Date(entry.created_at);
-          a.innerText = entry.title + " / " + d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+          a.innerText = entry.title + " (" + d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() + ")";
           a.addEventListener("click", function() {
             $("#news-detail").modal("show");
             var links = [];
