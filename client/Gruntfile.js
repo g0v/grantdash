@@ -152,7 +152,6 @@ module.exports = function(grunt) {
             ,hackdash: true
             ,__: true
             ,JsDiff: true
-            ,showdown: true
             ,jsyaml: true
             ,document: true
           }

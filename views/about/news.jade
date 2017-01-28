@@ -15,7 +15,6 @@
         method: "GET",
       }).success(function(r) {
         var newslist = r.topic_list.topics;
-        var converter = new showdown.Converter();
         var container = document.getElementById("news-feed");
         var listNode = document.createElement("ul");
         container.appendChild(listNode);
