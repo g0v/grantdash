@@ -5,6 +5,13 @@
 
 var Handlebars = require("hbsfy/runtime");
 
+var remark = require('remark');
+var html = require('remark-html');
+
+function toHtml(md) {
+  return String(remark().use(html).process(md));
+}
+
 Handlebars.registerHelper('embedCode', function() {
   var embedUrl = window.location.protocol + "//" + window.location.host;
   var template = _.template('<iframe src="<%= embedUrl %>" width="100%" height="500" frameborder="0" allowtransparency="true" title="Hackdash"></iframe>');
@@ -23,14 +30,14 @@ Handlebars.registerHelper('firstLetter', function(text) {
 
 Handlebars.registerHelper('markdown', function(md) {
   if (md){
-    return markdown.toHTML(md);
+    return toHtml(md);
   }
   return "";
 });
 
 Handlebars.registerHelper('firstH1', function(md) {
   if (md) {
-    return $('h1:first', "<section>" + markdown.toHTML(md) + "</section>").siblings().first().text();
+    return $('h1:first', "<section>" + toHtml(md) + "</section>").siblings().first().text();
   }
   return "";
 });
