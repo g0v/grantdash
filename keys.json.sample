@@ -12,12 +12,14 @@
   , "facebook": {
         "clientID": ""
       , "clientSecret": ""
+      , "profileFields": ["id", "displayName", "photos", "email"]
       , "callbackURL": "http://local.host:3000/auth/facebook/callback"
     }
   , "github": {
         "name": "GitHub"
       , "clientID": ""
       , "clientSecret": ""
+      , "scope": ["user:email"]
       , "callbackURL": "http://local.host:3000/auth/github/callback"
     }
   , "google": {
