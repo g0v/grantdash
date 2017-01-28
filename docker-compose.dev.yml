@@ -1,0 +1,8 @@
+version: '2'
+services:
+  app:
+    restart: always
+    links:
+      - mongodb:mongodb
+    volumes:
+      - .:/usr/src/app
