@@ -143,21 +143,26 @@ module.exports = Backbone.Marionette.AppRouter.extend({
     var app = window.hackdash.app;
     app.type = "project";
 
-    app.project = new Project({
-      domain: dashboard
+    app.dashboard = new Dashboard();
+    app.dashboard.set('domain', dashboard);
+    app.dashboard.fetch().done(function(){
+
+      app.project = new Project({
+        domain: dashboard
+      });
+
+      app.header.show(new Header());
+
+      app.main.show(new ProjectEditView({
+        model: app.project
+      }));
+
+      app.footer.show(new Footer({
+        model: app.dashboard
+      }));
+
+      app.setTitle('Create a project');
     });
-
-    app.header.show(new Header());
-
-    app.main.show(new ProjectEditView({
-      model: app.project
-    }));
-
-    app.footer.show(new Footer({
-      model: app.dashboard
-    }));
-
-    app.setTitle('Create a project');
   },
 
   showProjectEdit: function(pid){

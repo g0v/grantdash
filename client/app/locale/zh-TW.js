@@ -262,6 +262,8 @@ module.exports = {
 
 "Title is required":"請輸入標題",
 "Description is required":"請輸入敘述",
+"Description is invalid":"內容有誤",
+"Dashboard is closed for creating projects":"提案已截止",
 "Drop Image Here":"拖曳上傳圖像",
 "File is too big, 500 Kb is the max":"檔案太大，檔案大小上限為 500 KB",
 "Only jpg, png and gif are allowed":"只接受 jpg, png 和 gif 檔",

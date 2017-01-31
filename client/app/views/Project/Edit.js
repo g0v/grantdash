@@ -218,7 +218,8 @@ module.exports = Backbone.Marionette.ItemView.extend({
   errors: {
     "title_required": __("Title is required"),
     "description_required": __("Description is required"),
-    "description_invalid": __("Description is invalid")
+    "description_invalid": __("Description is invalid"),
+    "link_dashboard_closed": __("Dashboard is closed for creating projects")
   },
 
   showError: function(err){
