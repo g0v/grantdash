@@ -140,6 +140,11 @@ module.exports = Backbone.Marionette.AppRouter.extend({
 
   showProjectCreate: function(dashboard){
 
+    if (!hackdash.user) {
+      window.location = "/login?redirect=" + window.location;
+      return;
+    }
+
     var app = window.hackdash.app;
     app.type = "project";
 
