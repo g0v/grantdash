@@ -16,6 +16,7 @@ var Dashboard = require("./models/Dashboard")
   , ProjectFullView = require("./views/Project/Full")
   , ProjectEditView = require("./views/Project/Edit")
   , DashboardView = require("./views/Dashboard")
+  , DashboardClosedView = require("./views/Dashboard/Closed")
   , CollectionView = require("./views/Collection")
   ;
 
@@ -158,9 +159,14 @@ module.exports = Backbone.Marionette.AppRouter.extend({
 
       app.header.show(new Header());
 
-      app.main.show(new ProjectEditView({
-        model: app.project
-      }));
+      if (app.dashboard.get("open")) {
+        app.main.show(new ProjectEditView({
+          model: app.project
+        }));
+      }
+      else {
+        app.main.show(new DashboardClosedView({}));
+      }
 
       app.footer.show(new Footer({
         model: app.dashboard
