@@ -62,6 +62,10 @@ module.exports = Backbone.Marionette.LayoutView.extend({
         break;
     }
 
+    if (!hackdash.user) {
+      $('.create', this.$el).addClass('login');
+    }
+
     $('.tooltips', this.$el).tooltip({placement: "bottom"});
     this.$el.addClass(hackdash.app.type);
   },
@@ -104,6 +108,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   showLogin: function(){
     hackdash.app.showLogin();
+    return false;
   },
 
   //--------------------------------------
