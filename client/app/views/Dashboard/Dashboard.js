@@ -53,6 +53,10 @@ module.exports = Backbone.Marionette.ItemView.extend({
       }
     }
 
+    if (!this.model.get('open')) {
+      $('.btn.create').hide();
+    }
+
     $('.tooltips', this.$el).tooltip({});
   },
 
