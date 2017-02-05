@@ -242,7 +242,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
     var ctrl = 'description';
     this.ui[ctrl].parents('.control-group').addClass('error');
-    this.ui[ctrl].after('<span class="help-inline">' + error + '</span>');
+    this.ui[ctrl].after('<span class="help-inline">' + error + ', 請參考<a target="_blank" href="https://hackmd.io/AwQwrAxsBM0KYFoDscCMAzBAWAHCRARqgJzEJjpwQDMAJkmFsXNUA===">申請範例</a></span>');
   },
 
   cleanErrors: function(){
