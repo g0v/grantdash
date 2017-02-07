@@ -22,6 +22,7 @@ module.exports = ItemView.extend({
   },
 
   events: {
+    "click": "onClick",
     "click @ui.contribute": "onContribute",
     "click @ui.follow": "onFollow",
     "click .contributors a": "stopPropagation",
@@ -99,6 +100,11 @@ module.exports = ItemView.extend({
 
   stopPropagation: function(e){
     e.stopPropagation();
+  },
+  onClick: function(e){
+    if(e.metaKey) {
+      e.stopPropagation();
+    }
   },
 
   onContribute: function(e){
