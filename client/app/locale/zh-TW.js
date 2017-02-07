@@ -102,6 +102,7 @@ module.exports = {
 "Open":"Open",
 "Close":"Close",
 "Dashboard Status":"Dashboard Status",
+"Edit Status":"Edit Status",
 "off":"off",
 
 /* Header directory */

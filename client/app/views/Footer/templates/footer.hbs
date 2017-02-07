@@ -13,6 +13,12 @@
         <i class="txt {{#if open}}btn-success{{else}}btn-danger{{/if}}">{{#if open}}{{__ "Open"}}{{else}}{{__ "Close"}}{{/if}}</i>
         <div>{{__ "Dashboard Status"}}</div>
       </a>
+      <a data-placement="top"
+        class="tooltips editable-btn {{#if editable}}edit-open{{else}}edit-close{{/if}}">
+        <i class="txt {{#if editable}}btn-success{{else}}btn-danger{{/if}}">{{#if editable}}{{__ "Open"}}{{else}}{{__ "Close"}}{{/if}}</i>
+        <div>{{__ "Edit Status"}}</div>
+      </a>
+
       {{/if}}
     {{/if}}
 

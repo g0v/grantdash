@@ -14,6 +14,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   ui: {
     "switcher": ".dashboard-btn",
+    "switcherEditable": ".editable-btn",
     "showcaseMode": ".btn-showcase-mode",
     "createShowcase": ".btn-new-project",
     "footerToggle": ".footer-toggle-ctn",
@@ -22,6 +23,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   events: {
     "click .dashboard-btn": "onClickSwitcher",
+    "click .editable-btn": "onClickSwitcherEditable",
     "click .btn-showcase-mode": "changeShowcaseMode",
     "click @ui.up": "goTop"
   },
@@ -88,8 +90,19 @@ module.exports = Backbone.Marionette.LayoutView.extend({
     }
 
     $('.tooltips', this.$el).tooltip('hide');
-
     this.model.set({ "open": open }, { trigger: false });
+    this.model.save({ wait: true });
+  },
+
+  onClickSwitcherEditable:function(){
+    var open = true;
+    if (this.ui.switcherEditable.hasClass("edit-open")){
+      open = false;
+    }
+
+    $('.tooltips', this.$el).tooltip('hide');
+
+    this.model.set({ "editable": open }, { trigger: false });
     this.model.save({ wait: true });
   },
 
