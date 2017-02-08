@@ -207,14 +207,16 @@ module.exports = Backbone.Marionette.AppRouter.extend({
     app.project = new Project({ _id: pid });
 
     app.project.fetch().done(function(){
-
-      app.header.show(new Header());
-
-      app.main.show(new ProjectFullView({
-        model: app.project
-      }));
-
-      app.setTitle(app.project.get('title') || 'Project');
+      app.dashboard = new Dashboard();
+      app.dashboard.set('domain', app.project.get("domain"));
+      app.dashboard.fetch().done(function() {
+        app.project.set("editable", app.dashboard.get("editable"));
+        app.header.show(new Header());
+        app.main.show(new ProjectFullView({
+          model: app.project, editable: "hello"
+        }));
+        app.setTitle(app.project.get('title') || 'Project');
+      });
     });
 
     app.footer.show(new Footer({

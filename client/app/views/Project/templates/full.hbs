@@ -1,4 +1,3 @@
-
 <div class="header dashboard-{{domain}}">
   <div class="container">
     <label>提案</habel>
@@ -151,9 +150,11 @@
       <div class="pull-right remove">
         <a class="btn btn-danger">{{__ "Remove"}}</a>
       </div>
+      {{#if editable}}
       <div class="pull-right edit">
         <a class="btn btn-success" href="/projects/{{_id}}/edit">{{__ "Edit"}}</a>
       </div>
+      {{/if}}
       {{/if}}
 
       {{#if showActions}}
