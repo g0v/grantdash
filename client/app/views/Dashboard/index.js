@@ -21,12 +21,18 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   ui: {
     inactiveCtn: ".inactive-ctn",
-    shareLink: '.share'
+    shareLink: '.share',
+    dashboardBtn: ".btn-dashboard",
+    dashboardH1: ".h1-dashboard",
+    allProjectsBtn: ".btn-all-projects",
+    allProjectsH1: ".h1-all-projects"
   },
 
   events: {
     "click .share": "showShare",
-    "click .login": "showLogin"
+    "click .login": "showLogin",
+    "click .toggle-showcase-on": "toggleShowcaseOn",
+    "click .toggle-showcase-off": "toggleShowcaseOff"
   },
 
   regions: {
@@ -44,6 +50,14 @@ module.exports = Backbone.Marionette.LayoutView.extend({
   },
 
   templateHelpers: {
+    isShowcaseMode: function() {
+      console.log(hackdash);
+      console.log(hackdash.app);
+      console.log(hackdash.app.dashboard);
+      console.log(hackdash.app.dashboard.showcaseMode);
+      console.log(hackdash.app.dashboard.get("showcaseMode"));
+      return hackdash.app.dashboard.showcaseMode;
+    },
     isDashOpen: function(){
       var isDashboard = (hackdash.app.type === "dashboard" ? true : false);
       if (!isDashboard){
@@ -62,6 +76,16 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   onRender: function(){
     var self = this;
+    if(hackdash.getQueryVariable('sort') === "showcase") {
+      this.showcaseMode = true;
+    }
+    if(this.showcaseMode) {
+      this.ui.dashboardBtn.addClass("active");
+      this.ui.allProjectsH1.addClass("hide");
+    } else {
+      this.ui.allProjectsBtn.addClass("active");
+      this.ui.dashboardH1.addClass("hide");
+    }
 
     this.search.show(new Search({
       showSort: true,
@@ -90,10 +114,10 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
       this.ui.inactiveCtn.removeClass("hide");
 
-      this.inactives.show(new ProjectsView({
+      /*this.inactives.show(new ProjectsView({
         model: this.model,
         collection: hackdash.app.projects.getInactives()
-      }));
+      }));*/
 
       hackdash.app.projects.off("change:active").on("change:active", function(){
         self.projects.currentView.collection = hackdash.app.projects.getActives();
@@ -116,7 +140,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
       });
 
       pView.on('ended:render', function(){
-        var sort = hackdash.getQueryVariable('sort');
+        var sort = ""; //= hackdash.getQueryVariable('sort'); // this is original method.
         if (!self.showcaseSort && sort){
           pView['sortBy' + sort.charAt(0).toUpperCase() + sort.slice(1)]();
         }
@@ -146,6 +170,14 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
   showLogin: function(){
     hackdash.app.showLogin();
+  },
+
+  toggleShowcaseOn: function() {
+    window.location.search = "?sort=showcase";
+  },
+
+  toggleShowcaseOff: function() {
+    window.location.search = "";
   },
 
   showShare: function(){

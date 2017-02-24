@@ -37,7 +37,13 @@
       {{/if}}
 
     </div>
+    <div class="btn-group">
+      <div class="btn btn-success toggle-showcase-on btn-dashboard"> 決選入圍 </div>
+      <div class="btn btn-success toggle-showcase-off btn-all-projects"> 所有提案 </div>
+    </div>
     <div class="pull-right dash-search"></div>
+    <h1 class="h1-dashboard" style='text-align:center;margin-bottom:0px;'> 決選入圍名單 </h1>
+    <h1 class="h1-all-projects" style='text-align:center;margin-bottom:0px;'> 所有提案列表 </h1>
     <!--
     {{#isDashOpen}}
     <div class="dash-create">
@@ -56,10 +62,10 @@
 </div>
 
 <div class="body dashboard-{{domain}}">
-
   <div class="container">
-
-    <div id="dashboard-projects" class="section"></div>
+    <div id="dashboard-projects" class="section">
+    <h1> 決選名單 </h1>
+    </div>
     <div id="inactive-projects" class="hide inactive-ctn"></div>
 
   </div>
