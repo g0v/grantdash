@@ -114,11 +114,6 @@ module.exports = Backbone.Marionette.LayoutView.extend({
 
       this.ui.inactiveCtn.removeClass("hide");
 
-      /*this.inactives.show(new ProjectsView({
-        model: this.model,
-        collection: hackdash.app.projects.getInactives()
-      }));*/
-
       hackdash.app.projects.off("change:active").on("change:active", function(){
         self.projects.currentView.collection = hackdash.app.projects.getActives();
         self.inactives.currentView.collection = hackdash.app.projects.getInactives();
