@@ -21,13 +21,13 @@
           <div class="status">{{status}}</div>
         </div>
 
-        {{#if cover}}
         {{#if awarded}}
           <div class="awarded"></div>
         {{/if}}
         {{#if finalist}} {{#unless awarded}}
           <div class="finalist"></div>
         {{/unless}}{{/if}}
+        {{#if cover}}
         <div class="item-cover"
           style="background-image: url({{cover}});"></div>
         {{else}}
