@@ -1732,13 +1732,19 @@ footer {
 
 .awarded {
   position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 120px;
-  height: 120px;
+  top: -35px;
+  right: -35px;
+  width: 140px;
+  height: 140px;
   background: url(/images/static/ribbon-01.svg);
   z-index: 2;
 }
+@media (max-width: 640px) {
+  .awarded {
+    right: -25px
+  }
+}
+
 
 .finalist {
   position: absolute;
