@@ -1,0 +1,21 @@
+extends layout
+block styles
+  link(rel="stylesheet",type="text/css",href="/styles/static.css")
+block content
+  - var config = { aboutSimplified: true };
+  include about/nav.jade
+  br
+  br
+  br
+  br
+  include about/about.jade
+  .sep.block.section
+    h1.text-center 申請獎助金
+  include power/apply.jade
+  .sep.block.section
+    h1.text-center 獲獎專案一覽
+  include power/project.jade
+  include about/footer.jade
+  include about/ga.jade
+block scripts
+  script(type="text/javascript",src="//cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.2.0/js/smooth-scroll.js")

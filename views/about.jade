@@ -2,6 +2,7 @@ extends layout
 block styles
   link(rel="stylesheet",type="text/css",href="/styles/static.css")
 block content
+  - var config = {};
   include about/nav.jade
   include about/landing.jade
   include about/news.jade
