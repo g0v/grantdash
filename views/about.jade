@@ -6,15 +6,12 @@ block content
   include about/nav.jade
   include about/landing.jade
   include about/news.jade
-  include about/about.jade
-  .sep.block.section
-    h1.text-center 主題方向
-  include about/topics.jade
-  .sep.block.section
-    h1.text-center 常見問題
-  include about/faq.jade
-  include about/team.jade
-  include about/partners.jade
+  #content-wrap
+    include about/about.jade
+    include about/topics.jade
+    include about/faq.jade
+    include about/team.jade
+    include about/partners.jade
   include about/footer.jade
   include about/ga.jade
 block scripts
