@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="154px" height="155px" viewBox="0 0 154 155" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-open-gov</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="80" y="810" width="1280" height="7099" rx="20"></rect>
+        <filter x="-0.5%" y="-0.1%" width="101.1%" height="100.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-page" transform="translate(-409.000000, -1686.000000)">
+            <g id="Rectangle-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Group-20" transform="translate(409.000000, 1686.351064)">
+                <circle id="Oval-4" fill="#633A7C" cx="77" cy="77" r="77"></circle>
+                <g id="Group-9" transform="translate(24.000000, 27.000000)">
+                    <rect id="Rectangle-11" fill="#FFFFFF" x="5" y="23" width="96" height="11"></rect>
+                    <polygon id="Rectangle-11" fill="#DADADA" points="53.5 0 107 23 0 23"></polygon>
+                    <rect id="Rectangle-11" fill="#FFFFFF" x="3" y="82" width="103" height="11"></rect>
+                    <rect id="Rectangle-11" fill="#DADADA" x="9" y="34" width="88" height="3"></rect>
+                    <rect id="Rectangle-11" fill="#FFFFFF" x="18" y="37" width="12" height="45"></rect>
+                    <rect id="Rectangle-11" fill="#FFFFFF" x="48" y="37" width="12" height="45"></rect>
+                    <rect id="Rectangle-11" fill="#DADADA" x="13" y="79" width="21" height="3"></rect>
+                    <rect id="Rectangle-11" fill="#DADADA" x="43" y="79" width="21" height="3"></rect>
+                    <rect id="Rectangle-11" fill="#FFFFFF" x="77" y="37" width="12" height="45"></rect>
+                    <rect id="Rectangle-11" fill="#DADADA" x="73" y="79" width="21" height="3"></rect>
+                    <circle id="Oval-5" fill="#FFFFFF" cx="53" cy="14" r="4"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

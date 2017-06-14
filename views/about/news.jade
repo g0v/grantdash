@@ -1,6 +1,6 @@
-#a-news.section
-  a.anchor#news
-  .inner
+#news
+  .section: .inner
+    a.anchor#news
     h3: a(href="https://discuss.grants.g0v.tw/c/grants-general/news") 最新消息
     #news-feed
       #news-detail.modal.fade
@@ -9,41 +9,42 @@
             .modal-body
             .modal-footer
               button.btn.btn-default(type="button",data-dismiss="modal") 關閉
-    script.
-      $.ajax({
-        url: "https://discuss.grants.g0v.tw/c/grants-general/news.json",
-        method: "GET",
-      }).success(function(r) {
-        var newslist = r.topic_list.topics;
-        var container = document.getElementById("news-feed");
-        var listNode = document.createElement("ul");
-        container.appendChild(listNode);
-        newslist.map(function(entry,i) {
-          var li = entry.listEntry = document.createElement("li");
-          var a = document.createElement("a");
-          li.appendChild(a);
-          listNode.appendChild(li);
-          var d = new Date(entry.created_at);
-          a.innerText = entry.title + " (" + d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() + ")";
-          a.addEventListener("click", function() {
-            $("#news-detail .modal-body").html('<img src="images/g0v-loading.gif" alt="loading" />');
-            $("#news-detail").modal("show");
-            loadNews(entry);
-          });
+
+  script.
+    $.ajax({
+      url: "https://discuss.grants.g0v.tw/c/grants-general/news.json",
+      method: "GET",
+    }).success(function(r) {
+      var newslist = r.topic_list.topics;
+      var container = document.getElementById("news-feed");
+      var listNode = document.createElement("ul");
+      container.appendChild(listNode);
+      newslist.map(function(entry,i) {
+        var li = entry.listEntry = document.createElement("li");
+        var a = document.createElement("a");
+        li.appendChild(a);
+        listNode.appendChild(li);
+        var d = new Date(entry.created_at);
+        a.innerText = entry.title + " (" + d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() + ")";
+        a.addEventListener("click", function() {
+          $("#news-detail .modal-body").html('<img src="images/g0v-loading.gif" alt="loading" />');
+          $("#news-detail").modal("show");
+          loadNews(entry);
         });
       });
+    });
 
-      function loadNews(entry) {
-        $.ajax({
-          url: "https://discuss.grants.g0v.tw/t/topic/" + entry.id + ".json",
-          method: "GET",
-        }).success(function(r) {
-          var link = [
-            '<a href="https://discuss.grants.g0v.tw/t/topic/',
-            entry.id,
-            '" target="_blank"><i class="glyphicon glyphicon-link"/>原文連結</a>'
-          ].join("");
-          $("#news-detail .modal-body").html(r.post_stream.posts[0].cooked + link);
-        });
-      };
+    function loadNews(entry) {
+      $.ajax({
+        url: "https://discuss.grants.g0v.tw/t/topic/" + entry.id + ".json",
+        method: "GET",
+      }).success(function(r) {
+        var link = [
+          '<a href="https://discuss.grants.g0v.tw/t/topic/',
+          entry.id,
+          '" target="_blank"><i class="glyphicon glyphicon-link"/>原文連結</a>'
+        ].join("");
+        $("#news-detail .modal-body").html(r.post_stream.posts[0].cooked + link);
+      });
+    };
 
