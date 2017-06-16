@@ -46,6 +46,14 @@ Handlebars.registerHelper('discourseUrl', function() {
   return window.hackdash.discourseUrl;
 });
 
+Handlebars.registerHelper('grantdashDashboard', function() {
+  return window.hackdash.grantdash.dashboard;
+});
+
+Handlebars.registerHelper('grantdash', function() {
+  return window.hackdash.grantdash;
+});
+
 Handlebars.registerHelper('disqus_shortname', function() {
   return window.hackdash.disqus_shortname;
 });

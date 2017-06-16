@@ -13,7 +13,7 @@
         {{else}}
           {{#isProjectView}}
           {{else}}
-          <li><a href="/dashboards/2017spring?sort=showcase">入圍及獲獎提案</a></li>
+          <li><a href="/dashboards/{{grantdashDashboard}}?sort=showcase">入圍及獲獎提案</a></li>
           {{/isProjectView}}
         {{/isDashboardView}}
         <li><a data-scroll="data-scroll" data-bypass href="/">關於 Grant</a></li>
@@ -43,12 +43,12 @@
       </ul>
       {{#isDashboardView}}
       <form class="navbar-form navbar-right">
-        <a href="/dashboards/2017spring/create" class="btn btn-warning create"><i class="fa fa-plus"></i>我要提案</a>
+        <a href="/dashboards/{{grantdashDashboard}}/create" class="btn btn-warning create"><i class="fa fa-plus"></i>我要提案</a>
       </form>
       {{/isDashboardView}}
       {{#isProjectView}}
       <form class="navbar-form navbar-right">
-        <a href="/dashboards/2017spring?sort=showcase" class="btn btn-warning">入圍及獲獎提案</a>
+        <a href="/dashboards/{{grantdashDashboard}}?sort=showcase" class="btn btn-warning">入圍及獲獎提案</a>
       </form>
       {{/isProjectView}}
     </div>

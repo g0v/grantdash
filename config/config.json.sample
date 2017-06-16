@@ -12,6 +12,13 @@
   "disqus_shortname": null,
   "title": "hackdash",
   "live": true,
+  "grantdash": {
+    "dashboard": "2017autumn",
+    "submission_opens": "2017-07-01",
+    "submission_closed": "2017-07-16",
+    "comment_closed": "2017-07-26",
+    "edit_closed": "2017-07-29"
+  },
   "mailer": {
     "//smtp": "smtp connect string",
     "//mailgun": {"auth": {"api_key": "...", "domain": "..."}},
