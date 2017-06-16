@@ -17,13 +17,16 @@
   <i class="item-letter">{{firstLetter title}}</i>
 {{/if}}
 </div>
-
 <div class="details">
   <div>
     <h2>{{title}}</h2>
     <h3><a href="/dashboards/{{domain}}"
       {{#isEmbed}}target="_blank"{{else}}data-bypass{{/isEmbed}}>{{domain}}</a></h3>
+    {{#if description}}
     <p class="description">{{firstH1 description}}</p>
+    {{else}}
+    <p class="description">{{desc}}</p>
+    {{/if}}
   </div>
 </div>
 

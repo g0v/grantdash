@@ -21,6 +21,28 @@ var headings = ["§ 請以 80 ~ 120 字簡短地說明這個專案",
  "§ 若有專案介紹的投影片，請提供：",
 ];
 
+var detailFields = [
+  /* name, constraint type */
+  ["desc", 1],
+  ["motivation", 0],
+  ["existed", 0],
+  ["problem", 2],
+  ["solution", 2],
+  ["ta", 2],
+  ["similar", 0],
+  ["pastprj", 0],
+  ["cowork", 0],
+  ["usetime", 0],
+  ["spending", 0],
+  ["feedback", 0],
+  ["product", 0],
+  ["milestone1", 0],
+  ["milestone2", 0],
+  ["future", 0],
+  ["otherfund", 0],
+  ["slide", 0],
+];
+
 function markdownValidator(text) {
   var parse = require("markdown-to-ast").parse;
   var expected_headings = headings.slice(0);
@@ -66,9 +88,32 @@ module.exports = Backbone.Marionette.ItemView.extend({
   className: "page-ctn project edition",
   template: template,
 
+
+
+
   ui: {
     "title": "input[name=title]",
     "description": "textarea[name=description]",
+
+    "desc": "textarea[name=desc]",
+    "motivation": "textarea[name=motivation]",
+    "existed": "textarea[name=existed]",
+    "problem": "textarea[name=problem]",
+    "solution": "textarea[name=solution]",
+    "ta": "textarea[name=ta]",
+    "similar": "textarea[name=similar]",
+    "pastprj": "textarea[name=pastprj]",
+    "cowork": "textarea[name=cowork]",
+    "usetime": "textarea[name=usetime]",
+    "spending": "textarea[name=spending]",
+    "feedback": "textarea[name=feedback]",
+    "product": "textarea[name=product]",
+    "milestone1": "textarea[name=milestone1]",
+    "milestone2": "textarea[name=milestone2]",
+    "future": "textarea[name=future]",
+    "otherfund": "textarea[name=otherfund]",
+    "slide": "textarea[name=slide]",
+
     "link": "input[name=link]",
     "tags": "input[name=tags]",
     "status": "select[name=status]",
@@ -104,7 +149,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
   //--------------------------------------
 
   onShow: function(){
-    if (!this.ui.description.val().length && this.model.get('domain') !== 'news') {
+    if (!(this.ui.description.val() || "").length && this.model.get('domain') !== 'news') {
       this.ui.description.val( '# ' + headings.join("\n\n# ") );
     }
     this.initSelect2();
@@ -170,23 +215,47 @@ module.exports = Backbone.Marionette.ItemView.extend({
   },
 
   save: function(){
-
+    var field, idx, length;
     var toSave = {
       title: this.ui.title.val(),
-      description: this.ui.description.val(),
       link: this.ui.link.val(),
       tags: this.ui.tags.val().split(','),
       status: this.ui.status.val(),
       cover: this.model.get('cover')
     };
+    if(this.ui.description.length) {
+      toSave.description = this.ui.description.val();
+    }
+    for( idx = 0; idx < detailFields.length; idx ++ ) {
+      field = detailFields[idx][0];
+      toSave[field] = this.ui[field].val();
+    }
 
     this.cleanErrors();
     if (this.model.get('domain') !== 'news') {
-      var err = markdownValidator(this.ui.description.val());
-      if (err) {
-        this.showMarkdownError(err);
+      if(this.ui.description.length) {
+        var err = markdownValidator(this.ui.description.val());
+        if (err) {
+          this.showMarkdownError(err);
+          return;
+        }
+      }
+      var failedFields = [];
+      for( idx = 0; idx < detailFields.length; idx ++ ) {
+        field = detailFields[idx];
+        length = (this.ui[field[0]].val() || "").length;
+        if(
+        length === 0 || /* empty */
+        (field[1] === 1 && (length < 80 || length > 120)) || /* for description */
+        (field[1] === 2 && (length < 200 || length > 500))) /* for longer question */ {
+          failedFields.push(field);
+        }
+      }
+      if(failedFields.length) {
+        this.showFieldsError(failedFields);
         return;
       }
+
     }
 
     $("#save", this.$el).button('loading');
@@ -235,6 +304,16 @@ module.exports = Backbone.Marionette.ItemView.extend({
     var ctrl = error.split("_")[0];
     this.ui[ctrl].parents('.control-group').addClass('error');
     this.ui[ctrl].after('<span class="help-inline">' + this.errors[error] + '</span>');
+  },
+
+  showFieldsError: function(fields) {
+    $("#save", this.$el).button('reset');
+    var msg = ["欄位不得為空", "字數需介於 80 ~ 120 字之間", "字數需介於 200 ~ 500 字之間"];
+    for( var idx = 0, field; idx < fields.length; idx ++ ) {
+      field = fields[idx];
+      this.ui[field[0]].parents('.control-group').addClass('error');
+      this.ui[field[0]].after('<span class="help-inline">' + msg[field[1]] + ', 請參考<a target="_blank" href="https://hackmd.io/AwQwrAxsBM0KYFoDscCMAzBAWAHCRARqgJzEJjpwQDMAJkmFsXNUA===">申請範例</a></span>');
+    }
   },
 
   showMarkdownError: function(error){
