@@ -22,15 +22,28 @@
         &lt;img src="https://grants.g0v.tw/images/power/poweredby-square.svg" alt="Powered by g0v"/&gt;
       &lt;/a&gt;
     h4 其它圖檔格式
-    label SVG, 方形
-    img(src="/images/power/poweredby-square.svg",style="border:1px dashed #999;display:block")
-    br
-    label SVG, 長形
-    img(src="/images/power/poweredby-long.svg",style="border:1px dashed #999;display:block")
-    br
-    label PNG, 方形 ( 320 x 100 )
-    img(src="/images/power/poweredby-square.png",style="border:1px dashed #999;display:block")
-    br
-    label PNG, 長形 ( 640 x 80 )
-    .hidden-xs.hidden-sm.hidden-md: img(src="/images/power/poweredby-long.png",style="border:1px dashed #999;display:block")
-    .hidden-lg.hidden-xl: a(href="/images/power/poweredby-long.png") 圖片載點
+    .stickers
+      label SVG, 方形
+      img(src="/images/power/poweredby-square.svg")
+      br
+      label SVG, 方形 ( 黑底 )
+      img.dark(src="/images/power/poweredby-square-i.svg")
+      br
+      label SVG, 長形
+      img(src="/images/power/poweredby-long.svg")
+      br
+      label SVG, 長形 ( 黑底 )
+      img.dark(src="/images/power/poweredby-long-i.svg")
+      br
+      label PNG, 方形 ( 320 x 100 )
+      img(src="/images/power/poweredby-square.png")
+      br
+      label PNG, 方形 ( 320 x 100, 黑底 )
+      img.dark(src="/images/power/poweredby-square-i.png")
+      br
+      label PNG, 長形 ( 640 x 80 )
+      .hidden-xs.hidden-sm.hidden-md: img(src="/images/power/poweredby-long.png")
+      br
+      label PNG, 長形 ( 640 x 80, 黑底 )
+      .hidden-xs.hidden-sm.hidden-md: img.dark(src="/images/power/poweredby-long-i.png")
+      .hidden-lg.hidden-xl: a(href="/images/power/poweredby-long.png") 圖片載點
