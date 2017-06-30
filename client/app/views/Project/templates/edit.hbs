@@ -66,6 +66,9 @@
 
     <div class="col-md-8">
 
+      <h3> 你需要多少錢？ ( 30 ~ 50 萬之間 ) </h3>
+      <input type="number" class="form-control" id="money" name="money" value="{{money}}", placeholder="例如: 500000">
+
       <h3> 請以 80 ~ 120 字簡短地說明這個專案</h3>
       <textarea class="form-control" rows="6" id="desc" name="desc">{{desc}}</textarea>
 
@@ -79,30 +82,36 @@
       <textarea class="form-control" rows="6" id="problem" name="problem">{{problem}}</textarea>
 
       <h3> 你預計用什麼方式解決此問題？ (200 ~ 500 字 ) </h3>
-      <textarea class="form-control" rows="6" id="solution" name="solution">{{description}}</textarea>
+      <textarea class="form-control" rows="6" id="solution" name="solution">{{solution}}</textarea>
 
-      <h3> 請列出這個計畫的目標對象，他們的需求、情境與使用動機 (200-500 字)  </h3>
-      <textarea class="form-control" rows="6" id="ta" name="ta">{{description}}</textarea>
+      <h3> 為什麼你的方法可以解決此問題？ (200 ~ 500 字 ) </h3>
+      <textarea class="form-control" rows="6" id="why" name="why">{{why}}</textarea>
+
+      <h3> 請列出這個計畫的目標對象，他們的需求、情境與使用動機 (200-500 字) </h3>
+      <textarea class="form-control" rows="6" id="ta" name="ta">{{ta}}</textarea>
 
       <h3> 是否已有相似的專案，本計劃的差異與不可取代性為何？</h3>
-      <textarea class="form-control" rows="6" id="similar" name="similar">{{description}}</textarea>
+      <textarea class="form-control" rows="6" id="similar" name="similar">{{similar}}</textarea>
 
-      <h3> 過去作過什麼開源開發計畫（open source project）？（可提供 GitHub 帳號） </h3>
+      <h3> 請提供本計劃的示意圖或介面設計草圖 ( 請以連結方式提供圖片 ) </h3>
+      <textarea class="form-control" rows="6" id="refdesign" name="refdesign">{{refdesign}}</textarea>
+
+      <h3> 過去作過什麼開源開發計畫（open source project）？ (可提供 GitHub 帳號) </h3>
       <textarea class="form-control" rows="6" id="pastprj" name="pastprj">{{pastprj}}</textarea>
 
-      <h3> 這個計畫預計跟什麼團體合作？ </h3>
+      <h3> 這個計畫預計跟什麼團體合作？</h3>
       <textarea class="form-control" rows="6" id="cowork" name="cowork">{{cowork}}</textarea>
 
-      <h3> 預計六個月內將花多少小時作這件事？ </h3>
+      <h3> 預計六個月內將花多少小時作這件事？</h3>
       <textarea class="form-control" rows="6" id="usetime" name="usetime">{{usetime}}</textarea>
 
       <h3> 獎助金預計如何使用（大略比例）？</h3>
       <textarea class="form-control" rows="6" id="spending" name="spending">{{spending}}</textarea>
 
-      <h3> 打算如何讓社群參與以及回饋意見？ </h3>
+      <h3> 打算如何讓社群參與以及回饋意見？</h3>
       <textarea class="form-control" rows="6" id="feedback" name="feedback">{{feedback}}</textarea>
 
-      <h3> 請說明本專案會產出的開源軟體套件或開放授權文件（請條列個別元件的輸入輸出或其功能） </h3>
+      <h3> 請說明本專案會產出的開源軟體套件或開放授權文件 (請條列個別元件的輸入輸出或其功能) </h3>
       <textarea class="form-control" rows="6" id="product" name="product">{{product}}</textarea>
 
       <h3> 請說明計畫期中的工作里程碑與驗收給付標準</h3>
@@ -114,10 +123,20 @@
       <h3> 計畫結束後未來可能進一步的發展？</h3>
       <textarea class="form-control" rows="6" id="future" name="future">{{future}}</textarea>
 
-      <h3> 本計畫目前是否已有、或正在申請其他的資金來源？若有，請說明申請本獎助的內容與其他計畫的差異 </h3>
+      <h3> 本計畫目前是否已有、或正在申請其他的資金來源？若有，請說明申請本獎助的內容與其他計畫的差異</h3>
       <textarea class="form-control" rows="6" id="otherfund" name="otherfund">{{otherfund}}</textarea>
 
-      <h3> 若有專案介紹的投影片，請提供 </h3>
+      <h3> 依獎助金的主題方向畫分的話，本計畫屬於哪個分類？</h3>
+      <select class="form-control" id="category" name="category" value="{{category}}" multiple>
+        <option value="開放政府">開放政府</option>
+        <option value="新媒體">新媒體</option>
+        <option value="公共政策">公共政策</option>
+        <option value="開放資料">開放資料</option>
+        <option value="社會參與">社會參與</option>
+        <option value="基礎建設">基礎建設</option>
+      </select>
+
+      <h3> 若有專案介紹的投影片，請提供</h3>
       <textarea class="form-control" rows="6" id="slide" name="slide">{{slide}}</textarea>
 
 

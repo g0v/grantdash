@@ -23,13 +23,16 @@ var headings = ["§ 請以 80 ~ 120 字簡短地說明這個專案",
 
 var detailFields = [
   /* name, constraint type */
+  ["money", 3],
   ["desc", 1],
   ["motivation", 0],
   ["existed", 0],
   ["problem", 2],
   ["solution", 2],
+  ["why", 2],
   ["ta", 2],
   ["similar", 0],
+  ["refdesign",0],
   ["pastprj", 0],
   ["cowork", 0],
   ["usetime", 0],
@@ -40,6 +43,7 @@ var detailFields = [
   ["milestone2", 0],
   ["future", 0],
   ["otherfund", 0],
+  ["category", 0],
   ["slide", 0],
 ];
 
@@ -95,13 +99,16 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "title": "input[name=title]",
     "description": "textarea[name=description]",
 
+    "money": "input[name=money]",
     "desc": "textarea[name=desc]",
     "motivation": "textarea[name=motivation]",
     "existed": "textarea[name=existed]",
     "problem": "textarea[name=problem]",
     "solution": "textarea[name=solution]",
+    "why": "textarea[name=why]",
     "ta": "textarea[name=ta]",
     "similar": "textarea[name=similar]",
+    "refdesign": "textarea[name=refdesign]",
     "pastprj": "textarea[name=pastprj]",
     "cowork": "textarea[name=cowork]",
     "usetime": "textarea[name=usetime]",
@@ -112,6 +119,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "milestone2": "textarea[name=milestone2]",
     "future": "textarea[name=future]",
     "otherfund": "textarea[name=otherfund]",
+    "category": "select[name=category]",
     "slide": "textarea[name=slide]",
 
     "link": "input[name=link]",
@@ -240,12 +248,14 @@ module.exports = Backbone.Marionette.ItemView.extend({
           return;
         }
       }
-      var failedFields = [];
+      var failedFields = [], val;
       for( idx = 0; idx < detailFields.length; idx ++ ) {
         field = detailFields[idx];
-        length = (this.ui[field[0]].val() || "").length;
+        val = (this.ui[field[0]].val() || "");
+        length = val.length;
         if(
         length === 0 || /* empty */
+        (field[1] === 3 && (isNaN(val || "-") || +val < 300000 || +val > 500000)) || /* 300k~500k number */
         (field[1] === 1 && (length < 80 || length > 120)) || /* for description */
         (field[1] === 2 && (length < 200 || length > 500))) /* for longer question */ {
           failedFields.push(field);
@@ -308,7 +318,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
   showFieldsError: function(fields) {
     $("#save", this.$el).button('reset');
-    var msg = ["欄位不得為空", "字數需介於 80 ~ 120 字之間", "字數需介於 200 ~ 500 字之間"];
+    var msg = ["欄位不得為空", "字數需介於 80 ~ 120 字之間", "字數需介於 200 ~ 500 字之間","必須要是300000 ~ 500000 之間的數字"];
     for( var idx = 0, field; idx < fields.length; idx ++ ) {
       field = fields[idx];
       this.ui[field[0]].parents('.control-group').addClass('error');
