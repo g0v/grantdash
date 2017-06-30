@@ -138,6 +138,14 @@ module.exports = Backbone.Marionette.ItemView.extend({
   },
 
   templateHelpers: {
+    select: function(value, options) {
+      var values = (value || "").split(',');
+      var $el = $('<select/>').html(options.fn(this));
+      for(var i=0;i<values.length;i++) {
+        $el.find('[value="' + values[i] + '"]').attr({'selected': 'selected'});
+      }
+      return $el.html();
+    },
     getTags: function(){
       if (this.tags){
         return this.tags.join(',');

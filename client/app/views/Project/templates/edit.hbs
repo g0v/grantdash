@@ -128,12 +128,14 @@
 
       <h3> 依獎助金的主題方向畫分的話，本計畫屬於哪個分類？</h3>
       <select class="form-control" id="category" name="category" value="{{category}}" multiple>
+        {{#select category}}
         <option value="開放政府">開放政府</option>
         <option value="新媒體">新媒體</option>
         <option value="公共政策">公共政策</option>
         <option value="開放資料">開放資料</option>
         <option value="社會參與">社會參與</option>
         <option value="基礎建設">基礎建設</option>
+        {{/select}}
       </select>
 
       <h3> 若有專案介紹的投影片，請提供</h3>
