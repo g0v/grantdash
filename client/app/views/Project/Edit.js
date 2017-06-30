@@ -330,7 +330,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     for( var idx = 0, field; idx < fields.length; idx ++ ) {
       field = fields[idx];
       this.ui[field[0]].parents('.control-group').addClass('error');
-      this.ui[field[0]].after('<span class="help-inline">' + msg[field[1]] + ', 請參考<a target="_blank" href="https://hackmd.io/AwQwrAxsBM0KYFoDscCMAzBAWAHCRARqgJzEJjpwQDMAJkmFsXNUA===?view">申請範例</a></span>');
+      this.ui[field[0]].after('<span class="help-inline">' + msg[field[1]] + ', 請參考<a target="_blank" href="https://hackmd.io/AwEw7AbARgpmYFoBmMCsSEBZU0wgHAEwCGAxgoWIQJxTX4DM1M+mQA==?view">申請範例</a></span>');
     }
   },
 
@@ -339,7 +339,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
 
     var ctrl = 'description';
     this.ui[ctrl].parents('.control-group').addClass('error');
-    this.ui[ctrl].after('<span class="help-inline">' + error + ', 請參考<a target="_blank" href="https://hackmd.io/AwQwrAxsBM0KYFoDscCMAzBAWAHCRARqgJzEJjpwQDMAJkmFsXNUA===?view">申請範例</a></span>');
+    this.ui[ctrl].after('<span class="help-inline">' + error + ', 請參考<a target="_blank" href="https://hackmd.io/AwEw7AbARgpmYFoBmMCsSEBZU0wgHAEwCGAxgoWIQJxTX4DM1M+mQA==?view">申請範例</a></span>');
   },
 
   cleanErrors: function(){
