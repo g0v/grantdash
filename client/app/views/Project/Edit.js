@@ -44,7 +44,7 @@ var detailFields = [
   ["future", 0],
   ["otherfund", 0],
   ["category", 0],
-  ["slide", 0],
+  ["slide", 4],
 ];
 
 function markdownValidator(text) {
@@ -121,6 +121,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "otherfund": "textarea[name=otherfund]",
     "category": "select[name=category]",
     "slide": "textarea[name=slide]",
+    "error": "#project-edit-error",
 
     "link": "input[name=link]",
     "tags": "input[name=tags]",
@@ -262,7 +263,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
         val = (this.ui[field[0]].val() || "");
         length = val.length;
         if(
-        length === 0 || /* empty */
+        (field[1] === 0 && length === 0) || /* empty */
         (field[1] === 3 && (isNaN(val || "-") || +val < 300000 || +val > 500000)) || /* 300k~500k number */
         (field[1] === 1 && (length < 80 || length > 120)) || /* for description */
         (field[1] === 2 && (length < 200 || length > 500))) /* for longer question */ {
@@ -331,6 +332,9 @@ module.exports = Backbone.Marionette.ItemView.extend({
       field = fields[idx];
       this.ui[field[0]].parents('.control-group').addClass('error');
       this.ui[field[0]].after('<span class="help-inline">' + msg[field[1]] + ', 請參考<a target="_blank" href="https://hackmd.io/AwEw7AbARgpmYFoBmMCsSEBZU0wgHAEwCGAxgoWIQJxTX4DM1M+mQA==?view">申請範例</a></span>');
+    }
+    if(fields && fields.length) {
+      this.ui.error.after('<span class="help-inline">有些欄位沒有填好，請回頭修正喔！若需要填寫範例， 請參考<a target="_blank" href="https://hackmd.io/AwEw7AbARgpmYFoBmMCsSEBZU0wgHAEwCGAxgoWIQJxTX4DM1M+mQA==?view">申請範例</a></span>');
     }
   },
 
