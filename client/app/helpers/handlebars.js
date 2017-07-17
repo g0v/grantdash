@@ -9,7 +9,7 @@ var remark = require('remark');
 var html = require('remark-html');
 
 function toHtml(md) {
-  return String(remark().use(html).process(md));
+  return remark().use(html).processSync(md).toString();
 }
 
 Handlebars.registerHelper('embedCode', function() {
@@ -30,7 +30,14 @@ Handlebars.registerHelper('firstLetter', function(text) {
 
 Handlebars.registerHelper('markdown', function(md) {
   if (md){
-    return toHtml(md);
+    var buf;
+    try {
+      buf = toHtml(md);
+    }
+    catch(e) {
+      return "Error: " + e.toString();
+    }
+    return buf;
   }
   return "";
 });
