@@ -1,0 +1,58 @@
+extends ../../layout.jade
+block styles
+  link(rel="stylesheet",type="text/css",href="/styles/static.css")
+block content
+  - var config = { aboutSimplified: true };
+  include ../../about/nav.jade
+  include ../mixin.jade
+  br
+  br
+  br
+  br
+  .text-center: img(src="/images/power/poweredby-square.png")
+  br
+  br
+
+  #about.section
+    .inner
+      h3 g0v Community
+      p g0v (pronounced “gov zero”)  is a decentralized civic tech community from Taiwan, advocating transparency of information, building tech solutions for citizens to participate in public affairs from grass-roots.
+      p In the spirit of open source and activism, g0v aims to use technology in the interest of the public good, allowing citizens easy access to vital information and power to shape the civil society. Substituting the “o” with “0″ in gov, we want to use the Internet and digital thinking (0 & 1) to change the traditional “gov”.
+      p Since 2012, g0v has hosted over 50 hackathons and 2 international summits. Thousands of participants from different backgrounds contributed to hundreds of projects, creating new tools to mobilise civic engagement.
+      h3 g0v Civic Tech Prototype Grant
+      p To support more civic tech projects, g0v hackathon organizer team launched the “g0v Civic Tech Prototype Grant” in 2017. The g0v Grant focuses on open source projects in new media, open data, open government, public services, citizen participation and community infrastructure.
+  include 2017a.jade
+  include 2017s.jade
+  .sep.block.section
+    h1.text-center Organizing Team
+  .section: .inner
+    h3 g0v hackathon organizers (jothon)
+    img(src="/images/jothon.png",style="max-width:90%;margin:20px;display:block")
+    p g0v hackathon organizers “jothon” is the executive team of g0v.tw bi-monthly hackathons.  The team also work on g0v community infrastructure and launched g0v Civic Tech Prototype Grant.
+    br
+    br
+    h3 Open Culture Foundation
+    img(src="/images/ocf.png",style="max-width:90%;margin:20px;display:block")
+    p The Open Culture Foundation (OCF) is a non-partisan, non-profit organization, founded in 2014 by several members of Taiwan's open source community. The main goal of OCF is to support local communities to advocate for the use of open technologies in broader sectors, including open source software, open hardware, and open data. Activities are carried out with government, enterprises, and NGOs to help them better understand the benefits of adopting open source, and promoting the importance of open data to the public sphere. OCF’s belief is that a culture of open collaboration is the foundation for an innovative society, and the engine of a participatory democracy.
+  .sep.block.section
+    h1.text-center Sponsors
+  .section: .inner
+    h3 Sponsors
+    .sponsor.partner
+      .banner(style="background-image:url(/images/static/sponsor/udn.png)",
+      href="http://vision.udn.com/vision/index",target="_blank")
+      .banner(style="background-image:url(/images/static/sponsor/twn.png)",
+      href="https://www.twmf.org.tw/",target="_blank")
+      .banner(style="background-image:url(/images/static/sponsor/jaclyn.png)",
+      href="http://www.leetsai.com/fyi/front/bin/ptdetail.phtml?Part=BS-C-LP-00002&Category=108210",
+      target="_blank")
+    h3 Media Support
+    .sponsor.partner
+      .banner(style="background-image:url(/images/static/sponsor/udn.png)",
+      href="http://vision.udn.com/vision/index",target="_blank")
+  include sticker.jade
+  include ../../about/footer.jade
+  include ../../about/ga.jade
+
+block scripts
+  script(type="text/javascript",src="//cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.2.0/js/smooth-scroll.js")

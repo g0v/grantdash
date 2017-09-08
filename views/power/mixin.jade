@@ -1,0 +1,20 @@
+mixin project(name, founder, proposal, slug, link, video)
+  .powered-project.media
+    .media-left
+      a(href="#")
+        if slug
+          img.media-object(src="/images/project/" + slug + ".png")
+        else
+          img.media-object(src="/images/project/empty.png")
+    .media-body
+      .pull-right
+        if video
+          a(href="https://www.youtube.com/watch?v=" + video) #[i.fa.fa-link] video
+        span &nbsp; &nbsp;
+        if link
+          a(href=link) #[i.fa.fa-link] link
+      h4.media-heading: a(href="https://grants.g0v.tw/projects/" + proposal): b: big= name
+      .founder= founder
+      .sep.line
+      block
+

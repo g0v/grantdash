@@ -19,6 +19,11 @@ nav.navbar.navbar-default.navbar-fixed-top
             li: a(data-scroll,href="/#team") 執行團隊
             li: a(data-scroll,href="/#partners") 合作夥伴
             li: a(data-scroll,href="/power") POWERED BY
+        li.dropdown
+          a.dropdown-toggle(href="#",data-toggle="dropdown") POWERED BY #[span.caret]
+          ul.dropdown-menu
+            li: a(href="/power/") 中文
+            li: a(href="/power/en/") ENGLISH
       form.navbar-form.navbar-right
         //a.btn.btn-warning(href="/dashboards/#{grantdash.dashboard}/create") 立刻提案
         a.btn.btn-warning(href="/dashboards/#{grantdash.dashboard}?sort=showcase") 入圍及獲獎提案

@@ -1,0 +1,52 @@
+.sep.block.section
+  h1.text-center Badges and Stickers
+
+#power.section
+  .inner
+    h3 Powered By #[span.g0v g0v]
+    p Grantees should provide a link in their websites to this page. For example:
+    hr
+    .row
+      .col-sm-6.text-center
+        span Badge (Square)
+      .col-sm-6.text-center
+        span Badge (Rectangle)
+    .row
+      .col-sm-6.text-center
+        a(href="http://grants.g0v.tw/power/"): img(src="http://grants.g0v.tw/images/power/poweredby-square.svg",
+        style="width:240px;margin:10px")
+      .col-sm-6.text-center
+        a(href="http://grants.g0v.tw/power/"): img(src="http://grants.g0v.tw/images/power/poweredby-long.svg",
+        style="width:300px;margin:15px")
+    hr
+    p Code Snippet:
+    pre.well.
+      &lt;a href="https://grants.g0v.tw/power/" target="_blank"&gt;
+        &lt;img src="https://grants.g0v.tw/images/power/poweredby-square.svg" alt="Powered by g0v"/&gt;
+      &lt;/a&gt;
+    h4 Other Format
+    .stickers
+      label SVG, Square
+      img(src="/images/power/poweredby-square.svg")
+      br
+      label SVG, Square ( Black )
+      img.dark(src="/images/power/poweredby-square-i.svg")
+      br
+      label SVG, Long
+      img(src="/images/power/poweredby-long.svg")
+      br
+      label SVG, Long ( Black )
+      img.dark(src="/images/power/poweredby-long-i.svg")
+      br
+      label PNG, Square ( 320 x 100 )
+      img(src="/images/power/poweredby-square.png")
+      br
+      label PNG, Square ( 320 x 100, Black )
+      img.dark(src="/images/power/poweredby-square-i.png")
+      br
+      label PNG, Long ( 640 x 80 )
+      .hidden-xs.hidden-sm.hidden-md: img(src="/images/power/poweredby-long.png")
+      br
+      label PNG, Long ( 640 x 80, Black )
+      .hidden-xs.hidden-sm.hidden-md: img.dark(src="/images/power/poweredby-long-i.png")
+      .hidden-lg.hidden-xl: a(href="/images/power/poweredby-long.png") Download
