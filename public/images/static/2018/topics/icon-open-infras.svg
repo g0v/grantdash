@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="154px" height="155px" viewBox="0 0 154 155" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-open-infras</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="80" y="810" width="1280" height="7099" rx="20"></rect>
+        <filter x="-0.5%" y="-0.1%" width="101.1%" height="100.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-page" transform="translate(-877.000000, -1944.000000)">
+            <g id="Rectangle-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Group-25" transform="translate(877.000000, 1944.351064)">
+                <circle id="Oval-4" fill="#E55827" cx="77" cy="77" r="77"></circle>
+                <g id="Group-19" transform="translate(19.000000, 29.000000)">
+                    <g id="Group-18" transform="translate(10.000000, 0.000000)">
+                        <path d="M63.2857143,53.3081685 L4,27" id="Line" stroke="#D8D8D8" stroke-width="2" stroke-linecap="round"></path>
+                        <path d="M73.4836763,53.5232305 C75.5235343,56.0514883 75.5654594,56.0976045 73.2425145,58.4096196 C69.9144813,61.7226294 65.9527491,63.6490502 61.3361697,63.98194 C60.6030378,64.0354194 59.8572912,63.9594632 59.1215621,63.8928077 C57.832645,63.774998 57.0037903,63.0173733 57.0008222,61.6738003 C56.996741,59.8837907 56.9945149,58.0492149 57.3417879,56.309972 C58.1532047,52.246313 60.2635561,48.8728483 62.9886847,45.9109423 C64.1050785,44.6983552 64.8367263,44.7173442 66.0573762,45.8427367 C66.4276523,46.1833772 66.767876,46.563546 67.1581872,46.8762842 C68.0638426,47.6001937 72.5008491,52.3056054 73.4836763,53.5232305 Z" id="Fill-1" fill="#D8D8D8" transform="translate(66.000000, 54.500000) rotate(-110.000000) translate(-66.000000, -54.500000) "></path>
+                        <path d="M35.2366396,16.0000389 C41.4285452,16.0098975 45.0822321,18.2040305 47.2951278,21.2307996 C49.5080235,24.2575686 51.2035652,37.8524255 51.2035652,37.8524255 L57,49.2467507 L53.8938063,49.4847957 L46.0279553,39.9636903 L44.0006172,35.1792639 L39.0560921,46.7334391 L46.3294002,60.5801808 L50.6117122,83 L45.2567492,83 L37.9737874,64.0235284 L29.627142,52.5689999 L24.1762997,65.3147838 L3.81324426,81.3391825 C3.81324426,81.3391825 -6.42431343e-13,84.0352187 0,78.7629386 C1.12576242,76.2108754 14.8487511,61.2458762 14.8487511,61.2458762 L16.8560848,46.507158 L26.1601801,24.5004574 L17.8742376,25.8920515 L10.8692637,36.0220701 C10.8692637,36.0220701 7.48162939,37.8524255 7.48162939,34.7523054 C7.48162939,31.6521853 14.2637961,21.1782082 14.2637961,21.1782082 C14.2637961,21.1782082 24.9128793,15.9836018 35.2366396,16.0000389 Z" id="Path-2" fill="#FFFFFF"></path>
+                        <ellipse id="Oval-9" fill="#FFFFFF" cx="43" cy="9.5" rx="9" ry="9.5"></ellipse>
+                    </g>
+                    <path d="M78,82.8043571 L110.531313,82.8043571 C110.531313,82.8043571 103.574476,75.3589547 103.128679,71.4585292 C102.682882,67.5581037 98.7271916,65.0111175 94.2656564,66.3687176 C89.8041212,67.7263177 93.0899273,72.6256254 85.8760421,74.375824 C78.662157,76.1260226 78,82.8043571 78,82.8043571 Z" id="Path-3" fill="#FFFFFF"></path>
+                    <path d="M116.5,83 L0.495689735,83" id="Line" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
