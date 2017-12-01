@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="154px" height="155px" viewBox="0 0 154 155" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-open-data</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="80" y="810" width="1280" height="7099" rx="20"></rect>
+        <filter x="-0.5%" y="-0.1%" width="101.1%" height="100.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M30,34 C51.4283583,34 60,17.9089337 60,17.9089337 C60,17.9089337 46.5685425,0 30,0 C13.4314575,0 0,17.9089337 0,17.9089337 C0,17.9089337 8.57164171,34 30,34 Z" id="path-3"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-page" transform="translate(-409.000000, -1944.000000)">
+            <g id="Rectangle-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="Group-23" transform="translate(409.000000, 1944.351064)">
+                <circle id="Oval-4" fill="#E55827" cx="77" cy="77" r="77"></circle>
+                <g id="Group-13" transform="translate(39.000000, 29.000000)">
+                    <rect id="Rectangle-12" fill="#C5C5C5" x="0" y="4" width="73" height="92" rx="2"></rect>
+                    <rect id="Rectangle-12" fill="#FFFFFF" x="3" y="0" width="73" height="92" rx="2"></rect>
+                    <g id="Group-11" transform="translate(14.000000, 13.000000)" fill="#D8D8D8">
+                        <rect id="Rectangle-13" x="0" y="0" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="16" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="40" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="56" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="8" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="32" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="24" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="48" width="52" height="3"></rect>
+                        <rect id="Rectangle-13" x="0" y="64" width="52" height="3"></rect>
+                    </g>
+                    <g id="Group-12" transform="translate(10.000000, 29.000000)">
+                        <g id="Oval-6">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            <path stroke="#BEBEBE" stroke-width="2" d="M1.20765182,17.9895005 C1.26200299,17.9219844 1.32088747,17.8493124 1.38425232,17.7716659 C1.87338716,17.1722866 2.44679313,16.5029946 3.09929957,15.7813383 C4.96599722,13.716816 7.08808836,11.6515868 9.42304121,9.72595422 C16.0465934,4.26351919 23.023081,1 30,1 C36.976919,1 43.9534066,4.26351919 50.5769588,9.72595422 C52.9119116,11.6515868 55.0340028,13.716816 56.9007004,15.7813383 C57.5532069,16.5029946 58.1266128,17.1722866 58.6157477,17.7716659 C58.6791125,17.8493124 58.737997,17.9219844 58.7923482,17.9895005 C58.7764058,18.0151481 58.759927,18.0415293 58.7429106,18.0686335 C58.4124931,18.5949296 58.0080328,19.1842191 57.5276459,19.8207928 C56.1487328,21.6480281 54.4427304,23.4781031 52.3949907,25.1866285 C46.5408249,30.071034 39.1298527,33 30,33 C20.8701473,33 13.4591751,30.071034 7.60500926,25.1866285 C5.55726963,23.4781031 3.85126717,21.6480281 2.47235408,19.8207928 C1.99196723,19.1842191 1.58750688,18.5949296 1.25708945,18.0686335 C1.24007301,18.0415293 1.22359424,18.0151481 1.20765182,17.9895005 Z"></path>
+                        </g>
+                        <ellipse id="Oval-7" fill="#BEBEBE" cx="30" cy="16.5" rx="11" ry="10.5"></ellipse>
+                        <circle id="Oval-7" fill="#FFFFFF" cx="35.5" cy="13.5" r="4.5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
