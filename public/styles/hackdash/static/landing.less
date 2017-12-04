@@ -22,8 +22,13 @@
   font-size: 2.2em;
 }
 #landing.with-bk {
-  background: url(/images/static/landing-2018.png) center center no-repeat #494381;
+  background: url(/images/static/landing-2018.jpg) center center no-repeat #e5e5e4;
   background-size: contain;
+}
+@media (max-width: 640px) {
+  #landing.with-bk {
+    background-image: url(/images/static/landing-2018-sm.jpg);
+  }
 }
 #landing {
   width: 100%;
