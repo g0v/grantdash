@@ -22,8 +22,15 @@
   font-size: 2.2em;
 }
 #landing.with-bk {
+  position: relative;
   background: url(/images/static/landing-2018.jpg) center center no-repeat #e5e5e4;
   background-size: contain;
+}
+#landing.with-bk .text-center {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translate(-50%,0);
 }
 @media (max-width: 640px) {
   #landing.with-bk {
