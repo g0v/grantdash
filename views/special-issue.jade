@@ -1,0 +1,60 @@
+extends layout
+block styles
+  link(rel="stylesheet",type="text/css",href="/styles/static.css")
+block content
+  - var config = { aboutSimplified: true };
+  include about/nav.jade
+  include power/mixin.jade
+  br
+  br
+  br
+  br
+  #about.section
+    .inner
+
+      h1.text-center 特別主題
+
+      h3 聯合報系願景工程
+      p 我是誰：願景工程是2011年聯合報六十周年社慶時對社會許下的承諾，要努力讓台灣更好。
+      p 做些什麼事：引領關注重大公共議題，至今已推出數十個大型專題報導、上百場活動。
+      p 邀您手攜手：願景工程不只報導，還有行動，你我合作，正向改變。
+
+      br
+
+      h3 願景工程獎
+
+      p 聯合報系願景工程自 2017 年起成為 g0v 揪松團的合作夥伴，並於同年春季以「惜食願景」為主題開設 「願景工程獎」，鼓勵降低食物浪費、推動剩食分享等相關提案，在該次獎助名單公佈後，由聯合報 願景工程加碼贊助「真的假的 LINE Bot」10 萬元。
+
+      p 在 2018 年，聯合報系願景工程將以「世代協力」為特別主題，於獎助名單公佈後，由聯合報系願景工程依據以下評選方向，加碼贊助一個專案。
+
+      br
+
+      h3 特別主題：世代協力
+
+      p 「世代對立」到底是無奈現實還是假議題？從太陽花、年金改革、22K下的哀傷小確幸，嬰兒潮世代和太陽花世代，似乎引發了階級、資源工作與社會流動的巨大焦慮。是誰奪走了誰的希望，誰透支了誰的未來？
+
+      p 又或者，這一切是因為我們不懂彼此的犧牲及擔憂，環境變化太快，世代之間來不及有機對接之故？有沒有什麼方法，可以讓我們不再用年紀來界定他人，一如我們不會接受別人用性別、種族或收入來界定自己一樣。
+
+      p 有沒有更好的工具可以讓不同世代透過科技彼此理解、跨代協力，從中獲得有意義的連結，更顛覆過時的年齡期待？這是很大的命題，也是有趣的挑戰，需要更多的創意與不按牌理出牌。
+
+      br
+
+      //- 待 UDN 提供
+      - var links = [];
+      if links.length
+        h3 相關連結
+        ul
+          each item in links
+            li: a(href=item[1])= item[0]
+
+      br
+
+      h3 歷屆獲獎專案
+      h1 2017
+      hr
+      +project("真的假的 LINE bot", "GGM", "588fa7b382223f001e022944", "2017-spring/linebot",
+      "http://beta.hackfoldr.org/cofacts", "W2LQb7Ol-7g")
+        p 現在有許多謠言透過 Line 散佈，這些謠言可能是錯誤的知識、詐騙、蓄意引導，嚴重時甚至會影響大家的生活。我們透過實作 Line Bot 來協助使用者判斷謠言的真偽，使用者只需要對 Bot 傳送謠言的原文，Bot 就會將謠言真偽的結果回傳。
+
+  include about/footer.jade
+  include about/ga.jade
