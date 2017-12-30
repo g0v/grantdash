@@ -152,11 +152,22 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "keyup @ui.description": "validateDescription",
     "click #ghImportBtn": "showGhImport",
     "click #searchGh": "searchRepo",
+    "keyup input,textarea": "formChange",
+    "change select": "formChange",
 
     "click #save": "save",
     "click #cancel": "cancel"
   },
 
+  formChange: function(){
+    var value = {};
+    $('input,textarea,select').each(function(){
+      if ($(this).attr('name')) {
+        value[$(this).attr('name')] = $(this).val();
+      }
+    });
+    $.post("/api/v2/" + this.model.get('domain') + '/draft', 'draft=' + encodeURIComponent(JSON.stringify(value)));
+  },
   templateHelpers: {
     select: function(value, options) {
       var values = (value || "").split(',');
@@ -190,6 +201,7 @@ module.exports = Backbone.Marionette.ItemView.extend({
     }
     this.initSelect2();
     this.initImageDrop();
+    this.loadFromDraft();
   },
 
   //--------------------------------------
@@ -368,6 +380,17 @@ module.exports = Backbone.Marionette.ItemView.extend({
   cleanErrors: function(){
     $(".error", this.$el).removeClass("error");
     $("span.help-inline", this.$el).remove();
+  },
+
+  loadFromDraft: function(){
+    $.get("/api/v2/" + this.model.get('domain') + '/draft', function(res){
+      try {
+        var draft = JSON.parse(res.draft);
+        for (var k in draft) { if (true) {
+          $('[name="' + k + '"]').val(draft[k]);
+        } }
+      } catch (e) { }
+    }, 'json');
   },
 
   initSelect2: function(){
