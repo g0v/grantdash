@@ -155,15 +155,19 @@
         <div>{{{markdown existed}}}</div>
       </div>
 
+      {{#if nonos}}
       <div class="project-detail">
         <h3> 本專案是否有非開源元件？ </h3>
         <div>{{{markdown nonos}}}</div>
       </div>
+      {{/if}}
 
+      {{#if detailUser}}
       <div class="project-detail">
         <h3> 請以此句型釐清專案目標、受眾與獨特性 </h3>
         <div>「為了解決 {{{detailUser}}} 遇到的 {{{detailProblem}}} 困難，我的專案提供 {{{detailService}}}，可以做到 {{{detailSolution}}} 。我的專案跟 {{{detailCompetitor}}}，在 {{{detailCompare}}} 不同，因此具有不可取代性。」</div>
       </div>
+      {{/if}}
 
       <div class="project-detail">
         <h3> 這個計畫要解決什麼問題？ ( 200 ~ 500 字 )</h3>
@@ -190,10 +194,12 @@
         <div>{{{markdown similar}}}</div>
       </div>
 
+      {{#if related}}
       <div class="project-detail">
         <h3> 過去有作過相關主題的計畫嗎？</h3>
         <div>{{{markdown related}}}</div>
       </div>
+      {{/if}}
 
       <div class="project-detail">
         <h3> 請提供本計劃的示意圖或介面設計草圖 (請以連結方式提供圖片) </h3>
@@ -260,11 +266,12 @@
         <div>{{{markdown slide}}}</div>
       </div>
 
-
+      {{#if role}}
       <div class="project-detail">
         <h3> 請簡介參與人員及提案者在專案中的角色(例如：developer、PM)，以及團隊背景介紹 </h3>
         <div>{{{markdown role}}}</div>
       </div>
+      {{/if}}
       {{/if}}
 
       <ul class="tags clearfix col-md-10">
