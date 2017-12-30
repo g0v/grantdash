@@ -69,7 +69,7 @@
       <h3> 你需要多少錢？ ( 30 ~ 50 萬之間 ) </h3>
       <input type="number" class="form-control" id="money" name="money" value="{{money}}", placeholder="例如: 500000">
 
-      <h3> 請以 80 ~ 120 字簡短地說明這個專案</h3>
+      <h3> 請以 80 ~ 120 字、簡短且非專業人士也能理解的方式介紹此專案 </h3>
       <textarea class="form-control" rows="6" id="desc" name="desc">{{desc}}</textarea>
 
       <h3> 你為什麼要做這個計劃 （ 個人動機 ）？</h3>
@@ -77,6 +77,17 @@
 
       <h3> 這是一個現有的計畫嗎？若是，請說明是否為開源及提供網址 </h3>
       <textarea class="form-control" rows="6" id="existed" name="existed">{{existed}}</textarea>
+
+      <h3> 本專案是否有非開源元件？ </h3>
+      <textarea class="form-control" rows="6" id="nonos" name="nonos">{{nonos}}</textarea>
+
+      <h3> 請以此句型釐清專案目標、受眾與獨特性 </h3>
+      <style type="text/css">
+        input.tmp { display: inline-block; width: 170px; margin-bottom: 5px }
+      </style>
+      <p>
+       「為了解決 <input type="text" class="form-control tmp" id="detailUser" name="detailUser" placeholder="某使用者族群"> 遇到的 <input type="text" class="form-control tmp" id="detailProblem" name="detailProblem" placeholder="要解決的問題"> 困難，我的專案提供 <input type="text" class="form-control tmp" id="detailService" name="detailService" placeholder="某些服務"> ，可以做到 <input type="text" class="form-control tmp" id="detailSolution" name="detailSolution" placeholder="如何解決問題">  。我的專案跟 <input type="text" class="form-control tmp" id="detailCompetitor" name="detailCompetitor" placeholder="現有的解決方案"> ，在 <input type="text" class="form-control tmp" id="detailCompare" name="detailCompare" placeholder="差異與區別部份"> 不同，因此具有不可取代性。」
+      </p>
 
       <h3> 這個計畫要解決什麼問題？ ( 200 ~ 500 字 ) </h3>
       <textarea class="form-control" rows="6" id="problem" name="problem">{{problem}}</textarea>
@@ -93,6 +104,8 @@
       <h3> 是否已有相似的專案，本計劃的差異與不可取代性為何？</h3>
       <textarea class="form-control" rows="6" id="similar" name="similar">{{similar}}</textarea>
 
+      <h3> 過去有作過相關主題的計畫嗎？ </h3>
+      <textarea class="form-control" rows="6" id="related" name="related">{{related}}</textarea>
       <h3> 請提供本計劃的示意圖或介面設計草圖 ( 請以連結方式提供圖片 ) </h3>
       <textarea class="form-control" rows="6" id="refdesign" name="refdesign">{{refdesign}}</textarea>
 
@@ -141,7 +154,8 @@
       <h3> 若有專案介紹的投影片，請提供</h3>
       <textarea class="form-control" rows="6" id="slide" name="slide">{{slide}}</textarea>
 
-
+      <h3> 請簡介參與人員及提案者在專案中的角色(例如：developer、PM)，以及團隊背景介紹 </h3>
+      <textarea class="form-control" rows="6" id="role" name="role">{{role}}</textarea>
 
       <!--<div class="description">
         <label for="description"><h3>請用下方範本說明專案，不要修改井字號開頭的標頭</h3></label>

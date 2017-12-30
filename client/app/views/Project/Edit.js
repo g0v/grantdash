@@ -45,6 +45,15 @@ var detailFields = [
   ["otherfund", 0],
   ["category", 0],
   ["slide", 4],
+  ["related", 0],
+  ["nonos", 0],
+  ["role", 0],
+  ["detailUser", 0],
+  ["detailService", 0],
+  ["detailCompetitor", 0],
+  ["detailProblem", 0],
+  ["detailCompare", 0],
+  ["detailSolution", 0],
 ];
 
 function markdownValidator(text) {
@@ -122,6 +131,16 @@ module.exports = Backbone.Marionette.ItemView.extend({
     "category": "select[name=category]",
     "slide": "textarea[name=slide]",
     "error": "#project-edit-error",
+    "related": "textarea[name=related]",
+    "nonos": "textarea[name=nonos]",
+    "role": "textarea[name=role]",
+
+    "detailUser": "input[name=detailUser]",
+    "detailProblem": "input[name=detailProblem]",
+    "detailService": "input[name=detailService]",
+    "detailSolution": "input[name=detailSolution]",
+    "detailCompetitor": "input[name=detailCompetitor]",
+    "detailCompare": "input[name=detailCompare]",
 
     "link": "input[name=link]",
     "tags": "input[name=tags]",

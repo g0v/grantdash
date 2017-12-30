@@ -141,7 +141,7 @@
       </div>
 
       <div class="project-detail">
-        <h3> 請以 80 ~ 120 字簡短地說明這個專案</h3>
+        <h3> 請以 80 ~ 120 字、簡短且非專業人士也能理解的方式介紹此專案 </h3>
         <div>{{{markdown desc}}}</div>
       </div>
 
@@ -153,6 +153,16 @@
       <div class="project-detail">
         <h3> 這是一個現有的計畫嗎？若是，請說明是否為開源及提供網址</h3>
         <div>{{{markdown existed}}}</div>
+      </div>
+
+      <div class="project-detail">
+        <h3> 本專案是否有非開源元件？ </h3>
+        <div>{{{markdown nonos}}}</div>
+      </div>
+
+      <div class="project-detail">
+        <h3> 請以此句型釐清專案目標、受眾與獨特性 </h3>
+        <div>「為了解決 {{{detailUser}}} 遇到的 {{{detailProblem}}} 困難，我的專案提供 {{{detailService}}}，可以做到 {{{detailSolution}}} 。我的專案跟 {{{detailCompetitor}}}，在 {{{detailCompare}}} 不同，因此具有不可取代性。」</div>
       </div>
 
       <div class="project-detail">
@@ -178,6 +188,11 @@
       <div class="project-detail">
         <h3> 是否已有相似的專案，本計劃的差異與不可取代性為何？</h3>
         <div>{{{markdown similar}}}</div>
+      </div>
+
+      <div class="project-detail">
+        <h3> 過去有作過相關主題的計畫嗎？</h3>
+        <div>{{{markdown related}}}</div>
       </div>
 
       <div class="project-detail">
@@ -243,6 +258,12 @@
       <div class="project-detail">
         <h3> 若有專案介紹的投影片，請提供</h3>
         <div>{{{markdown slide}}}</div>
+      </div>
+
+
+      <div class="project-detail">
+        <h3> 請簡介參與人員及提案者在專案中的角色(例如：developer、PM)，以及團隊背景介紹 </h3>
+        <div>{{{markdown role}}}</div>
       </div>
       {{/if}}
 

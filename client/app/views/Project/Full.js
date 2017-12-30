@@ -31,19 +31,36 @@ var detailFields = [
   ["otherfund", 0],
   ["category", 0],
   ["slide", 4],
+  ["related", 0],
+  ["nonos", 0],
+  ["role", 0],
+  ["detailUser", 0],
+  ["detailService", 0],
+  ["detailCompetitor", 0],
+  ["detailProblem", 0],
+  ["detailCompare", 0],
+  ["detailSolution", 0]
 ];
 
 
 var fieldTitles = {
  "money":  "你需要多少錢？ ( 30 ~ 50 萬之間 ) ",
- "desc":  "請以 80 ~ 120 字簡短地說明這個專案",
+ "desc":  "請以 80 ~ 120 字、簡短且非專業人士也能理解的方式介紹此專案",
  "motivation":  "你為什麼要做這個計劃 （ 個人動機 ）？",
  "existed":  "這是一個現有的計畫嗎？若是，請說明是否為開源及提供網址",
+ "nonos": "本專案是否有非開源元件？", 
+ "detailUser": "使用者族群",
+ "detailProblem": "要解決的問題",
+ "detailService": "提供的服務",
+ "detailSolution": "如何解決問題",
+ "detailCompetitor": "現有的解決方式",
+ "detailCompare": "差別與區分不同",
  "problem": "這個計畫要解決什麼問題？ ( 200 ~ 500 字 ) ",
  "solution": "你預計用什麼方式解決此問題？ (200 ~ 500 字 ) ",
  "why": "為什麼你的方法可以解決此問題？ (200 ~ 500 字 ) ",
  "ta": "請列出這個計畫的目標對象，他們的需求、情境與使用動機 (200-500 字) ",
  "similar": "是否已有相似的專案，本計劃的差異與不可取代性為何？",
+ "related": "過去有作過相關主題的計畫嗎？",
  "refdesign": "請提供本計劃的示意圖或介面設計草圖 ( 請以連結方式提供圖片 ) ",
  "pastprj": "過去作過什麼開源開發計畫（open source project）？ (可提供 GitHub 帳號) ",
  "cowork": "這個計畫預計跟什麼團體合作？",
@@ -55,8 +72,9 @@ var fieldTitles = {
  "milestone2": "請說明計畫期末的工作里程碑與驗收標準",
  "future": "計畫結束後未來可能進一步的發展？",
  "otherfund": "本計畫目前是否已有、或正在申請其他的資金來源？若有，請說明申請本獎助的內容與其他計畫的差異",
- "category": "依獎助金的主題方向畫分的話，本計畫屬於哪個分類？",
+ "category": "依獎助金的主題方向畫分的話，本計畫屬於哪個分類?",
  "slide": "若有專案介紹的投影片，請提供",
+ "role": "請簡介參與人員及提案者在專案中的角色(例如：developer、PM)，以及團隊背景介紹",
 };
 
 module.exports = Backbone.Marionette.ItemView.extend({
