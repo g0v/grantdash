@@ -53,6 +53,18 @@ Handlebars.registerHelper('discourseUrl', function() {
   return window.hackdash.discourseUrl;
 });
 
+Handlebars.registerHelper('isOpen', function(options) {
+  var now = new Date().getTime();
+  var start = new Date(window.hackdash.grantdash.submission_opens).getTime();
+  var end = new Date(window.hackdash.grantdash.submission_closed).getTime();
+  var isOpen = !(now < start || now > end);
+  if(isOpen) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('grantdashDashboard', function() {
   return window.hackdash.grantdash.dashboard;
 });
