@@ -1,45 +1,37 @@
+#main, #landing, #landing .inner {
+  height: 100%;
+}
+
+#landing .inner {
+  height: 100%;
+  padding-top: 50px;
+}
 
 #landing .mainlogo {
-  width: 520px;
-  margin-top: 100px;
-  margin-left: 50px;
+  width: 450px;
+  margin-top: 40px;
+  margin-left: 12%;
 }
-@media (max-width: 640px) {
-  #landing .mainlogo {
-    display: none;
-  }
-}
-#landing .mainlogo-sm {
-  width: 100%;
-  margin-top: 100px;
-}
-@media (min-width: 640px) {
-  #landing .mainlogo-sm {
-    display: none;
-  }
-}
-#nobody {
-  font-size: 2.2em;
-}
+
 #landing.with-bk {
   position: relative;
-  background: url(/images/static/landing-2018.jpg) center center no-repeat #e5e5e4;
-  background-size: contain;
-}
-#landing.with-bk .text-center {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translate(-50%,0);
-}
-@media (max-width: 640px) {
-  #landing.with-bk {
-    background-image: url(/images/static/landing-2018-sm.jpg);
+  background: url(/images/static/2018/pattern.png) center center #f1f1f1;
+  .inner {
+    background: url(/images/static/2018/2018-lg.png) center center no-repeat;
   }
 }
+
+#landing-action {
+  margin: 35px 0 0 12%;
+  .btn {
+    font-size: 32px;
+    border-width: 4px
+  }
+}
+
+
 #landing {
   width: 100%;
-  min-height: 660px;
 }
 #landing h1 {
   margin-bottom: 0;
@@ -50,22 +42,6 @@
 #landing h3 {
   border: none;
   margin-top: 40px;
-}
-#landing .inner {
-  padding-top: 120px;
-  max-width: 1280px;
-  margin: auto;
-}
-@media (max-width: 480px) {
-  #landing h1 {
-    font-size: 30px;
-  }
-  #landing h2 {
-    font-size: 20px;
-  }
-  #landing h3 {
-    font-size: 20px;
-  }
 }
 
 #create-dashboard {
@@ -122,6 +98,19 @@
     max-width: 90%;
   }
 }
+
+@media (max-width: 480px) {
+  #landing h1 {
+    font-size: 30px;
+  }
+  #landing h2 {
+    font-size: 20px;
+  }
+  #landing h3 {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 640px) {
   .section {
     max-width: 100%;
@@ -129,3 +118,34 @@
   }
 }
 
+
+@media (max-height: 670px) {
+  #landing .mainlogo {
+    margin-top: 30px;
+    width: auto;
+    height: 67%;
+  }
+  #landing-action {
+    margin-top: 27px;
+  }
+  #landing-action .btn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  #landing.with-bk .inner {
+    background: url(/images/static/2018/2018-lg-light.png) center center no-repeat;
+  }
+  #landing .mainlogo {
+    width: 88%;
+    margin-left: 6%;
+  }
+  #landing-action {
+    margin-left: 0;
+    text-align: center;
+  }
+  #landing-action .btn {
+    font-size: 20px;
+  }
+}

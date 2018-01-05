@@ -1,12 +1,11 @@
 #landing.with-bk
-  //-.inner
-    img.mainlogo(src="/images/static/landing-banner-2017a.svg",style="width:520px;margin-top:20px;")
-    img.mainlogo-sm(src="/images/static/landing-banner-2017a-sm.svg")
-  .text-center
-    a.btn.btn-primary.btn-lg.btn-xl(href="/dashboards/#{grantdash.dashboard}/create") #[i.fa.fa-hand-o-up] 我要提案
-    span &nbsp;
-    a.btn.btn-danger.btn-lg.btn-xl(href="/dashboards/#{grantdash.dashboard}") #[i.fa.fa-eye] 提案一覽
-    //- used after final list
-      a.btn.btn-danger.btn-lg.btn-xl(href="/power/") 獲獎專案一覽
+  .inner
+    img.mainlogo(src="/images/static/2018/2018-text.svg")
+    #landing-action
+      a.btn.btn-primary.btn-lg.btn-xl(href="/dashboards/#{grantdash.dashboard}/create") #[i.fa.fa-hand-o-up] 我要提案
       span &nbsp;
-      a.btn.btn-primary.btn-lg.btn-xl(href="/power/en/") List of Grantees
+      a.btn.btn-danger.btn-lg.btn-xl(href="/dashboards/#{grantdash.dashboard}") #[i.fa.fa-eye] 提案一覽
+      //- used after final list
+        a.btn.btn-danger.btn-lg.btn-xl(href="/power/") 獲獎專案一覽
+        span &nbsp;
+        a.btn.btn-primary.btn-lg.btn-xl(href="/power/en/") List of Grantees
