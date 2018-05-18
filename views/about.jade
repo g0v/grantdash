@@ -38,4 +38,6 @@ block scripts
         }
       });
     });
+    // force clean /power/* service worker
+    window.navigator.serviceWorker.getRegistrations().then(function(regs){for(var i=0;i<regs.length;i++){regs[i].unregister();}});
   script(type="text/javascript",src="//cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.2.0/js/smooth-scroll.js")
