@@ -4,4 +4,4 @@ jQuery(function() {
 });
 
 // clean /power/* service worker
-navigator.serviceWorker.getRegistrations().then(function(regs){for(i=0;i<regs.length;i++){regs[i].unregister();}});
+navigator.serviceWorker.getRegistrations().then(function(regs){for(var i=0;i<regs.length;i++){regs[i].unregister();}});
