@@ -1,0 +1,4 @@
+[submodule "public/power"]
+	path = public/power
+	url = git@github.com:g0v/power
+	branch = production
