@@ -5,6 +5,19 @@ Grants Submission Dashboard based on [HackDash](http://hackdash.org)
 
 ## Quick Start
 
+### Update Power Page / Submodule Update 
+
+ * 在 power repo deploy 之後，還需要再更新 grant repo. 請到 grant 根目錄下執行這些指令:
+   ```
+   git pull
+   git submodule foreach git pull
+   git add public/power
+   git commit -m "update submodule"
+   git push
+   ```
+
+
+
 ### Development
 
 ```
