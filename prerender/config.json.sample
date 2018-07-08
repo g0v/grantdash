@@ -1,5 +1,5 @@
 {
-  "MONGO_URI": "mongodb://localhost/prerender",
+  "MONGO_URI": "mongodb://mongo/prerender",
   "PORT": 4000,
   "INTERVAL_DAYS": 15,
   "WORKERS": 1,
