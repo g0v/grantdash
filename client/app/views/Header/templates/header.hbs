@@ -16,12 +16,40 @@
           <li><a href="/dashboards/{{grantdashDashboard}}/create"><i class="fa fa-plus"></i>我要提案</a></li>
           {{/isProjectView}}
         {{/isDashboardView}}
+        {{#isOpen}}
+        {{else}}
+        <li><a href="/dashboards/{{grantdashDashboard}}?sort=showcase" style="padding:8px"><div class="btn btn-warning">獲獎名單</div></a></li>
+        {{/isOpen}}
         <li><a data-scroll="data-scroll" data-bypass href="/">關於 Grant</a></li>
-        <li><a data-scroll="data-scroll" data-bypass href="/#schedule">活動辦法</a></li>
-        <li><a data-scroll="data-scroll" data-bypass href="/#faq">常見問題</a></li>
-        <li><a data-scroll="data-scroll" data-bypass href="/#judge">評選委員</a></li>
-        <li><a data-scroll="data-scroll" data-bypass href="/#team">執行團隊</a></li>
-        <li><a data-scroll="data-scroll" data-bypass href="/#partners">合作夥伴</a></li>
+        <li><a data-scroll="data-scroll" data-bypass href="https://grants.g0v.tw/#schedule">活動辦法</a></li>
+        <li><a data-scroll="data-scroll" data-bypass href="https://grants.g0v.tw/#faq">FAQ</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"> 關於我們 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a data-scroll href="https://grants.g0v.tw/#team"> 執行團隊 </a></li>
+            <li><a data-scroll href="https://grants.g0v.tw/#partners"> 合作夥伴 </a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://g0v.news/tagged/%E7%8D%8E%E5%8A%A9%E9%87%91?source=post" target="_blank"> 相關報導 </a>
+        </li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"> 成果報吿 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li> <a data-scroll href="/power"> POWERED BY </a></li>
+            <li> <a data-scroll href="/power/en"> POWERED BY (EN) </a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"> 歷屆提案 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li> <a href="/dashboards/2017autumn?sort=showcase"> 2017 秋季 </a></li>
+            <li> <a href="/dashboards/2017spring?sort=showcase"> 2017 春季 </a></li>
+            <li> <a href="/dashboards/2018a?sort=showcase"> 2018 </a></li>
+          </ul>
+        </li>
+
         {{#isLoggedIn}}
         <li class="visible-md visible-sm visible-xs my-profile"><a class="btn-profile">
           {{getMyProfileImageHex}}
@@ -46,12 +74,7 @@
         <a href="/dashboards/{{grantdashDashboard}}/create" class="btn btn-warning create"><i class="fa fa-plus"></i>我要提案</a>
       </form>
       {{/isOpen}}
-      {{#isOpen}}
-      {{else}}
-      <form class="navbar-form navbar-right">
-        <a href="/dashboards/{{grantdashDashboard}}?sort=showcase" class="btn btn-warning">入圍及獲獎提案</a>
-      </form>
-      {{/isOpen}}
+
     </div>
   </div>
 </nav>
