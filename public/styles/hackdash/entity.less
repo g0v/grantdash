@@ -38,7 +38,6 @@ a.entity:hover, a.entity:focus {
 
   &:hover {
   }
-
   .progress {
     position: absolute;
     top: 0;
@@ -60,6 +59,10 @@ a.entity:hover, a.entity:focus {
       top: 0;
       left: 0;
     }
+  }
+
+  .small-cover {
+    height: auto !important;
   }
 
   .cover {
@@ -118,10 +121,10 @@ a.entity:hover, a.entity:focus {
     }
 
     .description {
-      font-size: @fsize-15;
+      font-size: @fsize-14;
       color: @color-black;
       overflow: hidden;
-      max-height: @fsize-15 * 5.5;
+      max-height: @fsize-14 * 8;
       padding: 0 5px;
     }
   }
@@ -420,7 +423,7 @@ a.entity:hover, a.entity:focus {
 
   &.user {
     width: 200px;
-    height: 200px;
+    height: 300px !important;
     border-top: 15px solid @color-user;
 
     .cover {
@@ -440,16 +443,11 @@ a.entity:hover, a.entity:focus {
     }
 
     .details {
-      max-height: 120px;
       padding: 5px;
       bottom: 0;
 
       h2, h3, .description {
         text-align: center;
-      }
-
-      .description {
-        max-height: 85px;
       }
     }
 
