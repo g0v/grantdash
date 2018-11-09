@@ -9,15 +9,16 @@
 
 #landing .mainlogo {
   width: 450px;
+  max-height: 60%;
   margin-top: 40px;
   margin-left: 12%;
 }
 
 #landing.with-bk {
   position: relative;
-  background: url(/images/static/2018/pattern.png) center center #f1f1f1;
+  background: url(/images/static/2019/pattern.png) center center #2E2635;
   .inner {
-    background: url(/images/static/2018/2018-lg.png) center center no-repeat;
+    background: url(/images/static/2019/landing.jpg) center center no-repeat #2E2635;
   }
 }
 
@@ -55,12 +56,7 @@
 .section {
   padding: 40px 40px;
   margin: 0 auto;
-  max-width: 1280px;
   background: #fff;
-  //box-shadow: 0 0 3px 1px rgba(0,0,0,0.3);
-}
-#news {
-  padding-bottom: 200px;
 }
 
 #news #news-detail .modal-dialog .modal-body, #news .section #news-detail .modal-dialog .modal-body {
@@ -71,7 +67,7 @@
 }
 
 #news, #news .section {
-  background: #494381;
+  background: #222;
   box-shadow: none;
   h3 {
     display: block;
@@ -81,21 +77,25 @@
   }
 }
 
+.section h1 {
+  margin: 50px 0;
+}
+
 .section h3 {
   display: inline-block;
   padding-bottom: 5px;
-  border-bottom: 4px solid #E41B38;
+  border-bottom: 0;
   margin-bottom: 26px;
   font-size: 1.5em;
 }
 
 .section > .inner {
-  max-width: 800px;
+  max-width: 1024px;
   margin: auto;
 }
 @media (max-width: 1280px) {
   .section {
-    max-width: 90%;
+    max-width: 100%;
   }
 }
 
