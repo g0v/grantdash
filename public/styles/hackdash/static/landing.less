@@ -53,7 +53,7 @@
 }
 
 
-.section {
+#landing-page .section {
   padding: 40px 40px;
   margin: 0 auto;
   background: #fff;
@@ -77,47 +77,49 @@
   }
 }
 
-.section h1 {
-  margin: 50px 0;
-}
-
-.section h3 {
-  display: inline-block;
-  padding-bottom: 5px;
-  border-bottom: 0;
-  margin-bottom: 26px;
-  font-size: 1.5em;
-}
-
-.section > .inner {
-  max-width: 1024px;
-  margin: auto;
-}
-@media (max-width: 1280px) {
-  .section {
-    max-width: 100%;
+#landing-page {
+  .section h1 {
+    margin: 50px 0;
   }
-}
 
-@media (max-width: 480px) {
-  #landing h1 {
-    font-size: 30px;
+  .section h3 {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 0;
+    margin-bottom: 26px;
+    font-size: 1.5em;
   }
-  #landing h2 {
-    font-size: 20px;
-  }
-  #landing h3 {
-    font-size: 20px;
-  }
-}
 
-@media (max-width: 640px) {
-  .section {
-    max-width: 100%;
-    box-shadow: none;
+  .section > .inner {
+    max-width: 1024px;
+    margin: auto;
   }
-}
+  @media (max-width: 1280px) {
+    .section {
+      max-width: 100%;
+    }
+  }
 
+  @media (max-width: 480px) {
+    #landing h1 {
+      font-size: 30px;
+    }
+    #landing h2 {
+      font-size: 20px;
+    }
+    #landing h3 {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      max-width: 100%;
+      box-shadow: none;
+    }
+  }
+
+}
 
 @media (max-height: 670px) {
   #landing .mainlogo {

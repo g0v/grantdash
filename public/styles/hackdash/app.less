@@ -20,6 +20,8 @@ html, body {
   height: 100%;
   margin: 0 auto -@footer-height;
   background-color: #fdfdfd;
+  background: url(/images/static/2019/landing.jpg) center center no-repeat #2e2635 fixed;
+  background-size: cover;
 }
 
 #main:after {
@@ -315,7 +317,7 @@ footer {
   .header {
 
     .container {
-      color: @color-black;
+      color: @color-white;
       position: relative;
 
       h1 {
@@ -347,13 +349,12 @@ footer {
       }
 
       .dash-details {
-        & > div {
-          margin: 20px 0 40px;
-          padding: 1px 15px;
+        color: @color-white;
+        h1 {
+          margin: 0;
         }
-        color: @color-black;
         a {
-          color: @color-black;
+          color: @color-white;
         }
       }
 
@@ -372,12 +373,11 @@ footer {
   &.profile {
 
     .header {
-      background-color: @color-user;
 
       .profile-card {
         color: @color-white;
         max-width: 600px;
-        margin: 50px auto;
+        margin: 100px auto 20px;
         text-align: center;
 
         .cover {
@@ -455,7 +455,7 @@ footer {
     }
 
     .body {
-      background-color: @color-white;
+      background: none;
     }
 
     .nav-tabs {
@@ -622,7 +622,7 @@ footer {
       }
 
       .container {
-        color: @color-black;
+        color: @color-white;
         max-width: 900px;
         padding-top: 30px;
         & > label {
@@ -656,8 +656,7 @@ footer {
         position: relative;
         max-width: 900px;
         margin: -200px auto 0 auto;
-        background-color: @color-white;
-        border-radius: 20px;
+        background-color: rgba(255,255,255,.9);
         box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         @media (max-width: 768px) {
           border-radius: 0;
@@ -962,35 +961,19 @@ footer {
   &.collection {
 
     .header {
-      background: url(../images/static/landing-2018-no-text.png) center center no-repeat;
-      background-size: cover;
       padding: 50px 0;
       position: relative;
       overflow: hidden;
-
-      &:before {
-        content: "";
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        top: -70%;
-        left: -50%;
-        z-index: 0;
-        background: url(../images/static/landing-2018-no-text.png) center center no-repeat;
-        -webkit-transform: rotate(30deg);
-        -moz-transform: rotate(15deg);
-        -ms-transform: rotate(15deg);
-        -o-transform: rotate(15deg);
-        transform: rotate(15deg);
-      }
-
       h1 {
         margin-top: 20px;
         margin-bottom: 20px;
       }
 
       .container {
-        color: @color-black;
+        margin-top: 30px;
+        background: rgba(0,0,0,.4);
+        padding: 20px;
+        color: @color-white;
         max-width: inherit;
         margin-bottom: 180px;
 
@@ -1147,7 +1130,7 @@ footer {
         position: relative;
         max-width: inherit;
         margin: -200px auto 0 auto;
-        background-color: @color-white;
+        background: none;
         border-radius: 20px;
         margin-bottom: 30px;
         padding: 0;
@@ -1697,7 +1680,6 @@ footer {
 }
 
 .brainstorming {
-  background: url(../images/static/landing-2018-no-text.png) top center no-repeat;
 }
 .project.brainstorming .description img {
   max-width: 100%
