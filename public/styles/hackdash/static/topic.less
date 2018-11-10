@@ -2,21 +2,23 @@
 #topics .row > div {
   margin-bottom: 50px;
 }
-#topics .topic-list img {
+#topics .topic .title {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+#topics .topic img {
+  max-width: 120px;
   width: 160px;
   display: inline-block;
   margin: auto;
 }
-#topics .topic-list .title {
-  font-size: 1.5em;
-  font-weight: 300;
-}
+
 @media (max-width: 640px) {
-  #topics .topic-list img {
+  #topics .topic img {
     width: 100px;
   }
-  #topics .topic-list .title {
+  #topics .topic .title {
     font-size: 1.2em;
   }
 }
-
