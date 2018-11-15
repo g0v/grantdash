@@ -1,4 +1,4 @@
-#main, #landing, #landing .inner {
+#main, #landing-page, #landing, #landing .inner {
   height: 100%;
 }
 
@@ -18,7 +18,7 @@
   position: relative;
   background: url(/images/static/2019/pattern.png) center center #2E2635;
   .inner {
-    background: url(/images/static/2019/landing.jpg) center center no-repeat #2E2635;
+    background: url(/images/static/2019/landing.jpg) center center no-repeat #2E2635 fixed;
   }
 }
 
@@ -137,7 +137,22 @@
 
 @media (max-width: 640px) {
   #landing.with-bk .inner {
-    background: url(/images/static/2018/2018-lg-light.png) center center no-repeat;
+    background: url(/images/static/2019/landing.jpg) center center no-repeat fixed;
+    img, div {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  #landing.with-bk .inner:before {
+    display: block;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    background: rgba(0,0,0,.55);
+    top: 0;
+    left: 0;
   }
   #landing .mainlogo {
     width: 88%;
