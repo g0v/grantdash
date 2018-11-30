@@ -141,9 +141,21 @@
       </div>
 
       <div class="project-detail">
-        <h3> 請以 80 ~ 120 字、簡短且非專業人士也能理解的方式介紹此專案 </h3>
+        <h3> 請以簡短且非專業人士也能理解的方式介紹此專案。 </h3>
         <div>{{{markdown desc}}}</div>
       </div>
+
+      <div class="project-detail">
+        <h3> 提案者簡介。 </h3>
+        <div>{{{markdown proposer}}}</div>
+      </div>
+
+      {{#if role}}
+      <div class="project-detail">
+        <h3> 請簡述提案者在專案中的角色（例如：專案經理、全端工程師、顧問等）、專案成員與團隊背景介紹。（團隊現在有什麼人才？還需要什麼人才？）</h3>
+        <div>{{{markdown role}}}</div>
+      </div>
+      {{/if}}
 
       <div class="project-detail">
         <h3> 你為什麼要做這個計劃（個人動機）？</h3>
@@ -195,6 +207,16 @@
       </div> 
 
       <div class="project-detail">
+        <h3> 這個計畫正在／預計跟什麼團體合作？</h3>
+        <div>{{{markdown cowork}}}</div>
+      </div>
+
+      <div class="project-detail">
+        <h3> 請提供本計劃的示意圖或介面設計草圖（請以連結方式提供圖片）</h3>
+        <div>{{{markdown refdesign}}}</div>
+      </div>
+
+      <div class="project-detail">
         <h3> 是否已有相似的專案，本計劃的差異與不可取代性為何？</h3>
         <div>{{{markdown similar}}}</div>
       </div>
@@ -207,22 +229,12 @@
       {{/if}}
 
       <div class="project-detail">
-        <h3> 請提供本計劃的示意圖或介面設計草圖（請以連結方式提供圖片）</h3>
-        <div>{{{markdown refdesign}}}</div>
-      </div>
-
-      <div class="project-detail">
         <h3> 過去作過什麼開源開發計畫（open source project）？（可提供 GitHub 帳號）</h3>
         <div>{{{markdown pastprj}}}</div>
       </div>
 
       <div class="project-detail">
-        <h3> 這個計畫預計跟什麼團體合作？</h3>
-        <div>{{{markdown cowork}}}</div>
-      </div>
-
-      <div class="project-detail">
-        <h3> 預計六個月內將花多少小時作這件事？</h3>
+        <h3> 預計八個月內將花多少小時作這件事？</h3>
         <div>{{{markdown usetime}}}</div>
       </div>
 
@@ -275,13 +287,6 @@
         <h3> 若有專案介紹的投影片，請提供</h3>
         <div>{{{markdown slide}}}</div>
       </div>
-
-      {{#if role}}
-      <div class="project-detail">
-        <h3> 請簡介參與人員及提案者在專案中的角色（例如：developer、PM），以及團隊背景介紹 </h3>
-        <div>{{{markdown role}}}</div>
-      </div>
-      {{/if}}
       {{/if}}
 
       <ul class="tags clearfix col-md-10">

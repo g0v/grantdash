@@ -69,8 +69,15 @@
       <h3> 你需要多少錢？（30 ~ 50 萬之間）</h3>
       <input type="number" class="form-control" id="money" name="money" value="{{money}}", placeholder="例如: 500000">
 
-      <h3> 請以 80 ~ 120 字、簡短且非專業人士也能理解的方式介紹此專案 </h3>
+      <h3> 請以簡短且非專業人士也能理解的方式介紹此專案。（80 ~ 120 字）</h3>
       <textarea class="form-control" rows="6" id="desc" name="desc">{{desc}}</textarea>
+
+      <h3> 提案者簡介（120 字以內） </h3>
+      <textarea class="form-control" rows="6" id="proposer" name="proposer">{{proposer}}</textarea>
+
+      <h3> 請簡述提案者在專案中的角色（例如：專案經理、全端工程師、顧問等）、專案成員與團隊背景介紹。（團隊現在有什麼人才？還需要什麼人才？）
+ </h3>
+      <textarea class="form-control" rows="6" id="role" name="role">{{role}}</textarea>
 
       <h3> 你為什麼要做這個計劃（個人動機）？</h3>
       <textarea class="form-control" rows="6" id="motivation" name="motivation">{{motivation}}</textarea>
@@ -104,21 +111,22 @@
       <h3> 請說明你如何讓目標用戶知道這個服務並完成其第一次使用，以及在他有需求時願意再來用這個服務？（200 ~ 500 字）</h3>
       <textarea class="form-control" rows="6" id="growth" name="growth">{{growth}}</textarea>
 
+      <h3> 這個計畫預計跟什麼團體合作？</h3>
+      <textarea class="form-control" rows="6" id="cowork" name="cowork">{{cowork}}</textarea>
+
+      <h3> 請提供本計劃的示意圖或介面設計草圖（請以連結方式提供圖片）</h3>
+      <textarea class="form-control" rows="6" id="refdesign" name="refdesign">{{refdesign}}</textarea>
+
       <h3> 是否已有相似的專案，本計劃的差異與不可取代性為何？</h3>
       <textarea class="form-control" rows="6" id="similar" name="similar">{{similar}}</textarea>
 
       <h3> 過去有作過相關主題的計畫嗎？ </h3>
       <textarea class="form-control" rows="6" id="related" name="related">{{related}}</textarea>
-      <h3> 請提供本計劃的示意圖或介面設計草圖（請以連結方式提供圖片）</h3>
-      <textarea class="form-control" rows="6" id="refdesign" name="refdesign">{{refdesign}}</textarea>
 
       <h3> 過去作過什麼開源開發計畫（open source project）？（可提供 GitHub 帳號）</h3>
       <textarea class="form-control" rows="6" id="pastprj" name="pastprj">{{pastprj}}</textarea>
 
-      <h3> 這個計畫預計跟什麼團體合作？</h3>
-      <textarea class="form-control" rows="6" id="cowork" name="cowork">{{cowork}}</textarea>
-
-      <h3> 預計六個月內將花多少小時作這件事？</h3>
+      <h3> 預計八個月內將花多少小時作這件事？</h3>
       <textarea class="form-control" rows="6" id="usetime" name="usetime">{{usetime}}</textarea>
 
       <h3> 獎助金預計如何使用（大略比例）？</h3>
@@ -159,9 +167,6 @@
 
       <h3> 若有專案介紹的投影片，請提供</h3>
       <textarea class="form-control" rows="6" id="slide" name="slide">{{slide}}</textarea>
-
-      <h3> 請簡介參與人員及提案者在專案中的角色（例如：developer、PM），以及團隊背景介紹 </h3>
-      <textarea class="form-control" rows="6" id="role" name="role">{{role}}</textarea>
 
       <!--<div class="description">
         <label for="description"><h3>請用下方範本說明專案，不要修改井字號開頭的標頭</h3></label>

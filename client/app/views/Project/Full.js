@@ -11,6 +11,7 @@ var detailFields = [
   /* name, constraint type */
   ["money", 3],
   ["desc", 1],
+  ['proposer', 1],
   ["motivation", 0],
   ["existed", 0],
   ["problem", 2],
@@ -47,7 +48,9 @@ var detailFields = [
 
 var fieldTitles = {
  "money":  "你需要多少錢？（30 ~ 50 萬之間）",
- "desc":  "請以 80 ~ 120 字、簡短且非專業人士也能理解的方式介紹此專案",
+ "desc":  "請以簡短且非專業人士也能理解的方式介紹此專案。（80 ~ 120 字）",
+ "proposer": "提案者簡介（120 字以內）",
+ "role": "請簡介參與人員及提案者在專案中的角色（例如：developer、PM），以及團隊背景介紹",
  "motivation":  "你為什麼要做這個計劃 （ 個人動機 ）？",
  "existed":  "這是一個現有的計畫嗎？若是，請說明是否為開源及提供網址",
  "nonos": "本專案是否有非開源元件？", 
@@ -78,7 +81,6 @@ var fieldTitles = {
  "otherfund": "本計畫目前是否已有、或正在申請其他的資金來源？若有，請說明申請本獎助的內容與其他計畫的差異",
  "category": "依獎助金的主題方向畫分的話，本計畫屬於哪個分類?",
  "slide": "若有專案介紹的投影片，請提供",
- "role": "請簡介參與人員及提案者在專案中的角色（例如：developer、PM），以及團隊背景介紹",
 };
 
 module.exports = Backbone.Marionette.ItemView.extend({
