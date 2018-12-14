@@ -214,18 +214,22 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
 
     var networks = [{
       name: 'twitter',
+      fa_name: 'fab fa-twitter',
       link: this.getTwitterLink()
     }];
 
     if (window.hackdash.fbAppId){
       networks.push({
-        name: 'facebook'
+        name: 'facebook',
+        fa_name: 'fa fa-facebook-f'
       });
     }
 
     return networks.concat([{
-      name: 'linkedin'
+      name: 'linkedin',
+      fa_name: 'fab fa-linkedin-in'
     }, {
+      fa_name: 'fa fa-google-plus-g',
       name: 'google-plus',
       link: "javascript:void(window.open('https://plus.google.com/share?url='+encodeURIComponent(location), 'Share to Google+','width=600,height=460,menubar=no,location=no,status=no'));"
     }]);
