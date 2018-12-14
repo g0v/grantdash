@@ -221,7 +221,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
     if (window.hackdash.fbAppId){
       networks.push({
         name: 'facebook',
-        fa_name: 'fa fa-facebook-f'
+        fa_name: 'fab fa-facebook-f'
       });
     }
 
@@ -229,7 +229,7 @@ var Sharer = module.exports = Backbone.Marionette.ItemView.extend({
       name: 'linkedin',
       fa_name: 'fab fa-linkedin-in'
     }, {
-      fa_name: 'fa fa-google-plus-g',
+      fa_name: 'fab fa-google-plus-g',
       name: 'google-plus',
       link: "javascript:void(window.open('https://plus.google.com/share?url='+encodeURIComponent(location), 'Share to Google+','width=600,height=460,menubar=no,location=no,status=no'));"
     }]);
