@@ -2,7 +2,7 @@
 var template = require("./templates/home.hbs")
   , TabContent = require("./TabContent")
   , LoginView = require("../Login")
-  , StatsView = require("./Stats")
+  // , StatsView = require("./Stats")
   // , TeamView = require("./Team")
   // , PartnersView = require("./Partners")
   , FooterView = require("./Footer")
@@ -84,7 +84,7 @@ module.exports = Backbone.Marionette.LayoutView.extend({
       this.ui[this.section].addClass("active");
     }
 
-    this.stats.show(new StatsView());
+    // this.stats.show(new StatsView());
 
     // this.team.show(new TeamView({ collection: this.hdTeam }));
     // this.partners.show(new PartnersView());

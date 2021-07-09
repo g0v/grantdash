@@ -6,7 +6,11 @@
   "engines": {
     "node": "0.8.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "markdown-to-ast": "^6.0.3",
+    "remark": "^9.0.0",
+    "remark-html": "^7.0.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.2.1",

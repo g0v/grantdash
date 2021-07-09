@@ -1,8 +1,8 @@
 {
   "db": {
     "name": "hackdash",
-    "host": "localhost",
-    "url": null
+    "host": "mongodb",
+    "url": "mongodb://mongodb/hackdash"
   },
   "host": "local.host",
   "port": 3000,
@@ -26,7 +26,7 @@
   },
   "prerender": {
     "enabled": false,
-    "db": "mongodb://localhost/prerender"
+    "db": "mongodb://mongodb/prerender"
   },
   "team": [
     "516d1997b2951b02280000e1",

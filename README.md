@@ -43,7 +43,15 @@ For setting up SSL, consider using [Docker letsencrypt nginx proxy companion]](h
 
 ### Basics
 
-See config/config.json.sample and key.json.sample.
+The following config is needed for development:
+
+* `./config.json`: from `./config/config.json.sample`
+* `./config/config.json`: from `./config/config.json.sample`
+* `./metrics/config.json`: from `./metrics/config.json.sample`
+* `./prerender/config.json`: from `./prerender/config.json.sample`
+* `./keys.json`: from `./keys.json.sample`
+
+Check each sample for details.
 
 ### Discourse Integration
 

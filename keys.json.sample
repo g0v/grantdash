@@ -1,38 +1,38 @@
 {
     "twitter": {
-        "consumerKey" :   ""
-      , "consumerSecret" : ""
+        "consumerKey" :   "<KEY>"
+      , "consumerSecret" : "<SECRET>"
       , "callbackURL":  "http://localhost/auth/twitter/callback"
-    } 
+    }
   , "meetup": {
-        "consumerKey": ""
-      , "consumerSecret": ""
+        "consumerKey": "<KEY>"
+      , "consumerSecret": "<SECRET>"
       , "callbackURL": "http://local.host:3000/auth/meetup/callback"
     }
   , "facebook": {
-        "clientID": ""
-      , "clientSecret": ""
+        "clientID": "<KEY>"
+      , "clientSecret": "<SECRET>"
       , "profileFields": ["id", "displayName", "photos", "email"]
       , "callbackURL": "http://local.host:3000/auth/facebook/callback"
     }
   , "github": {
         "name": "GitHub"
-      , "clientID": ""
-      , "clientSecret": ""
+      , "clientID": "<ID>"
+      , "clientSecret": "<SECRET>"
       , "scope": ["user:email"]
       , "callbackURL": "http://local.host:3000/auth/github/callback"
     }
   , "google": {
-      , "clientID": ""
-      , "clientSecret": ""
+      "clientID": "<ID>"
+      , "clientSecret": "<SECRET>"
       , "callbackURL": "http://local.host:3000/auth/google/callback"
     }
   , "auth0": {
         "name": "Others"
-        "icon": "paper-plane"
-      , "domain": ""
-      , "clientID": ""
-      , "clientSecret": ""
+      , "icon": "paper-plane"
+      , "domain": "<DOMAIN>"
+      , "clientID": "<ID>"
+      , "clientSecret": "<SECRET>"
       , "callbackURL": "http://local.host:3000/auth/auth0/callback"
     }
 }

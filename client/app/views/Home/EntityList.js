@@ -53,13 +53,6 @@ module.exports = Backbone.Marionette.CollectionView.extend({
   destroyed: false,
 
   destroySlick: function(){
-    this.$el.slick('unslick');
-
-    var slick = this.$el.slick('getSlick');
-    slick.$list.remove();
-    slick.destroy();
-
-    this.destroyed = true;
   },
 
   updateGrid: function(){
@@ -100,18 +93,6 @@ module.exports = Backbone.Marionette.CollectionView.extend({
       cols = 6;
     }
     // else is embeds
-
-    this.$el.slick({
-      centerMode: false,
-      dots: false,
-      autoplay: false,
-      infinite: false,
-      adaptiveHeight: true,
-      speed: 300,
-      slidesToShow: cols,
-      slidesToScroll: cols,
-      responsive: responsive
-    });
 
     this.$el
       .off('setPosition')
